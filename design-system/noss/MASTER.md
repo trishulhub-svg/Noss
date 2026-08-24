@@ -2,24 +2,26 @@
 
 **Project:** NOSS  
 **Updated:** 2026-08-24  
-**Inspiration:** Bold marketing landing pattern (black / white / lime)
+**Direction:** Professional blue — calm, trust-led B2B marketing
 
 ## Colors
 | Role | Hex |
 |------|-----|
-| Black | `#191A23` |
+| Navy | `#102A43` |
+| Blue accent | `#2563EB` (use sparingly — CTAs, links, small marks) |
+| Soft blue | `#EFF6FF` |
 | White | `#FFFFFF` |
-| Lime accent | `#B9FF66` |
-| Soft gray | `#F3F3F3` |
-| Muted text | `#51525C` |
+| Surface | `#F5F8FB` |
+| Border | `#DBE3EE` |
+| Body text | `#1F2937` |
+| Muted text | `#486581` |
 
 ## Typography
-Plus Jakarta Sans (kept) — bold headings, clear body text.
+Plus Jakarta Sans — bold headings, clear body text.
 
 ## Signature patterns
-- Lime **marker** highlight behind key titles
-- Soft card lift with black border + offset shadow
-- Alternating black / lime / gray cards
-- Circular “Learn more” arrow buttons
+- Soft blue **marker** highlight behind key section titles (sparingly)
+- Uniform white cards with light border + soft shadow (no black/lime alternating)
+- Primary blue only on main CTAs and links
 - Mobile-first 44–48px tap targets
 - No fake customer logos or testimonials

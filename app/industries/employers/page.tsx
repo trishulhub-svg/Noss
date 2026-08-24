@@ -17,7 +17,7 @@ export default function EmployersPage() {
         marker="Who we help"
         title="Clear ownership for new starters and renewals"
         description="Employer teams often struggle with new-starter checks, renewals and unclear ownership. NOSS helps with follow-up and organised records."
-        actions={<ButtonLink href="/contact" variant="lime">Book a demo</ButtonLink>}
+        actions={<ButtonLink href="/contact">Book a demo</ButtonLink>}
       />
       <Section tone="surface">
         <SectionHeading title="What employers get" useMarker />

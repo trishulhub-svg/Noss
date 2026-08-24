@@ -51,7 +51,7 @@ export default function ContactPage() {
               </ButtonLink>
               <ButtonLink
                 href={`https://wa.me/${phoneDigits(siteConfig.supportWhatsApp)}`}
-                variant="lime"
+                variant="secondary"
                 className="w-full sm:w-auto"
               >
                 WhatsApp

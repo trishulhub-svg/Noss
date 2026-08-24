@@ -27,7 +27,7 @@ export default function BusinessCompliancePage() {
         marker="Services"
         title="Business checks without the paper chase"
         description="NOSS helps companies organise company checks, policies and evidence so the work stays visible and ready for audit."
-        actions={<ButtonLink href="/contact" variant="lime">Book a demo</ButtonLink>}
+        actions={<ButtonLink href="/contact">Book a demo</ButtonLink>}
       />
       <Section tone="surface">
         <SectionHeading title="Business support areas" useMarker description="Availability depends on what your clients and process need." />

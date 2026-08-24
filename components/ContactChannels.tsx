@@ -11,8 +11,8 @@ export function ContactChannels({
   const text = tone === "dark" ? "text-white/75" : "text-[var(--color-muted-text)]";
   const link =
     tone === "dark"
-      ? "font-bold text-[var(--color-lime)] underline underline-offset-2"
-      : "font-bold text-[var(--color-black)] underline underline-offset-2";
+      ? "font-semibold text-white underline underline-offset-2"
+      : "font-semibold text-[var(--color-blue)] underline underline-offset-2";
 
   return (
     <ul className={`space-y-2 text-sm ${text}`}>

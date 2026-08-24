@@ -27,10 +27,10 @@ export function Section({
   tone?: "default" | "surface" | "navy" | "black";
 }) {
   const toneClass =
-    tone === "surface" || tone === "navy"
-      ? "bg-[var(--color-gray)]"
-      : tone === "black"
-        ? "bg-[var(--color-black)] text-white"
+    tone === "surface"
+      ? "bg-[var(--color-surface)]"
+      : tone === "navy" || tone === "black"
+        ? "bg-[var(--color-navy)] text-white"
         : "bg-white";
 
   return (
@@ -49,14 +49,13 @@ export function SectionHeading({
   title: string;
   description?: string;
   align?: "left" | "center";
-  /** When true, wrap the whole title in the lime marker */
   useMarker?: boolean;
 }) {
   return (
     <div
       className={`mb-8 max-w-3xl reveal ${align === "center" ? "mx-auto text-center" : ""}`}
     >
-      <h2 className="text-balance text-3xl font-extrabold tracking-tight text-[var(--color-black)] sm:text-4xl">
+      <h2 className="text-balance text-3xl font-bold tracking-tight text-[var(--color-navy)] sm:text-4xl">
         {useMarker ? <Marker>{title}</Marker> : title}
       </h2>
       {description ? (
@@ -81,11 +80,11 @@ export function PageHero({
     <Section className="!pb-8 !pt-10 sm:!pt-14">
       <div className="reveal max-w-3xl">
         {marker ? (
-          <p className="mb-4">
-            <Marker>{marker}</Marker>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-blue)]">
+            {marker}
           </p>
         ) : null}
-        <h1 className="text-balance text-4xl font-extrabold tracking-tight text-[var(--color-black)] sm:text-5xl">
+        <h1 className="text-balance text-4xl font-bold tracking-tight text-[var(--color-navy)] sm:text-5xl">
           {title}
         </h1>
         <p className="mt-4 text-lg text-[var(--color-muted-text)] sm:text-xl">

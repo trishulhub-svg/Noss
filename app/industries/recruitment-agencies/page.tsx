@@ -17,7 +17,7 @@ export default function RecruitmentAgenciesPage() {
         marker="Who we help"
         title="Built for agencies with many workers and clients"
         description="Different clients need different checks. Manual chasing creates stress. NOSS helps you keep onboarding and progress clear."
-        actions={<ButtonLink href="/contact" variant="lime">Book a demo</ButtonLink>}
+        actions={<ButtonLink href="/contact">Book a demo</ButtonLink>}
       />
       <Section tone="surface">
         <SectionHeading title="What agencies get" useMarker />

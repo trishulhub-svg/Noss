@@ -46,14 +46,14 @@ export default async function ResourceArticlePage({ params }: Props) {
         ))}
       </div>
       {article.officialSources?.length ? (
-        <div className="card-lift mt-10 max-w-3xl bg-[var(--color-lime)] p-5">
-          <h2 className="font-extrabold text-[var(--color-black)]">Official sources</h2>
+        <div className="card-lift mt-10 max-w-3xl bg-[var(--color-surface)] p-5">
+          <h2 className="font-bold text-[var(--color-navy)]">Official sources</h2>
           <ul className="mt-3 space-y-2 text-sm">
             {article.officialSources.map((source) => (
               <li key={source.href}>
                 <a
                   href={source.href}
-                  className="font-bold underline"
+                  className="font-semibold text-[var(--color-blue)] underline"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -65,7 +65,7 @@ export default async function ResourceArticlePage({ params }: Props) {
         </div>
       ) : null}
       <div className="mt-10">
-        <ButtonLink href="/contact" variant="lime">
+        <ButtonLink href="/contact">
           Book a demo
         </ButtonLink>
       </div>

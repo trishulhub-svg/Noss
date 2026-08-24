@@ -26,7 +26,7 @@ export default function AboutPage() {
             <p>Founder and company history details will be added only when the NOSS owner supplies approved facts.</p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="/contact" variant="lime">Book a demo</ButtonLink>
+            <ButtonLink href="/contact">Book a demo</ButtonLink>
             <ButtonLink href="/contact" variant="secondary">Contact us</ButtonLink>
           </div>
         </div>

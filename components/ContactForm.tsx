@@ -135,9 +135,9 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
 
   if (status === "success") {
     return (
-      <div className="card-lift bg-[var(--color-lime)] p-6" role="status">
-        <h2 className="text-xl font-extrabold text-[var(--color-black)]">Message received</h2>
-        <p className="mt-3 text-[var(--color-black)]/80">{message}</p>
+      <div className="card-lift bg-[var(--color-blue-soft)] p-6" role="status">
+        <h2 className="text-xl font-extrabold text-[var(--color-navy)]">Message received</h2>
+        <p className="mt-3 text-[var(--color-muted-text)]">{message}</p>
         <button
           type="button"
           className="tap mt-6 cursor-pointer text-sm font-extrabold text-[var(--color-black)] underline"
@@ -343,7 +343,7 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
         </label>
       </div>
 
-      <Button type="submit" disabled={status === "submitting"} className="w-full" variant="lime">
+      <Button type="submit" disabled={status === "submitting"} className="w-full">
         {status === "submitting" ? "Sending…" : "Send message"}
       </Button>
     </form>
@@ -382,7 +382,7 @@ function Field({
 }
 
 function inputClass(error?: string) {
-  return `min-h-[48px] w-full rounded-xl border bg-white px-3 py-3 text-base text-[var(--color-black)] transition focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-lime)] ${
-    error ? "border-[var(--color-destructive)]" : "border-[var(--color-black)]"
+  return `min-h-[48px] w-full rounded-xl border bg-white px-3 py-3 text-base text-[var(--color-navy)] transition focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-blue)] ${
+    error ? "border-[var(--color-destructive)]" : "border-[var(--color-border)]"
   }`;
 }

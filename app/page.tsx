@@ -92,25 +92,21 @@ export default function HomePage() {
             title="Worker checks"
             description="Right to Work support, ID evidence, DBS help, references, licences and renewal tracking."
             href="/workforce-compliance"
-            tone="lime"
           />
           <ServiceCard
             title="Business checks"
             description="Company checks, VAT support where needed, sanctions review help, insurance and policy tracking."
             href="/business-compliance"
-            tone="dark"
           />
           <ServiceCard
             title="For agencies"
             description="Manage many workers and client needs with clearer progress and less chasing."
             href="/industries/recruitment-agencies"
-            tone="light"
           />
           <ServiceCard
             title="For employers"
             description="New-starter checks, renewals and organised records with NOSS follow-up."
             href="/industries/employers"
-            tone="dark"
           />
         </div>
       </Section>
@@ -230,17 +226,17 @@ export default function HomePage() {
       </Section>
 
       {/* Final CTA */}
-      <Section tone="black">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <Section tone="surface">
+        <div className="card-lift flex flex-col gap-6 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[var(--color-navy)] sm:text-4xl">
               Ready to talk through your checks?
             </h2>
-            <p className="mt-3 text-white/70">
+            <p className="mt-3 text-[var(--color-muted-text)]">
               Book a demo and see how NOSS can help your team stay organised.
             </p>
           </div>
-          <ButtonLink href="/contact" variant="lime" className="w-full shrink-0 sm:w-auto">
+          <ButtonLink href="/contact" className="w-full shrink-0 sm:w-auto">
             Book a demo
           </ButtonLink>
         </div>

@@ -22,21 +22,17 @@ export default function ResourcesPage() {
       <Section tone="surface" className="!pt-0">
         <SectionHeading title="Starter guides" useMarker />
         <ul className="grid gap-4 md:grid-cols-2">
-          {resources.map((article, index) => (
+          {resources.map((article) => (
             <li key={article.slug}>
               <Link
                 href={`/resources/${article.slug}`}
-                className={`card-lift flex h-full cursor-pointer flex-col p-5 transition hover:-translate-y-0.5 ${
-                  index % 2
-                    ? "bg-[var(--color-black)] text-white"
-                    : "bg-white text-[var(--color-black)]"
-                }`}
+                className="card-lift flex h-full cursor-pointer flex-col p-5 transition hover:-translate-y-0.5"
               >
-                <h2 className="text-lg font-extrabold">{article.title}</h2>
-                <p className={`mt-2 flex-1 text-sm ${index % 2 ? "text-white/70" : "text-[var(--color-muted-text)]"}`}>
+                <h2 className="text-lg font-bold text-[var(--color-navy)]">{article.title}</h2>
+                <p className="mt-2 flex-1 text-sm text-[var(--color-muted-text)]">
                   {article.description}
                 </p>
-                <p className={`mt-4 text-xs ${index % 2 ? "text-[var(--color-lime)]" : "text-[var(--color-muted-text)]"}`}>
+                <p className="mt-4 text-xs text-[var(--color-muted-text)]">
                   Reviewed {article.reviewedAt}
                 </p>
               </Link>
@@ -44,7 +40,7 @@ export default function ResourcesPage() {
           ))}
         </ul>
         <div className="mt-10">
-          <ButtonLink href="/contact" variant="lime">Book a demo</ButtonLink>
+          <ButtonLink href="/contact">Book a demo</ButtonLink>
         </div>
       </Section>
     </>

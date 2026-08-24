@@ -1,47 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  /* WizardZ-inspired NOSS theme: black / white / lime */
-  --color-black: #191a23;
+  /* Professional blue theme — accents used sparingly */
+  --color-navy: #102a43;
+  --color-blue: #2563eb;
+  --color-blue-soft: #eff6ff;
   --color-white: #ffffff;
-  --color-lime: #b9ff66;
-  --color-lime-deep: #9ae63a;
-  --color-gray: #f3f3f3;
-  --color-muted-text: #51525c;
+  --color-surface: #f5f8fb;
+  --color-border: #dbe3ee;
+  --color-text: #1f2937;
+  --color-muted-text: #486581;
 
-  --color-primary: var(--color-black);
+  --color-primary: var(--color-navy);
   --color-on-primary: var(--color-white);
-  --color-secondary: #2b2c35;
-  --color-accent: var(--color-lime);
-  --color-on-accent: var(--color-black);
+  --color-secondary: var(--color-muted-text);
+  --color-accent: var(--color-blue);
+  --color-on-accent: var(--color-white);
   --color-background: var(--color-white);
-  --color-foreground: var(--color-black);
+  --color-foreground: var(--color-text);
   --color-card: var(--color-white);
-  --color-muted: var(--color-gray);
+  --color-muted: var(--color-surface);
   --color-muted-foreground: var(--color-muted-text);
-  --color-border: #e0e0e0;
-  --color-destructive: #dc2626;
+  --color-destructive: #b42318;
   --color-success: #067647;
-  --color-verified: var(--color-lime-deep);
-  --color-ring: var(--color-black);
+  --color-verified: #0f766e;
+  --color-ring: var(--color-blue);
 
-  /* legacy aliases */
-  --primary-navy: var(--color-black);
-  --action-blue: var(--color-black);
-  --compliance-teal: var(--color-lime-deep);
+  /* aliases used across components */
+  --color-black: var(--color-navy);
+  --color-gray: var(--color-surface);
+  --color-lime: var(--color-blue-soft);
+  --color-lime-deep: var(--color-blue);
+  --primary-navy: var(--color-navy);
+  --action-blue: var(--color-blue);
+  --compliance-teal: var(--color-verified);
   --slate: var(--color-muted-text);
-  --surface: var(--color-gray);
+  --surface: var(--color-surface);
   --border: var(--color-border);
-  --text: var(--color-foreground);
+  --text: var(--color-text);
   --white: var(--color-white);
   --error: var(--color-destructive);
   --success: var(--color-success);
 
-  --radius: 1.25rem;
-  --radius-lg: 2rem;
+  --radius: 1rem;
+  --radius-lg: 1.25rem;
   --touch: 2.75rem;
-  --shadow-sm: 0 2px 0 rgba(25, 26, 35, 0.08);
-  --shadow-card: 0 5px 0 #191a23;
+  --shadow-sm: 0 1px 2px rgba(16, 42, 67, 0.06);
+  --shadow-card: 0 8px 24px rgba(16, 42, 67, 0.06);
 }
 
 @theme inline {
@@ -83,7 +88,7 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-lime);
+  outline: 3px solid var(--color-blue);
   outline-offset: 3px;
 }
 
@@ -111,13 +116,13 @@ body {
 }
 
 .reveal {
-  animation: reveal-up 0.45s ease-out both;
+  animation: reveal-up 0.4s ease-out both;
 }
 
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -130,20 +135,21 @@ body {
   min-width: var(--touch);
 }
 
-/* Lime marker highlight behind text */
+/* Soft professional highlight — used sparingly */
 .marker {
   display: inline;
-  background: var(--color-lime);
-  color: var(--color-black);
-  border-radius: 0.45rem;
+  background: var(--color-blue-soft);
+  color: var(--color-navy);
+  border-radius: 0.4rem;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-  padding: 0.12em 0.35em;
+  padding: 0.1em 0.35em;
   font-weight: 700;
 }
 
 .card-lift {
-  border: 1px solid var(--color-black);
+  border: 1px solid var(--color-border);
   box-shadow: var(--shadow-card);
   border-radius: var(--radius-lg);
+  background: var(--color-white);
 }

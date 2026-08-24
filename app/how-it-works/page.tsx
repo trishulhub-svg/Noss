@@ -37,7 +37,7 @@ export default function HowItWorksPage() {
           description="Future portals will live on separate apps. This marketing site does not log users in or store worker documents."
         />
         <div className="mt-8">
-          <ButtonLink href="/contact" variant="lime">Book a demo</ButtonLink>
+          <ButtonLink href="/contact">Book a demo</ButtonLink>
         </div>
       </Section>
     </>

@@ -1,30 +1,32 @@
 /**
- * NOSS visual theme — bold black / white / lime (WizardZ-inspired).
- * Fonts remain Plus Jakarta Sans. Features unchanged.
+ * Professional blue theme — accents used sparingly.
  */
 export const colors = {
-  black: "#191A23",
+  navy: "#102A43",
+  blue: "#2563EB",
+  blueSoft: "#EFF6FF",
   white: "#FFFFFF",
-  lime: "#B9FF66",
-  gray: "#F3F3F3",
-  primary: "#191A23",
-  accent: "#B9FF66",
+  surface: "#F5F8FB",
+  border: "#DBE3EE",
+  text: "#1F2937",
+  mutedForeground: "#486581",
+  primary: "#102A43",
+  accent: "#2563EB",
   background: "#FFFFFF",
-  foreground: "#191A23",
-  muted: "#F3F3F3",
-  mutedForeground: "#51525C",
-  border: "#E0E0E0",
-  destructive: "#DC2626",
+  foreground: "#1F2937",
+  muted: "#F5F8FB",
+  destructive: "#B42318",
   success: "#067647",
-  verified: "#9AE63A",
-  // legacy aliases
-  primaryNavy: "#191A23",
-  actionBlue: "#191A23",
-  complianceTeal: "#9AE63A",
-  slate: "#51525C",
-  surface: "#F3F3F3",
-  text: "#191A23",
-  error: "#DC2626",
+  verified: "#0F766E",
+  // legacy
+  primaryNavy: "#102A43",
+  actionBlue: "#2563EB",
+  complianceTeal: "#0F766E",
+  slate: "#486581",
+  error: "#B42318",
+  lime: "#EFF6FF",
+  black: "#102A43",
+  gray: "#F5F8FB",
 } as const;
 
 export const siteConfig = {
