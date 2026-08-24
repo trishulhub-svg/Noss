@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  /* Professional blue theme — accents used sparingly */
+  /* Minimal professional palette — navy + soft blue only */
   --color-navy: #102a43;
   --color-blue: #2563eb;
   --color-blue-soft: #eff6ff;
   --color-white: #ffffff;
-  --color-surface: #f5f8fb;
-  --color-border: #dbe3ee;
+  --color-surface: #f5f5f5;
+  --color-border: #e5e5e5;
   --color-text: #1f2937;
-  --color-muted-text: #486581;
+  --color-muted-text: #64748b;
 
   --color-primary: var(--color-navy);
   --color-on-primary: var(--color-white);
   --color-secondary: var(--color-muted-text);
   --color-accent: var(--color-blue);
   --color-on-accent: var(--color-white);
-  --color-background: var(--color-white);
+  --color-background: #f5f5f5;
   --color-foreground: var(--color-text);
   --color-card: var(--color-white);
   --color-muted: var(--color-surface);
@@ -26,7 +26,6 @@
   --color-verified: #0f766e;
   --color-ring: var(--color-blue);
 
-  /* aliases used across components */
   --color-black: var(--color-navy);
   --color-gray: var(--color-surface);
   --color-lime: var(--color-blue-soft);
@@ -45,14 +44,20 @@
   --radius: 1rem;
   --radius-lg: 1.25rem;
   --touch: 2.75rem;
-  --shadow-sm: 0 1px 2px rgba(16, 42, 67, 0.06);
-  --shadow-card: 0 8px 24px rgba(16, 42, 67, 0.06);
+  --shadow-sm: 0 1px 2px rgba(16, 42, 67, 0.05);
+  --shadow-card: 0 8px 28px rgba(16, 42, 67, 0.06);
+  --mouse-x: 50%;
+  --mouse-y: 50%;
 }
 
 @theme inline {
   --color-background: var(--color-background);
   --color-foreground: var(--color-foreground);
   --font-sans: var(--font-jakarta);
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-marquee: marquee 32s linear infinite;
+  --animate-fade-up: fade-up 0.7s ease-out both;
+  --animate-clip-in: clip-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 html {
@@ -71,9 +76,14 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal {
+  .reveal,
+  .animate-float,
+  .animate-marquee,
+  .animate-fade-up,
+  .animate-clip-in {
     opacity: 1 !important;
     transform: none !important;
+    animation: none !important;
   }
 }
 
@@ -85,6 +95,11 @@ body {
   line-height: 1.6;
   touch-action: manipulation;
   overscroll-behavior-y: contain;
+}
+
+::selection {
+  background: var(--color-blue-soft);
+  color: var(--color-navy);
 }
 
 :focus-visible {
@@ -115,27 +130,11 @@ body {
   white-space: normal;
 }
 
-.reveal {
-  animation: reveal-up 0.4s ease-out both;
-}
-
-@keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .tap {
   min-height: var(--touch);
   min-width: var(--touch);
 }
 
-/* Soft professional highlight — used sparingly */
 .marker {
   display: inline;
   background: var(--color-blue-soft);
@@ -152,4 +151,138 @@ body {
   box-shadow: var(--shadow-card);
   border-radius: var(--radius-lg);
   background: var(--color-white);
+}
+
+/* NectArr-inspired utilities — muted palette */
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(16, 42, 67, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 42, 67, 0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.glass-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.glass-button .button-shine {
+  pointer-events: none;
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 48%,
+    transparent 62%
+  );
+  transform: translateX(-40%) rotate(8deg);
+  transition: transform 0.7s ease;
+}
+
+.glass-button:hover .button-shine {
+  transform: translateX(40%) rotate(8deg);
+}
+
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      500px circle at var(--mouse-x) var(--mouse-y),
+      rgba(37, 99, 235, 0.1),
+      transparent 42%
+    ),
+    #fff;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y),
+    rgba(37, 99, 235, 0.35),
+    transparent 40%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.reveal {
+  animation: fade-up 0.55s ease-out both;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes clip-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.4;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-clip-in {
+  animation: clip-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Montserrat, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteShell } from "@/components/SiteShell";
 import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
@@ -10,6 +10,13 @@ const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB">
-      <body className={`${jakarta.variable} antialiased`}>
+      <body className={`${jakarta.variable} ${montserrat.variable} antialiased`}>
         <SiteShell>{children}</SiteShell>
       </body>
     </html>

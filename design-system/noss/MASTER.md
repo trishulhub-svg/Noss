@@ -2,26 +2,30 @@
 
 **Project:** NOSS  
 **Updated:** 2026-08-24  
-**Direction:** Professional blue — calm, trust-led B2B marketing
+**Direction:** NectArr-inspired layered marketing layout with a minimal navy / neutral palette
 
 ## Colors
 | Role | Hex |
 |------|-----|
-| Navy | `#102A43` |
-| Blue accent | `#2563EB` (use sparingly — CTAs, links, small marks) |
+| Navy | `#102A43` (primary CTAs, dark panels) |
+| Blue accent | `#2563EB` (sparingly — links, small marks) |
 | Soft blue | `#EFF6FF` |
+| Background | `#F5F5F5` |
 | White | `#FFFFFF` |
-| Surface | `#F5F8FB` |
-| Border | `#DBE3EE` |
+| Border | `#E5E5E5` |
 | Body text | `#1F2937` |
-| Muted text | `#486581` |
+| Muted text | `#64748B` |
 
 ## Typography
-Plus Jakarta Sans — bold headings, clear body text.
+- Plus Jakarta Sans — body / UI
+- Montserrat — display headlines
 
 ## Signature patterns
-- Soft blue **marker** highlight behind key section titles (sparingly)
-- Uniform white cards with light border + soft shadow (no black/lime alternating)
-- Primary blue only on main CTAs and links
+- Fixed `.grid-lines` background behind content
+- Glass sticky header (`.glass-panel`)
+- Hero floating cards (`animate-float`) + SVG squiggle underline
+- White foreground shell with `rounded-t-[40px]` overlapping the hero
+- Bento service cards, keyword marquee, spotlight cards (`handleSpotlight`)
+- Dark progress preview panel
 - Mobile-first 44–48px tap targets
-- No fake customer logos or testimonials
+- No fake customer logos, testimonials, or revenue stats
