@@ -1,111 +1,96 @@
 import { ButtonLink } from "@/components/Button";
 import { FeatureList } from "@/components/Cards";
-import { Section, SectionHeading } from "@/components/Section";
+import { PageHero, Section, SectionHeading } from "@/components/Section";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Workforce Compliance",
+  title: "Worker checks",
   description:
-    "NOSS helps organise workforce compliance checks, evidence collection, review and follow-up for UK recruitment agencies and employers.",
+    "NOSS helps organise worker checks, evidence, review and follow-up for UK agencies and employers.",
   path: "/workforce-compliance",
 });
 
 const services = [
   {
-    title: "Right to Work workflow support",
+    title: "Right to Work support",
     description:
-      "Evidence management and process support aligned to official Right to Work routes. NOSS does not replace the official check where one is required.",
+      "Help collecting and tracking evidence. Official checks still follow GOV.UK rules where needed.",
   },
   {
-    title: "Identity and document verification support",
-    description:
-      "Organised collection and review support for identity evidence used in onboarding workflows.",
+    title: "ID and document checks",
+    description: "Clear requests and review support for identity evidence.",
   },
   {
-    title: "DBS check coordination",
+    title: "DBS help",
     description:
-      "Coordination where eligible and through the correct DBS route. Eligibility depends on the role and must be assessed carefully.",
+      "Coordination where the role allows it, through the correct DBS route.",
   },
   {
-    title: "Employment history and references",
-    description:
-      "Structured collection of employment history and reference evidence to reduce chasing.",
+    title: "Work history and references",
+    description: "Organised collection so chasing takes less time.",
   },
   {
-    title: "Address history and proof of address",
-    description:
-      "Collection support for address history and proof-of-address evidence where required.",
+    title: "Address proof",
+    description: "Support for address history and proof where required.",
   },
   {
-    title: "Qualifications and professional registrations",
-    description:
-      "Evidence checks for certificates, qualifications and professional registrations relevant to the role.",
+    title: "Qualifications and registrations",
+    description: "Evidence checks for certificates and professional registrations.",
   },
   {
-    title: "Training, driving and licence evidence",
-    description:
-      "Tracking for role-specific licence, driving or training evidence where applicable.",
+    title: "Licences and training",
+    description: "Tracking for role licences, driving proof or training where needed.",
   },
   {
-    title: "Expiry monitoring and re-check scheduling",
-    description:
-      "Visibility and follow-up support so renewals and re-checks are harder to miss.",
+    title: "Renewals and re-checks",
+    description: "Help spotting renewals early so dates are harder to miss.",
   },
 ];
 
 export default function WorkforceCompliancePage() {
   return (
     <>
-      <Section>
-        <p className="text-sm font-semibold uppercase tracking-wide text-[var(--compliance-teal)]">
-          Services
-        </p>
-        <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-[var(--primary-navy)]">
-          Workforce compliance, organised end to end
-        </h1>
-        <p className="mt-5 max-w-3xl text-lg text-[var(--slate)]">
-          NOSS helps organise workforce compliance checks, evidence collection,
-          review and follow-up so employers and recruiters can see progress
-          without drowning in email and folders.
-        </p>
-        <div className="mt-8">
-          <ButtonLink href="/contact">Book a Demo</ButtonLink>
-        </div>
-      </Section>
+      <PageHero
+        eyebrow="Services"
+        title="Worker checks, kept organised"
+        description="NOSS helps with worker checks, evidence, review and follow-up so your team can see progress without drowning in email."
+        actions={<ButtonLink href="/contact">Book a demo</ButtonLink>}
+      />
 
       <Section tone="surface">
         <SectionHeading
-          title="What we support"
-          description="These are service descriptions, not guarantees that every check is available for every role or customer."
+          title="What we help with"
+          description="These are service areas. Not every check applies to every role."
         />
         <FeatureList items={services} />
       </Section>
 
       <Section>
-        <SectionHeading title="A practical process" />
-        <ol className="grid gap-4 md:grid-cols-5">
+        <SectionHeading title="A simple process" />
+        <ol className="grid gap-3 sm:grid-cols-2 md:grid-cols-5">
           {[
-            "Request raised",
-            "Worker action",
-            "NOSS review",
-            "Clarification if needed",
-            "Status and evidence managed",
+            "You ask",
+            "Worker acts",
+            "NOSS reviews",
+            "Fixes if needed",
+            "Status is tracked",
           ].map((step, i) => (
-            <li key={step} className="rounded-lg border border-[var(--border)] bg-white p-4">
-              <p className="text-sm font-semibold text-[var(--compliance-teal)]">
-                {i + 1}
-              </p>
-              <p className="mt-2 font-medium text-[var(--primary-navy)]">{step}</p>
+            <li
+              key={step}
+              className="rounded-2xl border border-[var(--color-border)] bg-white p-4 shadow-[var(--shadow-sm)]"
+            >
+              <p className="text-sm font-bold text-[var(--color-verified)]">{i + 1}</p>
+              <p className="mt-2 font-semibold text-[var(--color-primary)]">{step}</p>
             </li>
           ))}
         </ol>
-        <p className="mt-8 max-w-3xl text-[var(--slate)]">
-          Official or certified routes are used where required. Significant
-          outcomes may require trained human review. NOSS does not claim “100%
-          automated compliance” or government endorsement.
+        <p className="mt-8 max-w-2xl text-[var(--color-muted-foreground)]">
+          Official routes are used where required. Important results may need a
+          trained person. We do not claim fully automatic checks or government
+          endorsement.
         </p>
         <div className="mt-8">
-          <ButtonLink href="/contact">Book a Demo</ButtonLink>
+          <ButtonLink href="/contact">Book a demo</ButtonLink>
         </div>
       </Section>
     </>

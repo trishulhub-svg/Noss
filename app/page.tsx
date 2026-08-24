@@ -1,5 +1,17 @@
+import {
+  Building2,
+  Clock3,
+  FolderSearch,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 import { ButtonLink } from "@/components/Button";
-import { FeatureList, PortalPreview, ProcessSteps, ServiceCard } from "@/components/Cards";
+import {
+  FeatureList,
+  PortalPreview,
+  ProcessSteps,
+  ServiceCard,
+} from "@/components/Cards";
 import { FaqList } from "@/components/FaqList";
 import { Section, SectionHeading } from "@/components/Section";
 import { createPageMetadata } from "@/lib/seo";
@@ -7,71 +19,88 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "NOSS",
   description:
-    "Make workforce compliance easier to manage. NOSS helps UK recruitment agencies and employers organise worker checks, business documents, follow-up and compliance progress.",
+    "Make worker checks easier to manage. NOSS helps UK agencies and employers organise checks, papers, follow-up and progress.",
   path: "/",
 });
 
 export default function HomePage() {
   return (
     <>
-      {/* 1 Header via layout · 2 Hero */}
-      <section className="relative overflow-hidden bg-[var(--primary-navy)] text-white">
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-[var(--color-primary)] text-white">
         <div
-          className="pointer-events-none absolute inset-0 opacity-30"
+          className="pointer-events-none absolute inset-0 opacity-40"
           aria-hidden
           style={{
             backgroundImage:
-              "radial-gradient(circle at 20% 20%, #0f766e 0%, transparent 40%), radial-gradient(circle at 80% 0%, #2563eb 0%, transparent 35%)",
+              "radial-gradient(circle at 12% 18%, #0f766e 0%, transparent 42%), radial-gradient(circle at 88% 8%, #0369a1 0%, transparent 36%)",
           }}
         />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-28">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
+        <div className="relative mx-auto grid max-w-6xl gap-8 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12 lg:px-8 lg:py-24">
+          <div className="reveal">
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-white/70">
               NOSS
             </p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-              Make workforce compliance easier to manage.
+            <h1 className="mt-4 text-balance text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-[3.4rem] lg:leading-[1.1]">
+              Make worker checks easier to manage.
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-white/85">
-              NOSS helps UK recruitment agencies and employers organise worker
-              checks, business documents, follow-up and compliance progress
-              through one managed service.
+            <p className="mt-5 max-w-xl text-lg text-white/85 sm:text-xl">
+              NOSS helps UK agencies and employers organise worker checks,
+              business papers, follow-up and progress — in one clear service.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/contact" className="!bg-white !text-[var(--primary-navy)]">
-                Book a Demo
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <ButtonLink
+                href="/contact"
+                className="w-full !bg-white !text-[var(--color-primary)] hover:!bg-[var(--color-muted)] sm:w-auto"
+              >
+                Book a demo
               </ButtonLink>
-              <ButtonLink href="/login" variant="secondary" className="!border-white/30 !bg-transparent !text-white hover:!bg-white/10">
-                Client Login
+              <ButtonLink
+                href="/login"
+                variant="secondary"
+                className="w-full !border-white/25 !bg-transparent !text-white hover:!bg-white/10 sm:w-auto"
+              >
+                Client login
               </ButtonLink>
             </div>
           </div>
-          <div className="rounded-lg border border-white/15 bg-white/5 p-5 backdrop-blur">
-            <p className="text-xs font-semibold uppercase tracking-wide text-white/70">
-              Managed workflow snapshot
+
+          <div className="reveal rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-sm">
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-white/65">
+              What you get
             </p>
-            <ul className="mt-4 space-y-3 text-sm text-white/90">
-              <li className="rounded-md bg-white/10 px-3 py-3">Worker checks organised in one place</li>
-              <li className="rounded-md bg-white/10 px-3 py-3">Missing items made visible early</li>
-              <li className="rounded-md bg-white/10 px-3 py-3">Human review where outcomes matter</li>
-              <li className="rounded-md bg-white/10 px-3 py-3">Audit-ready completion records</li>
+            <ul className="mt-4 space-y-3 text-sm text-white/95">
+              {[
+                "Checks kept in one place",
+                "Missing items easy to see",
+                "People check the important results",
+                "Records ready when audits ask",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-3 rounded-xl bg-white/10 px-3 py-3"
+                >
+                  <ShieldCheck className="mt-0.5 shrink-0" size={18} aria-hidden />
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </section>
 
-      {/* 3 Trust strip */}
-      <Section tone="surface">
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Trust strip */}
+      <Section tone="surface" className="!py-8">
+        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            "UK-focused compliance support",
-            "Secure document handling approach",
-            "Accountable human verification",
-            "Live progress concept for clients",
+            "Made for UK checks",
+            "Careful with documents",
+            "People still review key results",
+            "Clear progress for your team",
           ].map((item) => (
             <li
               key={item}
-              className="rounded-lg border border-[var(--border)] bg-white px-4 py-5 text-sm font-medium text-[var(--primary-navy)]"
+              className="rounded-xl border border-[var(--color-border)] bg-white px-4 py-4 text-sm font-semibold text-[var(--color-primary)]"
             >
               {item}
             </li>
@@ -79,196 +108,212 @@ export default function HomePage() {
         </ul>
       </Section>
 
-      {/* 4 Problem */}
+      {/* Problem */}
       <Section>
         <SectionHeading
-          title="Compliance work often becomes scattered"
-          description="Many teams still rely on email threads, shared folders and multiple suppliers. That makes expiry dates easy to miss, follow-up slow, and audit preparation stressful."
+          eyebrow="The problem"
+          title="Checks often get messy"
+          description="Papers sit in email, folders and different tools. Dates get missed. Follow-up is slow. Nobody is sure what is done."
         />
         <FeatureList
           items={[
             {
-              title: "Documents in too many places",
-              description: "Evidence lives across inboxes, drives and third-party tools.",
+              title: "Papers in too many places",
+              description: "Evidence is spread across inboxes and shared drives.",
+              icon: FolderSearch,
             },
             {
               title: "Missed renewals",
-              description: "Certificates, licences and checks can expire without clear ownership.",
+              description: "Certificates and checks can expire without anyone noticing.",
+              icon: Clock3,
             },
             {
               title: "Slow chasing",
-              description: "Manual follow-up consumes manager time and delays placements.",
+              description: "Managers spend hours chasing missing items by hand.",
+              icon: Users,
             },
             {
-              title: "Unclear progress",
-              description: "Clients and workers struggle to see what is complete and what is missing.",
+              title: "Unclear status",
+              description: "Teams cannot see what is finished and what is still open.",
+              icon: Building2,
             },
           ]}
         />
       </Section>
 
-      {/* 5 Solution */}
+      {/* Solution */}
       <Section tone="surface">
         <SectionHeading
-          title="One managed NOSS workflow"
-          description="NOSS coordinates workforce and business compliance work so clients can see progress, workers know what is needed, and trained reviewers keep accountability and the audit trail."
+          eyebrow="The NOSS way"
+          title="One simple managed process"
+          description="Clients see progress. Workers know what to send. NOSS people review the important results and keep a clear record."
         />
-        <p className="max-w-3xl text-[var(--slate)]">
-          Technology assists the workflow. Significant outcomes may still require
-          trained human review, and some checks use official or certified
-          third-party routes where required.
+        <p className="max-w-2xl text-[var(--color-muted-foreground)]">
+          Tools help with the work. Some checks still need official routes. Big
+          decisions may need a trained person — we do not claim “fully
+          automatic” or “government approved”.
         </p>
       </Section>
 
-      {/* 6 Services grid */}
+      {/* Services */}
       <Section>
         <SectionHeading
-          title="Services"
-          description="Two core service areas for UK recruitment agencies and employers."
+          eyebrow="Services"
+          title="Two clear service areas"
+          description="Pick the path that fits your team — or talk to us if you need both."
         />
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div className="grid gap-5 lg:grid-cols-2">
           <ServiceCard
-            title="Workforce Compliance"
-            description="Right to Work support, identity evidence, DBS coordination, references, qualifications, licences and expiry tracking."
+            title="Worker checks"
+            description="Right to Work support, ID evidence, DBS help, references, licences and renewal tracking."
             href="/workforce-compliance"
           />
           <ServiceCard
-            title="Business Compliance"
-            description="Company/KYB support, VAT checks where required, sanctions screening support, insurance and policy document tracking."
+            title="Business checks"
+            description="Company checks, VAT support where needed, sanctions review help, insurance and policy tracking."
             href="/business-compliance"
+            icon={Building2}
           />
         </div>
       </Section>
 
-      {/* 7 How it works */}
+      {/* How it works */}
       <Section tone="surface">
         <SectionHeading
-          title="How NOSS works"
-          description="A clear five-step service flow designed for multi-worker and multi-company reality."
+          eyebrow="How it works"
+          title="Five simple steps"
+          description="A clear path from request to ready records."
         />
         <ProcessSteps
           steps={[
             {
-              title: "Company requests",
-              description: "A company adds a worker or requests a compliance service.",
+              title: "You ask",
+              description: "Add a worker or ask for a check.",
             },
             {
-              title: "Worker informed",
-              description: "The worker is told exactly what evidence or action is needed.",
+              title: "We tell them",
+              description: "The worker gets a clear list of what is needed.",
             },
             {
-              title: "Evidence submitted",
-              description: "Evidence is submitted or the correct official/certified route is followed.",
+              title: "They send proof",
+              description: "They upload evidence or follow the official route.",
             },
             {
-              title: "NOSS reviews",
-              description: "NOSS reviews, requests clarification if needed, and records the outcome.",
+              title: "We review",
+              description: "NOSS checks it and asks for fixes if needed.",
             },
             {
-              title: "Client tracks",
-              description: "The client tracks progress and receives an audit-ready completion record where applicable.",
+              title: "You track",
+              description: "You see progress and get a ready record.",
             },
           ]}
         />
         <div className="mt-8">
           <ButtonLink href="/how-it-works" variant="secondary">
-            See the full workflow
+            See the full process
           </ButtonLink>
         </div>
       </Section>
 
-      {/* 8 Portal preview */}
+      {/* Portal preview */}
       <Section>
         <SectionHeading
+          eyebrow="Coming later"
           title="A clearer view of progress"
-          description="Phase 1 shows a non-live product preview so visitors can understand the future NOSS experience."
+          description="This is a simple preview of the future portal. It is not live data."
         />
         <PortalPreview
-          title="Portal progress preview"
-          description="Illustrative statuses only. No live worker or customer records are shown on this marketing site."
+          title="Progress preview"
+          description="Example only. This marketing site does not show real worker or customer records."
         />
       </Section>
 
-      {/* 9 Why NOSS */}
+      {/* Why NOSS */}
       <Section tone="surface">
-        <SectionHeading title="Why NOSS" />
+        <SectionHeading eyebrow="Why NOSS" title="Built for trust, not hype" />
         <FeatureList
           items={[
             {
-              title: "Human-led",
-              description: "Trained review remains central for significant compliance outcomes.",
+              title: "People lead",
+              description: "Trained review stays central for important outcomes.",
             },
             {
-              title: "Automation-assisted",
-              description: "Workflow support reduces chasing and makes missing items visible earlier.",
+              title: "Tools help",
+              description: "Less chasing. Missing items show up earlier.",
             },
             {
-              title: "Auditable",
-              description: "Evidence and status are organised for audit-ready records.",
+              title: "Clear records",
+              description: "Evidence is easier to find when audits ask.",
             },
             {
-              title: "Multi-company ready concept",
-              description: "Designed for agencies and employers who need client/worker separation in later product phases.",
+              title: "Ready for many clients",
+              description: "Designed for agencies and employers who manage many people.",
             },
           ]}
         />
       </Section>
 
-      {/* 10 FAQ */}
+      {/* FAQ */}
       <Section>
-        <SectionHeading title="Frequently asked questions" />
+        <SectionHeading title="Common questions" />
         <FaqList
           items={[
             {
-              question: "How does NOSS handle data security?",
+              question: "Is my data safe?",
               answer:
-                "Phase 1 collects only business enquiry data through this website. Worker identity documents and customer records are not collected on the public site. Later platform phases will apply separate security and access controls.",
+                "This website only collects business enquiry details. It does not collect worker ID papers or customer check files.",
             },
             {
-              question: "What does the worker need to do?",
+              question: "What does the worker do?",
               answer:
-                "Workers are told what evidence or official route is required, then submit or complete those steps. NOSS follows up on missing items so managers spend less time chasing.",
+                "They get a clear list, send what is needed, and we follow up on anything missing.",
             },
             {
-              question: "Does NOSS replace official Right to Work checks?",
+              question: "Do you replace official Right to Work checks?",
               answer:
-                "No. NOSS supports Right to Work workflow and evidence management. Official checks must follow the correct GOV.UK routes where required.",
+                "No. We help with the process and evidence. Official checks still follow GOV.UK rules where required.",
             },
             {
-              question: "Can NOSS help with DBS?",
+              question: "Can you help with DBS?",
               answer:
-                "NOSS can coordinate DBS activity where eligible and through the correct DBS route. Eligibility and process details depend on the role and must be assessed carefully.",
+                "Yes, where the role allows it and through the correct route. We check eligibility carefully.",
             },
             {
-              question: "Do you publish turnaround times?",
+              question: "How fast is it?",
               answer:
-                "Turnaround depends on the check type, third-party routes and how quickly evidence is provided. We discuss realistic expectations during a demo rather than publishing unverified promises.",
+                "It depends on the check and how quickly evidence arrives. We talk through real timings on a demo.",
             },
             {
-              question: "Will NOSS integrate with our systems?",
+              question: "Will you connect to our systems?",
               answer:
-                "Integrations are not part of Phase 1. Tell us about your stack when you book a demo so future roadmap conversations stay grounded.",
+                "Not in Phase 1. Tell us what you use when you book a demo.",
             },
             {
-              question: "How do I get support?",
+              question: "How do I reach you?",
               answer:
-                "Use the contact form, email info@trishulhub.in, or call / WhatsApp +91 966210793.",
+                "Use the form, email info@trishulhub.in, or call / WhatsApp +91 966210793.",
             },
           ]}
         />
       </Section>
 
-      {/* 11 Final CTA */}
+      {/* Final CTA */}
       <Section tone="navy">
-        <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
-          <div>
-            <h2 className="text-3xl font-semibold">Ready to talk through your compliance workflow?</h2>
-            <p className="mt-3 max-w-2xl text-white/80">
-              Book a demo to see how NOSS can help your agency or employer team organise checks, documents and follow-up.
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Want a clearer compliance process?
+            </h2>
+            <p className="mt-3 text-white/80">
+              Book a short demo. We will walk through how NOSS can help your
+              agency or employer team.
             </p>
           </div>
-          <ButtonLink href="/contact" className="!bg-white !text-[var(--primary-navy)]">
-            Book a Demo
+          <ButtonLink
+            href="/contact"
+            className="w-full shrink-0 !bg-white !text-[var(--color-primary)] sm:w-auto"
+          >
+            Book a demo
           </ButtonLink>
         </div>
       </Section>

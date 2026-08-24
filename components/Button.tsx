@@ -5,12 +5,15 @@ type Variant = "primary" | "secondary" | "ghost";
 
 const styles: Record<Variant, string> = {
   primary:
-    "bg-[var(--action-blue)] text-white hover:bg-[#1d4ed8] focus-visible:outline-[var(--action-blue)]",
+    "bg-[var(--color-accent)] text-white shadow-[var(--shadow-sm)] hover:bg-[#0284c7] active:bg-[#0369a1]",
   secondary:
-    "bg-white text-[var(--primary-navy)] border border-[var(--border)] hover:bg-[var(--surface)] focus-visible:outline-[var(--action-blue)]",
+    "bg-white text-[var(--color-primary)] border border-[var(--color-border)] hover:bg-[var(--color-muted)]",
   ghost:
-    "bg-transparent text-[var(--action-blue)] hover:underline focus-visible:outline-[var(--action-blue)]",
+    "bg-transparent text-[var(--color-accent)] hover:underline",
 };
+
+const base =
+  "inline-flex min-h-[44px] cursor-pointer items-center justify-center gap-2 rounded-xl px-5 py-3 text-base font-semibold transition duration-200 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] disabled:cursor-not-allowed disabled:opacity-60";
 
 export function ButtonLink({
   href,
@@ -24,10 +27,7 @@ export function ButtonLink({
   className?: string;
 }) {
   return (
-    <Link
-      href={href}
-      className={`inline-flex items-center justify-center rounded-md px-5 py-3 text-base font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${styles[variant]} ${className}`}
-    >
+    <Link href={href} className={`${base} ${styles[variant]} ${className}`}>
       {children}
     </Link>
   );
@@ -45,7 +45,7 @@ export function Button({
     <button
       type={type}
       disabled={disabled}
-      className={`inline-flex items-center justify-center rounded-md px-5 py-3 text-base font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60 ${styles[variant]} ${className}`}
+      className={`${base} ${styles[variant]} ${className}`}
       {...props}
     >
       {children}

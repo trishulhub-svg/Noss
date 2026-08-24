@@ -1,84 +1,70 @@
 import { ButtonLink } from "@/components/Button";
 import { FeatureList } from "@/components/Cards";
-import { Section, SectionHeading } from "@/components/Section";
+import { PageHero, Section, SectionHeading } from "@/components/Section";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Business Compliance",
+  title: "Business checks",
   description:
-    "NOSS supports company onboarding, KYB, VAT validation where required, sanctions screening support, insurance and policy document tracking for UK businesses.",
+    "NOSS helps with company checks, VAT support, sanctions review help, insurance and policy tracking.",
   path: "/business-compliance",
 });
 
 const services = [
   {
-    title: "Company onboarding / KYB",
-    description:
-      "Company onboarding support using Companies House data where appropriate.",
+    title: "Company checks / KYB",
+    description: "Company onboarding support using Companies House data where useful.",
   },
   {
-    title: "UK VAT validation",
-    description: "VAT number validation support where your process requires it.",
+    title: "UK VAT checks",
+    description: "VAT number checks where your process needs them.",
   },
   {
-    title: "UK sanctions screening support",
+    title: "Sanctions review help",
     description:
-      "Screening support with documented human review. A possible match is not an automatic adverse decision.",
+      "Screening support with human review. A possible match is not an automatic rejection.",
   },
   {
-    title: "Insurance, accreditation and licences",
-    description:
-      "Tracking for business insurance, accreditation and licence documents.",
+    title: "Insurance and licences",
+    description: "Tracking for insurance, accreditations and licence papers.",
   },
   {
-    title: "Policy and document support",
+    title: "Policy documents",
     description:
-      "Support categories can include privacy, data protection, health & safety, equality, anti-bribery, safeguarding, whistleblowing and modern slavery where applicable.",
+      "Help with privacy, health & safety, equality and other policy packs where needed.",
   },
   {
     title: "Registers and contracts",
-    description:
-      "Risk assessment, contract/NDA/DPA and compliance-document register support.",
+    description: "Support for risk assessments, contracts, NDAs and DPAs.",
   },
   {
-    title: "Client-specific packs",
-    description:
-      "Client-specific compliance packs and audit-ready evidence export as a service capability and future platform concept.",
+    title: "Client packs",
+    description: "Client-ready packs and audit-friendly exports as a service.",
   },
 ];
 
 export default function BusinessCompliancePage() {
   return (
     <>
-      <Section>
-        <p className="text-sm font-semibold uppercase tracking-wide text-[var(--compliance-teal)]">
-          Services
-        </p>
-        <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-[var(--primary-navy)]">
-          Business compliance without the document chase
-        </h1>
-        <p className="mt-5 max-w-3xl text-lg text-[var(--slate)]">
-          NOSS helps companies organise company checks, policy documents and
-          evidence so business compliance work stays visible and audit-ready.
-        </p>
-        <div className="mt-8">
-          <ButtonLink href="/contact">Book a Demo</ButtonLink>
-        </div>
-      </Section>
+      <PageHero
+        eyebrow="Services"
+        title="Business checks without the paper chase"
+        description="NOSS helps companies organise company checks, policies and evidence so the work stays visible and ready for audit."
+        actions={<ButtonLink href="/contact">Book a demo</ButtonLink>}
+      />
 
       <Section tone="surface">
         <SectionHeading
-          title="Business compliance services"
-          description="Wording describes supported service areas. Availability depends on customer needs and applicable requirements."
+          title="Business support areas"
+          description="Availability depends on what your clients and process need."
         />
         <FeatureList items={services} />
-        <p className="mt-8 max-w-3xl text-sm text-[var(--slate)]">
-          Phase 1 explains these capabilities. Live Companies House, HMRC VAT or
-          sanctions automation engines are out of scope for this marketing
-          website.
+        <p className="mt-8 max-w-2xl text-sm text-[var(--color-muted-foreground)]">
+          This website explains the service. Live Companies House, HMRC or
+          sanctions engines are not part of Phase 1.
         </p>
         <div className="mt-8">
-          <ButtonLink href="/contact">Book a Demo</ButtonLink>
+          <ButtonLink href="/contact">Book a demo</ButtonLink>
         </div>
       </Section>
     </>

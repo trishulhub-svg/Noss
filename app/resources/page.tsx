@@ -1,43 +1,40 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
-import { Section, SectionHeading } from "@/components/Section";
+import { PageHero, Section, SectionHeading } from "@/components/Section";
 import { resources } from "@/content/resources";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "Resources",
+  title: "Help & resources",
   description:
-    "Guides and FAQs to help UK recruitment agencies and employers understand workforce and business compliance topics.",
+    "Simple guides for UK agencies and employers about worker and business checks.",
   path: "/resources",
 });
 
 export default function ResourcesPage() {
   return (
     <>
-      <Section>
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-[var(--primary-navy)]">
-          Resources & help
-        </h1>
-        <p className="mt-5 max-w-3xl text-lg text-[var(--slate)]">
-          Practical explainers for managers. Compliance facts that can change
-          should always be checked against official sources.
-        </p>
-      </Section>
+      <PageHero
+        title="Help & resources"
+        description="Short guides in plain English. Always check official sources for rules that can change."
+      />
 
-      <Section tone="surface">
+      <Section tone="surface" className="!pt-0">
         <SectionHeading title="Starter guides" />
         <ul className="grid gap-4 md:grid-cols-2">
           {resources.map((article) => (
             <li key={article.slug}>
               <Link
                 href={`/resources/${article.slug}`}
-                className="block h-full rounded-lg border border-[var(--border)] bg-white p-5 transition hover:border-[var(--action-blue)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action-blue)]"
+                className="flex h-full cursor-pointer flex-col rounded-2xl border border-[var(--color-border)] bg-white p-5 shadow-[var(--shadow-sm)] transition hover:border-[var(--color-accent)] hover:shadow-[var(--shadow-md)]"
               >
-                <h2 className="text-lg font-semibold text-[var(--primary-navy)]">
+                <h2 className="text-lg font-bold text-[var(--color-primary)]">
                   {article.title}
                 </h2>
-                <p className="mt-2 text-sm text-[var(--slate)]">{article.description}</p>
-                <p className="mt-4 text-xs text-[var(--slate)]">
+                <p className="mt-2 flex-1 text-sm text-[var(--color-muted-foreground)]">
+                  {article.description}
+                </p>
+                <p className="mt-4 text-xs text-[var(--color-muted-foreground)]">
                   Reviewed {article.reviewedAt}
                 </p>
               </Link>
@@ -45,7 +42,7 @@ export default function ResourcesPage() {
           ))}
         </ul>
         <div className="mt-10">
-          <ButtonLink href="/contact">Book a Demo</ButtonLink>
+          <ButtonLink href="/contact">Book a demo</ButtonLink>
         </div>
       </Section>
     </>

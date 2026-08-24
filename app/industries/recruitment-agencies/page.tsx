@@ -1,58 +1,44 @@
 import { ButtonLink } from "@/components/Button";
 import { FeatureList, PortalPreview } from "@/components/Cards";
-import { Section, SectionHeading } from "@/components/Section";
+import { PageHero, Section, SectionHeading } from "@/components/Section";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "For Recruitment Agencies",
+  title: "For recruitment agencies",
   description:
-    "NOSS helps recruitment agencies manage multi-worker compliance, client requirements, progress visibility and audit readiness.",
+    "NOSS helps agencies manage many workers, client needs, progress and audit readiness.",
   path: "/industries/recruitment-agencies",
 });
 
 export default function RecruitmentAgenciesPage() {
   return (
     <>
-      <Section>
-        <p className="text-sm font-semibold uppercase tracking-wide text-[var(--compliance-teal)]">
-          Industries
-        </p>
-        <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-[var(--primary-navy)]">
-          Built for recruitment agencies juggling many workers and clients
-        </h1>
-        <p className="mt-5 max-w-3xl text-lg text-[var(--slate)]">
-          When every placement has different requirements, manual chasing and
-          scattered evidence create audit pressure. NOSS helps agencies organise
-          multi-worker onboarding and keep progress visible.
-        </p>
-        <div className="mt-8">
-          <ButtonLink href="/contact">Book a Demo</ButtonLink>
-        </div>
-      </Section>
+      <PageHero
+        eyebrow="Who we help"
+        title="Built for agencies with many workers and clients"
+        description="Different clients need different checks. Manual chasing creates stress. NOSS helps you keep onboarding and progress clear."
+        actions={<ButtonLink href="/contact">Book a demo</ButtonLink>}
+      />
 
       <Section tone="surface">
-        <SectionHeading title="Agency-focused capabilities" />
+        <SectionHeading title="What agencies get" />
         <FeatureList
           items={[
             {
-              title: "Multi-worker onboarding",
-              description:
-                "Coordinate checks across many workers without losing track of missing items.",
+              title: "Many workers at once",
+              description: "Keep checks moving without losing missing items.",
             },
             {
-              title: "Client separation concept",
-              description:
-                "Keep client requirements and evidence concepts separated as the platform evolves.",
+              title: "Client separation",
+              description: "Keep client needs and evidence concepts separate as the product grows.",
             },
             {
-              title: "Live progress concept",
-              description:
-                "Help managers see what is complete, pending or blocked.",
+              title: "Clear progress",
+              description: "See what is done, waiting or blocked.",
             },
             {
               title: "Audit readiness",
-              description:
-                "Organise evidence so audit packs are less of a last-minute scramble.",
+              description: "Less last-minute scrambling for evidence packs.",
             },
           ]}
         />
@@ -60,15 +46,15 @@ export default function RecruitmentAgenciesPage() {
 
       <Section>
         <SectionHeading
-          title="Illustrative workflow example"
-          description="This example is synthetic. It does not show fabricated customers or real worker personal data."
+          title="Example view"
+          description="This is a made-up example. It does not show real customers or workers."
         />
         <PortalPreview
-          title="Agency progress example"
-          description="Example only: an agency operations lead reviews workers in progress, missing items and verified records before a client audit request."
+          title="Agency example"
+          description="Example only: an operations lead reviews workers in progress before a client audit request."
         />
         <div className="mt-8">
-          <ButtonLink href="/contact">Book a Demo</ButtonLink>
+          <ButtonLink href="/contact">Book a demo</ButtonLink>
         </div>
       </Section>
     </>

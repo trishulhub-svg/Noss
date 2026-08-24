@@ -2,77 +2,78 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
 import { ContactChannels } from "@/components/ContactChannels";
 import { Container } from "@/components/Section";
-import { footerLegalLinks, navLinks } from "@/lib/site";
+import { footerLegalLinks } from "@/lib/site";
 
 export function Footer() {
-
   return (
-    <footer className="border-t border-[var(--border)] bg-[var(--primary-navy)] text-white">
-      <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="lg:col-span-1">
-          <p className="text-2xl font-bold">NOSS</p>
-          <p className="mt-3 text-sm leading-relaxed text-white/80">
-            UK compliance support for recruitment agencies and employers —
-            managed workforce and business compliance with clear progress and
-            accountable human review.
+    <footer className="border-t border-white/10 bg-[var(--color-primary)] text-white">
+      <Container className="grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <p className="text-2xl font-extrabold tracking-tight">NOSS</p>
+          <p className="mt-3 text-sm leading-relaxed text-white/75">
+            We help UK agencies and employers keep worker and business checks
+            organised, clear and ready for audit.
           </p>
           <div className="mt-5">
-            <ButtonLink href="/contact" className="!bg-white !text-[var(--primary-navy)]">
-              Book a Demo
+            <ButtonLink
+              href="/contact"
+              className="!bg-white !text-[var(--color-primary)] hover:!bg-[var(--color-muted)]"
+            >
+              Book a demo
             </ButtonLink>
           </div>
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-white/70">
+          <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-white/55">
             Services
           </h2>
-          <ul className="mt-4 space-y-2 text-sm">
+          <ul className="mt-4 space-y-1 text-sm">
             <li>
-              <Link className="hover:underline" href="/workforce-compliance">
-                Workforce Compliance
+              <Link className="tap inline-flex items-center hover:underline" href="/workforce-compliance">
+                Worker checks
               </Link>
             </li>
             <li>
-              <Link className="hover:underline" href="/business-compliance">
-                Business Compliance
+              <Link className="tap inline-flex items-center hover:underline" href="/business-compliance">
+                Business checks
               </Link>
             </li>
             <li>
-              <Link className="hover:underline" href="/how-it-works">
-                How It Works
+              <Link className="tap inline-flex items-center hover:underline" href="/how-it-works">
+                How it works
               </Link>
             </li>
           </ul>
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-white/70">
-            Industries
+          <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-white/55">
+            Company
           </h2>
-          <ul className="mt-4 space-y-2 text-sm">
+          <ul className="mt-4 space-y-1 text-sm">
             <li>
-              <Link className="hover:underline" href="/industries/recruitment-agencies">
-                Recruitment Agencies
+              <Link className="tap inline-flex items-center hover:underline" href="/industries/recruitment-agencies">
+                Agencies
               </Link>
             </li>
             <li>
-              <Link className="hover:underline" href="/industries/employers">
+              <Link className="tap inline-flex items-center hover:underline" href="/industries/employers">
                 Employers
               </Link>
             </li>
             <li>
-              <Link className="hover:underline" href="/resources">
-                Resources
+              <Link className="tap inline-flex items-center hover:underline" href="/resources">
+                Help
               </Link>
             </li>
             <li>
-              <Link className="hover:underline" href="/about">
+              <Link className="tap inline-flex items-center hover:underline" href="/about">
                 About
               </Link>
             </li>
             <li>
-              <Link className="hover:underline" href="/contact">
+              <Link className="tap inline-flex items-center hover:underline" href="/contact">
                 Contact
               </Link>
             </li>
@@ -80,34 +81,31 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-white/70">
-            Legal & access
+          <h2 className="text-xs font-bold uppercase tracking-[0.16em] text-white/55">
+            Legal & contact
           </h2>
-          <ul className="mt-4 space-y-2 text-sm">
+          <ul className="mt-4 space-y-1 text-sm">
             {footerLegalLinks.map((link) => (
               <li key={link.href}>
-                <Link className="hover:underline" href={link.href}>
+                <Link className="tap inline-flex items-center hover:underline" href={link.href}>
                   {link.label}
                 </Link>
               </li>
             ))}
             <li>
-              <Link className="hover:underline" href="/login">
-                Login / portals
+              <Link className="tap inline-flex items-center hover:underline" href="/login">
+                Login
               </Link>
             </li>
           </ul>
-          <div className="mt-6">
+          <div className="mt-5">
             <ContactChannels tone="dark" />
           </div>
         </div>
       </Container>
       <div className="border-t border-white/10">
-        <Container className="flex flex-col gap-2 py-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} NOSS. All rights reserved.</p>
-          <p>
-            {navLinks.length} public service areas · English · United Kingdom
-          </p>
+        <Container className="py-5 text-xs text-white/50">
+          © {new Date().getFullYear()} NOSS · United Kingdom
         </Container>
       </div>
     </footer>

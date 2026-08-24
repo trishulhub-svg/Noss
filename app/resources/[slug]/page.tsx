@@ -28,32 +28,32 @@ export default async function ResourceArticlePage({ params }: Props) {
   if (!article) notFound();
 
   return (
-    <Section>
-      <p className="text-sm text-[var(--slate)]">
-        <Link href="/resources" className="text-[var(--action-blue)] underline">
-          Resources
+    <Section className="!pt-10">
+      <p className="text-sm text-[var(--color-muted-foreground)]">
+        <Link href="/resources" className="font-semibold text-[var(--color-accent)] underline">
+          Help
         </Link>
       </p>
-      <h1 className="mt-3 max-w-3xl text-4xl font-semibold tracking-tight text-[var(--primary-navy)]">
+      <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-[var(--color-primary)]">
         {article.title}
       </h1>
-      <p className="mt-3 text-sm text-[var(--slate)]">
+      <p className="mt-3 text-sm text-[var(--color-muted-foreground)]">
         Reviewed {article.reviewedAt}
       </p>
-      <div className="mt-8 max-w-3xl space-y-4 text-[var(--text)]">
+      <div className="mt-8 max-w-3xl space-y-4 text-[var(--color-foreground)]">
         {article.body.map((para) => (
           <p key={para.slice(0, 24)}>{para}</p>
         ))}
       </div>
       {article.officialSources?.length ? (
-        <div className="mt-10 max-w-3xl rounded-lg border border-[var(--border)] bg-[var(--surface)] p-5">
-          <h2 className="font-semibold text-[var(--primary-navy)]">Official sources</h2>
+        <div className="mt-10 max-w-3xl rounded-2xl border border-[var(--color-border)] bg-[var(--color-muted)]/50 p-5">
+          <h2 className="font-bold text-[var(--color-primary)]">Official sources</h2>
           <ul className="mt-3 space-y-2 text-sm">
             {article.officialSources.map((source) => (
               <li key={source.href}>
                 <a
                   href={source.href}
-                  className="text-[var(--action-blue)] underline"
+                  className="font-semibold text-[var(--color-accent)] underline"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -65,7 +65,7 @@ export default async function ResourceArticlePage({ params }: Props) {
         </div>
       ) : null}
       <div className="mt-10">
-        <ButtonLink href="/contact">Book a Demo</ButtonLink>
+        <ButtonLink href="/contact">Book a demo</ButtonLink>
       </div>
     </Section>
   );

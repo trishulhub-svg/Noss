@@ -1,79 +1,46 @@
 import { ButtonLink } from "@/components/Button";
 import { PortalPreview, ProcessSteps } from "@/components/Cards";
-import { Section, SectionHeading } from "@/components/Section";
+import { PageHero, Section, SectionHeading } from "@/components/Section";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "How NOSS Works",
+  title: "How it works",
   description:
-    "See the five-step NOSS workflow: company request, worker action, evidence submission, NOSS review and client progress tracking.",
+    "See the five-step NOSS process: request, worker action, evidence, review and progress tracking.",
   path: "/how-it-works",
 });
 
 export default function HowItWorksPage() {
   return (
     <>
-      <Section>
-        <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-[var(--primary-navy)]">
-          How NOSS works
-        </h1>
-        <p className="mt-5 max-w-3xl text-lg text-[var(--slate)]">
-          A managed workflow that connects client companies, workers and the NOSS
-          compliance team — with clear progress and accountable human review.
-        </p>
-      </Section>
+      <PageHero
+        title="How NOSS works"
+        description="A clear process that connects your company, workers and the NOSS team — with progress you can see and people accountable for key results."
+      />
 
       <Section tone="surface">
         <SectionHeading title="Five steps" />
         <ProcessSteps
           steps={[
             {
-              title: "Company adds a worker or requests a service",
-              description: "The engagement starts with a clear service request.",
-              visual: (
-                <div className="rounded-md bg-[var(--surface)] p-3 text-xs text-[var(--slate)]">
-                  Company / worker card mockup
-                </div>
-              ),
+              title: "You ask for a check",
+              description: "Add a worker or request a service.",
             },
             {
-              title: "Worker is told exactly what is needed",
-              description: "Requirements are presented as an actionable checklist.",
-              visual: (
-                <div className="rounded-md bg-[var(--surface)] p-3 text-xs text-[var(--slate)]">
-                  Checklist mockup
-                </div>
-              ),
+              title: "Worker gets a list",
+              description: "They see exactly what is needed.",
             },
             {
-              title: "Worker submits evidence or follows the official route",
-              description:
-                "Upload/action concept only in Phase 1 — no live upload on this website.",
-              visual: (
-                <div className="rounded-md bg-[var(--surface)] p-3 text-xs text-[var(--slate)]">
-                  Evidence action concept
-                </div>
-              ),
+              title: "Evidence is sent",
+              description: "Upload or follow the official route. No live upload on this website.",
             },
             {
-              title: "NOSS reviews and records the outcome",
-              description:
-                "Clarifications are requested where needed. Significant outcomes may need trained human review.",
-              visual: (
-                <div className="rounded-md bg-[var(--surface)] p-3 text-xs text-[var(--slate)]">
-                  Reviewer workflow preview
-                </div>
-              ),
+              title: "NOSS reviews",
+              description: "We ask for fixes if needed and record the result.",
             },
             {
-              title: "Client tracks progress",
-              description:
-                "Clients receive progress visibility and an audit-ready completion record where applicable.",
-              visual: (
-                <div className="rounded-md bg-[var(--surface)] p-3 text-xs text-[var(--slate)]">
-                  Progress dashboard preview
-                </div>
-              ),
+              title: "You track progress",
+              description: "See status and get a ready record where it applies.",
             },
           ]}
         />
@@ -82,14 +49,14 @@ export default function HowItWorksPage() {
       <Section>
         <SectionHeading
           title="Product preview"
-          description="Static mock only — labelled so it cannot be mistaken for live customer data."
+          description="Static mock only — not live customer data."
         />
         <PortalPreview
           title="Workflow preview"
-          description="Future client and worker portal experiences will live on separate applications. This marketing site does not authenticate users or store worker documents."
+          description="Future portals will live on separate apps. This marketing site does not log users in or store worker documents."
         />
         <div className="mt-8">
-          <ButtonLink href="/contact">Book a Demo</ButtonLink>
+          <ButtonLink href="/contact">Book a demo</ButtonLink>
         </div>
       </Section>
     </>

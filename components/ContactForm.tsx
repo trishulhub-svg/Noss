@@ -136,20 +136,20 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
   if (status === "success") {
     return (
       <div
-        className="rounded-lg border border-[var(--border)] bg-[var(--surface)] p-6"
+        className="rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-sm)]"
         role="status"
       >
-        <h2 className="text-xl font-semibold text-[var(--success)]">Enquiry received</h2>
-        <p className="mt-3 text-[var(--text)]">{message}</p>
+        <h2 className="text-xl font-bold text-[var(--color-success)]">Message received</h2>
+        <p className="mt-3 text-[var(--color-foreground)]">{message}</p>
         <button
           type="button"
-          className="mt-6 text-sm font-semibold text-[var(--action-blue)] underline"
+          className="tap mt-6 cursor-pointer text-sm font-bold text-[var(--color-accent)] underline"
           onClick={() => {
             setStatus("idle");
             setMessage("");
           }}
         >
-          Submit another enquiry
+          Send another message
         </button>
       </div>
     );
@@ -159,7 +159,7 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
     <form
       onSubmit={onSubmit}
       noValidate
-      className="space-y-6 rounded-lg border border-[var(--border)] bg-white p-6 shadow-sm"
+      className="space-y-5 rounded-2xl border border-[var(--color-border)] bg-white p-5 shadow-[var(--shadow-md)] sm:p-6"
       aria-describedby={message ? `${formId}-summary` : undefined}
     >
       {message ? (
@@ -308,46 +308,46 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
       </Field>
 
       <div className="space-y-3">
-        <label className="flex items-start gap-3 text-sm text-[var(--text)]">
+        <label className="flex items-start gap-3 text-sm text-[var(--color-foreground)]">
           <input
             type="checkbox"
             name="privacyAcknowledged"
             checked={form.privacyAcknowledged}
             onChange={(e) => update("privacyAcknowledged", e.target.checked)}
-            className="mt-1"
+            className="mt-1 h-5 w-5"
             aria-invalid={Boolean(errors.privacyAcknowledged)}
           />
           <span>
-            I have read and acknowledge the{" "}
-            <Link href="/privacy" className="font-semibold text-[var(--action-blue)] underline">
+            I have read the{" "}
+            <Link href="/privacy" className="font-semibold text-[var(--color-accent)] underline">
               Privacy Notice
             </Link>{" "}
-            <span className="text-[var(--slate)]">(required)</span>
+            <span className="text-[var(--color-muted-foreground)]">(required)</span>
           </span>
         </label>
         {errors.privacyAcknowledged ? (
-          <p className="text-sm text-[var(--error)]" role="alert">
+          <p className="text-sm text-[var(--color-destructive)]" role="alert">
             {errors.privacyAcknowledged}
           </p>
         ) : null}
 
-        <label className="flex items-start gap-3 text-sm text-[var(--text)]">
+        <label className="flex items-start gap-3 text-sm text-[var(--color-foreground)]">
           <input
             type="checkbox"
             name="marketingConsent"
             checked={form.marketingConsent}
             onChange={(e) => update("marketingConsent", e.target.checked)}
-            className="mt-1"
+            className="mt-1 h-5 w-5"
           />
           <span>
-            Optional: I am happy to receive occasional NOSS service updates by
-            email. This is separate from handling this enquiry.
+            Optional: send me occasional NOSS updates by email. This is separate
+            from this message.
           </span>
         </label>
       </div>
 
-      <Button type="submit" disabled={status === "submitting"} className="w-full sm:w-auto">
-        {status === "submitting" ? "Sending enquiry…" : "Submit Enquiry"}
+      <Button type="submit" disabled={status === "submitting"} className="w-full">
+        {status === "submitting" ? "Sending…" : "Send message"}
       </Button>
     </form>
   );
@@ -368,15 +368,15 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-[var(--text)]">
+      <label htmlFor={id} className="block text-sm font-bold text-[var(--color-foreground)]">
         {label}{" "}
         {required ? (
-          <span className="font-normal text-[var(--slate)]">(required)</span>
+          <span className="font-normal text-[var(--color-muted-foreground)]">(required)</span>
         ) : null}
       </label>
       <div className="mt-2">{children}</div>
       {error ? (
-        <p id={`${id}-error`} className="mt-2 text-sm text-[var(--error)]" role="alert">
+        <p id={`${id}-error`} className="mt-2 text-sm text-[var(--color-destructive)]" role="alert">
           {error}
         </p>
       ) : null}
@@ -385,7 +385,7 @@ function Field({
 }
 
 function inputClass(error?: string) {
-  return `w-full rounded-md border bg-white px-3 py-2.5 text-[var(--text)] shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action-blue)] ${
-    error ? "border-[var(--error)]" : "border-[var(--border)]"
+  return `min-h-[44px] w-full rounded-xl border bg-white px-3 py-3 text-base text-[var(--color-foreground)] shadow-[var(--shadow-sm)] transition focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] ${
+    error ? "border-[var(--color-destructive)]" : "border-[var(--color-border)]"
   }`;
 }

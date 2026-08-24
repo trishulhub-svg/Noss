@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Menu, X } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 import { ButtonLink } from "@/components/Button";
 import { Container } from "@/components/Section";
@@ -23,35 +24,39 @@ export function Header() {
     document.addEventListener("keydown", onKey);
     const first = panelRef.current?.querySelector<HTMLElement>("a, button");
     first?.focus();
-    return () => document.removeEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-white/95 backdrop-blur">
-      <Container className="flex h-16 items-center justify-between gap-4">
+    <header className="sticky top-0 z-40 border-b border-[var(--color-border)] bg-white/95 backdrop-blur-md">
+      <Container className="flex h-16 items-center justify-between gap-3 sm:h-[4.25rem]">
         <Link
           href="/"
-          className="text-xl font-bold tracking-tight text-[var(--primary-navy)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action-blue)]"
+          className="tap inline-flex items-center text-xl font-extrabold tracking-tight text-[var(--color-primary)]"
         >
           NOSS
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
           {navLinks.map((item) =>
             "children" in item && item.children ? (
               <div key={item.label} className="relative group">
                 <Link
                   href={item.href}
-                  className="text-sm font-medium text-[var(--text)] hover:text-[var(--action-blue)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action-blue)]"
+                  className="tap inline-flex items-center rounded-lg px-3 text-sm font-semibold text-[var(--color-secondary)] hover:bg-[var(--color-muted)] hover:text-[var(--color-primary)]"
                 >
                   {item.label}
                 </Link>
-                <div className="invisible absolute left-0 top-full z-50 min-w-56 rounded-md border border-[var(--border)] bg-white p-2 opacity-0 shadow-sm transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <div className="invisible absolute left-0 top-full z-50 min-w-56 rounded-xl border border-[var(--color-border)] bg-white p-2 opacity-0 shadow-[var(--shadow-md)] transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block rounded px-3 py-2 text-sm text-[var(--text)] hover:bg-[var(--surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action-blue)]"
+                      className="block rounded-lg px-3 py-3 text-sm font-medium text-[var(--color-foreground)] hover:bg-[var(--color-muted)]"
                     >
                       {child.label}
                     </Link>
@@ -62,7 +67,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-[var(--text)] hover:text-[var(--action-blue)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action-blue)]"
+                className="tap inline-flex items-center rounded-lg px-3 text-sm font-semibold text-[var(--color-secondary)] hover:bg-[var(--color-muted)] hover:text-[var(--color-primary)]"
               >
                 {item.label}
               </Link>
@@ -70,24 +75,25 @@ export function Header() {
           )}
           <Link
             href="/login"
-            className="text-sm font-medium text-[var(--slate)] hover:text-[var(--action-blue)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action-blue)]"
+            className="tap inline-flex items-center rounded-lg px-3 text-sm font-semibold text-[var(--color-muted-foreground)] hover:bg-[var(--color-muted)]"
           >
             Login
           </Link>
-          <ButtonLink href="/contact" className="!py-2 !px-4 text-sm">
-            Book a Demo
+          <ButtonLink href="/contact" className="ml-2 !min-h-11 !px-4 !py-2.5 text-sm">
+            Book a demo
           </ButtonLink>
         </nav>
 
         <button
           ref={buttonRef}
           type="button"
-          className="inline-flex items-center justify-center rounded-md border border-[var(--border)] px-3 py-2 text-sm font-medium text-[var(--primary-navy)] lg:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--action-blue)]"
+          className="tap inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-[var(--color-border)] bg-white px-3 text-sm font-semibold text-[var(--color-primary)] lg:hidden"
           aria-expanded={open}
           aria-controls={menuId}
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? "Close menu" : "Menu"}
+          {open ? <X size={20} aria-hidden /> : <Menu size={20} aria-hidden />}
+          <span>{open ? "Close" : "Menu"}</span>
         </button>
       </Container>
 
@@ -95,16 +101,16 @@ export function Header() {
         <div
           id={menuId}
           ref={panelRef}
-          className="border-t border-[var(--border)] bg-white lg:hidden"
+          className="fixed inset-x-0 bottom-0 top-16 z-50 overflow-y-auto border-t border-[var(--color-border)] bg-white lg:hidden"
         >
-          <Container className="flex max-h-[80vh] flex-col gap-1 overflow-y-auto py-4">
+          <Container className="flex flex-col gap-1 py-4 pb-10">
             {navLinks.flatMap((item) =>
               "children" in item && item.children
                 ? item.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="rounded-md px-3 py-3 text-base font-medium text-[var(--text)] hover:bg-[var(--surface)]"
+                      className="tap rounded-xl px-4 py-3 text-lg font-semibold text-[var(--color-primary)] hover:bg-[var(--color-muted)]"
                       onClick={() => setOpen(false)}
                     >
                       {child.label}
@@ -114,7 +120,7 @@ export function Header() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="rounded-md px-3 py-3 text-base font-medium text-[var(--text)] hover:bg-[var(--surface)]"
+                      className="tap rounded-xl px-4 py-3 text-lg font-semibold text-[var(--color-primary)] hover:bg-[var(--color-muted)]"
                       onClick={() => setOpen(false)}
                     >
                       {item.label}
@@ -123,14 +129,16 @@ export function Header() {
             )}
             <Link
               href="/login"
-              className="rounded-md px-3 py-3 text-base font-medium text-[var(--text)] hover:bg-[var(--surface)]"
+              className="tap rounded-xl px-4 py-3 text-lg font-semibold text-[var(--color-secondary)] hover:bg-[var(--color-muted)]"
               onClick={() => setOpen(false)}
             >
               Login
             </Link>
-            <ButtonLink href="/contact" className="mt-2" >
-              Book a Demo
-            </ButtonLink>
+            <div className="mt-3 px-1">
+              <ButtonLink href="/contact" className="w-full" >
+                Book a demo
+              </ButtonLink>
+            </div>
           </Container>
         </div>
       ) : null}

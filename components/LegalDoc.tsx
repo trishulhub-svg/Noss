@@ -9,22 +9,23 @@ export function LegalDoc({
 }) {
   return (
     <article className="max-w-3xl">
-      <h1 className="text-4xl font-semibold tracking-tight text-[var(--primary-navy)]">
+      <h1 className="text-4xl font-extrabold tracking-tight text-[var(--color-primary)]">
         {title}
       </h1>
-      <p className="mt-3 text-sm text-[var(--slate)]">Version {version}</p>
-      <p className="mt-4 rounded-md border border-[var(--border)] bg-[var(--surface)] p-4 text-sm text-[var(--slate)]">
-        This page describes actual Phase 1 website data flows. It is not
-        professional legal advice. Final legal entity details and owner approval
-        are required before production freeze.
+      <p className="mt-3 text-sm text-[var(--color-muted-foreground)]">
+        Version {version}
+      </p>
+      <p className="mt-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-muted)]/50 p-4 text-sm text-[var(--color-muted-foreground)]">
+        This page describes how the Phase 1 website works. It is not legal advice.
+        Full company legal details will be added when the owner supplies them.
       </p>
       <div className="mt-10 space-y-8">
         {sections.map((section) => (
           <section key={section.heading}>
-            <h2 className="text-xl font-semibold text-[var(--primary-navy)]">
+            <h2 className="text-xl font-bold text-[var(--color-primary)]">
               {section.heading}
             </h2>
-            <div className="mt-3 space-y-3 text-[var(--text)]">
+            <div className="mt-3 space-y-3 text-[var(--color-foreground)]">
               {section.body.map((p) => (
                 <p key={p.slice(0, 40)}>{p}</p>
               ))}

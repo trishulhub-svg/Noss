@@ -1,28 +1,57 @@
 @import "tailwindcss";
 
 :root {
-  --primary-navy: #102a43;
-  --action-blue: #2563eb;
-  --compliance-teal: #0f766e;
-  --slate: #486581;
-  --surface: #f5f8fb;
-  --border: #cbd5e1;
-  --text: #1f2937;
+  --color-primary: #0f172a;
+  --color-on-primary: #ffffff;
+  --color-secondary: #334155;
+  --color-accent: #0369a1;
+  --color-on-accent: #ffffff;
+  --color-background: #f8fafc;
+  --color-foreground: #020617;
+  --color-card: #ffffff;
+  --color-muted: #e8ecf1;
+  --color-muted-foreground: #475569;
+  --color-border: #e2e8f0;
+  --color-destructive: #dc2626;
+  --color-success: #067647;
+  --color-verified: #0f766e;
+  --color-ring: #0f172a;
+
+  /* legacy aliases used across components */
+  --primary-navy: var(--color-primary);
+  --action-blue: var(--color-accent);
+  --compliance-teal: var(--color-verified);
+  --slate: var(--color-muted-foreground);
+  --surface: var(--color-background);
+  --border: var(--color-border);
+  --text: var(--color-foreground);
   --white: #ffffff;
-  --error: #b42318;
-  --success: #067647;
-  --background: var(--white);
-  --foreground: var(--text);
+  --error: var(--color-destructive);
+  --success: var(--color-success);
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+  --radius: 0.75rem;
+  --touch: 2.75rem; /* 44px */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --font-sans: var(--font-jakarta);
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -37,20 +66,26 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
+  touch-action: manipulation;
+  overscroll-behavior-y: contain;
 }
 
 :focus-visible {
-  outline: 2px solid var(--action-blue);
-  outline-offset: 2px;
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .sr-only {
@@ -74,4 +109,25 @@ body {
   overflow: visible;
   clip: auto;
   white-space: normal;
+}
+
+/* Subtle enter animation — final state visible without JS */
+.reveal {
+  animation: reveal-up 0.4s ease-out both;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tap {
+  min-height: var(--touch);
+  min-width: var(--touch);
 }

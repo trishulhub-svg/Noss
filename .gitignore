@@ -44,4 +44,8 @@ next-env.d.ts
 .turbo
 .vscode
 .idea
-.cursor
+
+# keep UI skill in repo
+.cursor/*
+!.cursor/skills/
+!.cursor/skills/**
