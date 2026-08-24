@@ -132,21 +132,28 @@ export default function HomePage() {
       {/* LAYER 3 — white foreground */}
       <div className="relative z-20 -mt-2 rounded-t-[28px] bg-white shadow-[0_-20px_40px_rgba(0,0,0,0.02)] sm:rounded-t-[40px]">
         <div className="mx-auto max-w-[1600px] px-4 py-12 sm:px-6 sm:py-16 lg:px-10 lg:py-20">
-          {/* Stats — qualitative, no fake revenue */}
-          <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[24px] border border-[var(--color-border)] bg-[var(--color-border)] sm:rounded-[28px] lg:grid-cols-4">
-            {[
-              { value: "UK", label: "Focused on UK checks" },
-              { value: "2", label: "Clear service areas" },
-              { value: "5", label: "Simple process steps" },
-              { value: "1", label: "Place for progress" },
-            ].map((stat) => (
-              <div key={stat.label} className="bg-neutral-50 p-5 sm:p-8">
-                <p className="font-[family-name:var(--font-display)] text-3xl font-extrabold tracking-tight text-[var(--color-navy)] sm:text-4xl">
-                  {stat.value}
-                </p>
-                <p className="mt-2 text-sm text-[var(--color-muted-text)]">{stat.label}</p>
-              </div>
-            ))}
+          {/* Highlight strip */}
+          <div className="rounded-[24px] border border-[var(--color-border)] bg-[var(--color-navy)] px-4 py-6 text-white sm:rounded-[28px] sm:px-6 sm:py-7 lg:px-8">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+              {[
+                { value: "UK", label: "Focused on UK checks" },
+                { value: "2", label: "Clear service areas" },
+                { value: "5", label: "Simple process steps" },
+                { value: "1", label: "Place for progress" },
+              ].map((stat, index) => (
+                <div
+                  key={stat.label}
+                  className={`flex items-center gap-4 sm:px-4 lg:px-6 ${
+                    index > 0 ? "lg:border-l lg:border-white/15" : ""
+                  }`}
+                >
+                  <p className="font-[family-name:var(--font-display)] text-3xl font-extrabold tracking-tight sm:text-4xl">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm leading-snug text-white/70">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Bento services — past layout, clearer info inside */}

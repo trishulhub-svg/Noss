@@ -31,10 +31,10 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5">
       <div className="glass-panel">
-        <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-3 px-4 sm:h-[4.25rem] sm:px-6 lg:px-10">
+        <div className="relative mx-auto grid h-16 max-w-[1600px] grid-cols-[1fr_auto] items-center gap-3 px-4 sm:h-[4.25rem] sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-10">
           <Link
             href="/"
-            className="tap inline-flex items-center gap-2 text-xl font-bold tracking-tight text-[var(--color-navy)]"
+            className="tap inline-flex items-center gap-2 justify-self-start text-xl font-bold tracking-tight text-[var(--color-navy)]"
           >
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--color-navy)] text-sm font-bold text-white">
               N
@@ -44,7 +44,10 @@ export function Header() {
             </span>
           </Link>
 
-          <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+          <nav
+            aria-label="Primary"
+            className="hidden items-center justify-center gap-0.5 lg:flex"
+          >
             {navLinks.map((item) =>
               "children" in item && item.children ? (
                 <div key={item.label} className="group relative">
@@ -54,7 +57,7 @@ export function Header() {
                   >
                     {item.label}
                   </Link>
-                  <div className="invisible absolute left-0 top-full z-50 min-w-56 rounded-xl border border-[var(--color-border)] bg-white/95 p-2 opacity-0 shadow-[var(--shadow-card)] backdrop-blur-md transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                  <div className="invisible absolute left-1/2 top-full z-50 min-w-56 -translate-x-1/2 rounded-xl border border-[var(--color-border)] bg-white/95 p-2 opacity-0 shadow-[var(--shadow-card)] backdrop-blur-md transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                     {item.children.map((child) => (
                       <Link
                         key={child.href}
@@ -76,6 +79,9 @@ export function Header() {
                 </Link>
               ),
             )}
+          </nav>
+
+          <div className="hidden items-center justify-self-end gap-2 lg:flex">
             <Link
               href="/login"
               className="tap inline-flex items-center rounded-lg px-3 text-sm font-semibold text-[var(--color-muted-text)] hover:bg-black/5"
@@ -84,7 +90,7 @@ export function Header() {
             </Link>
             <Link
               href="/contact"
-              className="group ml-2 inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full bg-[var(--color-navy)] px-5 text-sm font-semibold text-white transition hover:bg-[#0b1c2d]"
+              className="group inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-full bg-[var(--color-navy)] px-5 text-sm font-semibold text-white transition hover:bg-[#0b1c2d]"
             >
               Book a demo
               <ArrowRight
@@ -93,12 +99,12 @@ export function Header() {
                 aria-hidden
               />
             </Link>
-          </nav>
+          </div>
 
           <button
             ref={buttonRef}
             type="button"
-            className="tap inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-[var(--color-border)] bg-white/80 px-3 text-sm font-semibold text-[var(--color-navy)] lg:hidden"
+            className="tap inline-flex cursor-pointer items-center justify-center gap-2 justify-self-end rounded-xl border border-[var(--color-border)] bg-white/80 px-3 text-sm font-semibold text-[var(--color-navy)] lg:hidden"
             aria-expanded={open}
             aria-controls={menuId}
             onClick={() => setOpen((v) => !v)}

@@ -1,5 +1,5 @@
-import { ButtonLink } from "@/components/Button";
-import { PageHero, Section } from "@/components/Section";
+import { FeatureList } from "@/components/Cards";
+import { PageHero, Section, SectionHeading } from "@/components/Section";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
@@ -18,28 +18,34 @@ export default function AboutPage() {
         description="NOSS is a UK compliance company and agency. We help small recruitment agencies and small/medium companies manage worker and business checks through one controlled service."
       />
       <Section tone="surface">
-        <div className="card-lift bg-white p-6 sm:p-8">
-          <h2 className="text-2xl font-bold text-[var(--color-navy)]">Our approach</h2>
-          <div className="mt-5 max-w-2xl space-y-4 text-[var(--color-muted-text)]">
-            <p>
-              Tools help with workflow and reminders. People stay accountable — especially when
-              important results need a trained review.
-            </p>
-            <p>
-              Some checks use official or certified routes. We do not claim to be government
-              approved or fully automatic.
-            </p>
-            <p>
-              Founder and company history details will be added only when the NOSS owner supplies
-              approved facts.
-            </p>
-          </div>
-          <div className="mt-8">
-            <ButtonLink href="/contact" variant="secondary">
-              Contact us
-            </ButtonLink>
-          </div>
-        </div>
+        <SectionHeading
+          title="Our approach"
+          description="Built for trust and clear ownership — not hype."
+        />
+        <FeatureList
+          items={[
+            {
+              title: "People lead",
+              description:
+                "Trained review stays central when important results need a person to decide.",
+            },
+            {
+              title: "Tools help",
+              description:
+                "Workflow and reminders cut chasing so missing items show up earlier.",
+            },
+            {
+              title: "Official routes stay official",
+              description:
+                "Some checks use certified or GOV.UK routes. We do not claim to be government approved or fully automatic.",
+            },
+            {
+              title: "Facts, not filler",
+              description:
+                "Founder and company history details will be added only when the NOSS owner supplies approved facts.",
+            },
+          ]}
+        />
       </Section>
     </>
   );

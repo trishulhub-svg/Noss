@@ -33,7 +33,7 @@ const groups: FooterGroup[] = [
     ],
   },
   {
-    title: "Legal & contact",
+    title: "Legal",
     links: [
       ...footerLegalLinks.map((l) => ({ label: l.label, href: l.href })),
       { label: "Login", href: "/login" },
@@ -46,81 +46,84 @@ export function Footer() {
 
   return (
     <footer className="bg-[var(--color-navy)] text-white">
-      <Container className="grid gap-8 py-10 sm:gap-10 sm:py-14 lg:grid-cols-4">
-        <div>
-          <p className="inline-flex items-center gap-2 text-2xl font-bold">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-sm font-bold">
+      <Container className="grid gap-6 py-6 sm:grid-cols-2 sm:gap-6 sm:py-8 lg:grid-cols-4 lg:items-start">
+        <div className="sm:col-span-2 lg:col-span-1">
+          <p className="inline-flex items-center gap-2 text-lg font-bold">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 text-xs font-bold">
               N
             </span>
             NOSS
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-white/75">
-            We help UK agencies and employers keep worker and business checks
-            organised, clear and ready for audit.
+          <p className="mt-2 max-w-xs text-xs leading-relaxed text-white/65">
+            UK worker and business checks, kept organised.
           </p>
-          <div className="mt-5">
+          <div className="mt-3">
             <ButtonLink
               href="/contact"
-              className="!border-white !bg-white !text-[var(--color-navy)] hover:!bg-[var(--color-surface)]"
+              className="!min-h-10 !border-white !bg-white !px-4 !py-2 !text-sm !text-[var(--color-navy)] hover:!bg-[var(--color-surface)]"
             >
               Book a demo
             </ButtonLink>
           </div>
         </div>
 
-        {/* Desktop columns */}
         {groups.map((group) => (
           <div key={group.title} className="hidden sm:block">
-            <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-white/55">
+            <h2 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/50">
               {group.title}
             </h2>
-            <ul className="mt-4 space-y-1 text-sm">
+            <ul className="mt-2 space-y-0.5 text-sm">
               {group.links.map((link) => (
                 <li key={link.href}>
-                  <Link className="tap inline-flex items-center hover:underline" href={link.href}>
+                  <Link
+                    className="inline-flex min-h-8 items-center hover:underline"
+                    href={link.href}
+                  >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            {group.title === "Legal & contact" ? (
-              <div className="mt-5">
+            {group.title === "Legal" ? (
+              <div className="mt-3 [&_ul]:space-y-1 [&_li]:text-xs">
                 <ContactChannels tone="dark" />
               </div>
             ) : null}
           </div>
         ))}
 
-        {/* Mobile accordion */}
-        <div className="space-y-2 sm:hidden">
+        <div className="space-y-1.5 sm:hidden">
           {groups.map((group) => {
             const isOpen = open === group.title;
             return (
-              <div key={group.title} className="rounded-xl border border-white/10">
+              <div key={group.title} className="rounded-lg border border-white/10">
                 <button
                   type="button"
-                  className="tap flex w-full cursor-pointer items-center justify-between px-4 py-3 text-left text-sm font-semibold"
+                  className="flex min-h-10 w-full cursor-pointer items-center justify-between px-3 py-2 text-left text-sm font-semibold"
                   aria-expanded={isOpen}
                   onClick={() => setOpen(isOpen ? null : group.title)}
                 >
                   {group.title}
                   <ChevronDown
-                    size={18}
+                    size={16}
                     className={`transition ${isOpen ? "rotate-180" : ""}`}
                     aria-hidden
                   />
                 </button>
                 {isOpen ? (
-                  <ul className="space-y-1 border-t border-white/10 px-4 py-3 text-sm">
+                  <ul className="space-y-0.5 border-t border-white/10 px-3 py-2 text-sm">
                     {group.links.map((link) => (
                       <li key={link.href}>
-                        <Link className="tap inline-flex items-center py-1 hover:underline" href={link.href}>
+                        <Link
+                          className="inline-flex min-h-8 items-center py-0.5 hover:underline"
+                          href={link.href}
+                        >
                           {link.label}
                         </Link>
                       </li>
                     ))}
-                    {group.title === "Legal & contact" ? (
-                      <li className="pt-3">
+                    {group.title === "Legal" ? (
+                      <li className="pt-2 text-xs">
                         <ContactChannels tone="dark" />
                       </li>
                     ) : null}
@@ -132,7 +135,7 @@ export function Footer() {
         </div>
       </Container>
       <div className="border-t border-white/10">
-        <Container className="py-5 text-xs text-white/45">
+        <Container className="py-3 text-[11px] text-white/40">
           © {new Date().getFullYear()} NOSS · United Kingdom
         </Container>
       </div>
