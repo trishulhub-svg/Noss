@@ -1,5 +1,5 @@
-import { ButtonLink } from "@/components/Button";
-import { ContactChannels } from "@/components/ContactChannels";
+import Link from "next/link";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { TitleWithUnderline } from "@/components/DrawUnderline";
 import { Section } from "@/components/Section";
@@ -14,6 +14,10 @@ export const metadata = createPageMetadata({
 });
 
 export default function ContactPage() {
+  const phone = siteConfig.supportPhone;
+  const whatsapp = siteConfig.supportWhatsApp;
+  const email = siteConfig.leadEmail;
+
   return (
     <>
       <Section className="!pb-6 !pt-8 sm:!pb-8 sm:!pt-12">
@@ -36,26 +40,62 @@ export default function ContactPage() {
           <aside className="card-lift p-5 sm:p-6">
             <h2 className="text-lg font-bold text-[var(--color-navy)]">Prefer to talk now?</h2>
             <p className="mt-2 text-sm text-[var(--color-muted-text)]">
-              Call or WhatsApp{" "}
-              <strong className="text-[var(--color-navy)]">{siteConfig.supportPhone}</strong>.
+              Reach us by call, WhatsApp or email — we usually reply within one working day.
             </p>
-            <div className="mt-4">
-              <ContactChannels />
-            </div>
-            <div className="mt-5 flex flex-row flex-wrap gap-2">
-              <ButtonLink
-                href={`tel:+${phoneDigits(siteConfig.supportPhone)}`}
-                className="!min-h-11 !px-4 !text-sm"
+
+            <div className="mt-5 space-y-3">
+              <Link
+                href={`tel:+${phoneDigits(phone)}`}
+                className="group flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 transition hover:border-[var(--color-navy)]/30 hover:bg-[var(--color-blue-soft)]"
               >
-                Call now
-              </ButtonLink>
-              <ButtonLink
-                href={`https://wa.me/${phoneDigits(siteConfig.supportWhatsApp)}`}
-                variant="secondary"
-                className="!min-h-11 !px-4 !text-sm"
+                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy)] text-white">
+                  <Phone size={18} aria-hidden />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-xs font-semibold uppercase tracking-wide text-[var(--color-muted-text)]">
+                    Call
+                  </span>
+                  <span className="block truncate text-sm font-semibold text-[var(--color-navy)]">
+                    {phone}
+                  </span>
+                </span>
+              </Link>
+
+              <Link
+                href={`https://wa.me/${phoneDigits(whatsapp)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 transition hover:border-[var(--color-navy)]/30 hover:bg-[var(--color-blue-soft)]"
               >
-                WhatsApp
-              </ButtonLink>
+                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy)] text-white">
+                  <MessageCircle size={18} aria-hidden />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-xs font-semibold uppercase tracking-wide text-[var(--color-muted-text)]">
+                    WhatsApp
+                  </span>
+                  <span className="block truncate text-sm font-semibold text-[var(--color-navy)]">
+                    {whatsapp}
+                  </span>
+                </span>
+              </Link>
+
+              <Link
+                href={`mailto:${email}`}
+                className="group flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 transition hover:border-[var(--color-navy)]/30 hover:bg-[var(--color-blue-soft)]"
+              >
+                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy)] text-white">
+                  <Mail size={18} aria-hidden />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-xs font-semibold uppercase tracking-wide text-[var(--color-muted-text)]">
+                    Email
+                  </span>
+                  <span className="block truncate text-sm font-semibold text-[var(--color-navy)]">
+                    {email}
+                  </span>
+                </span>
+              </Link>
             </div>
           </aside>
 

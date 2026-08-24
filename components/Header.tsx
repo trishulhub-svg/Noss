@@ -58,8 +58,8 @@ export function Header() {
     }`;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5">
-      <div className="glass-panel">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--color-border)] bg-white">
+      <div>
         <div className="relative mx-auto grid h-14 max-w-[1600px] grid-cols-[1fr_auto] items-center gap-3 px-4 sm:h-16 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-10">
           <Link
             href="/"

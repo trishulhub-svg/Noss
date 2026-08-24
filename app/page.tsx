@@ -378,7 +378,7 @@ export default function HomePage() {
 
           {/* Dark dashboard preview */}
           <div className="mt-8 sm:mt-14">
-            <div className="overflow-hidden rounded-2xl bg-stone-900 p-4 shadow-[0_30px_60px_rgba(24,24,27,0.25)] sm:rounded-[32px] sm:p-8 lg:p-10">
+            <div className="overflow-hidden rounded-2xl bg-[var(--color-navy)] p-4 shadow-[0_30px_60px_rgba(16,42,67,0.28)] sm:rounded-[32px] sm:p-8 lg:p-10">
               <div className="mb-4 flex flex-col gap-2 sm:mb-6 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/45">
@@ -409,7 +409,7 @@ export default function HomePage() {
                       return (
                         <div
                           key={item.label}
-                          className="rounded-xl border border-white/10 bg-stone-950/40 p-4"
+                          className="rounded-xl border border-white/10 bg-[#0b1c2d]/55 p-4"
                         >
                           <div className="flex items-center justify-between">
                             <p className="text-[11px] uppercase tracking-wide text-white/45">
