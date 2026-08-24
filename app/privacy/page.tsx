@@ -28,7 +28,7 @@ export default function PrivacyPage() {
             heading: "Contact for privacy queries",
             body: [
               "Email: info@trishulhub.in",
-              "Public phone/WhatsApp details will be added when owner-approved values are available.",
+              "Phone / WhatsApp: +91 966210793",
             ],
           },
           {

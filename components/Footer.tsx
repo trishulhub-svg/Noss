@@ -1,13 +1,10 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
+import { ContactChannels } from "@/components/ContactChannels";
 import { Container } from "@/components/Section";
 import { footerLegalLinks, navLinks } from "@/lib/site";
 
 export function Footer() {
-  const supportEmail =
-    process.env.NEXT_PUBLIC_SUPPORT_EMAIL || "info@trishulhub.in";
-  const supportPhone = process.env.NEXT_PUBLIC_SUPPORT_PHONE || "";
-  const supportWhatsApp = process.env.NEXT_PUBLIC_SUPPORT_WHATSAPP || "";
 
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--primary-navy)] text-white">
@@ -100,20 +97,8 @@ export function Footer() {
               </Link>
             </li>
           </ul>
-          <div className="mt-6 space-y-1 text-sm text-white/80">
-            <p>
-              Email:{" "}
-              <a className="underline" href={`mailto:${supportEmail}`}>
-                {supportEmail}
-              </a>
-            </p>
-            {supportPhone ? <p>Phone: {supportPhone}</p> : null}
-            {supportWhatsApp ? <p>WhatsApp: {supportWhatsApp}</p> : null}
-            {!supportPhone && !supportWhatsApp ? (
-              <p className="text-white/60">
-                Mobile and WhatsApp details will be published once owner-approved.
-              </p>
-            ) : null}
+          <div className="mt-6">
+            <ContactChannels tone="dark" />
           </div>
         </div>
       </Container>

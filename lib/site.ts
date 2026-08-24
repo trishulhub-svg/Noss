@@ -18,12 +18,20 @@ export const colors = {
 export const siteConfig = {
   name: "NOSS",
   legalNamePending: true,
-  domain: "noss.co.uk",
+  /** Phase 1 live host until noss.co.uk DNS is cut over */
+  domain: "noss.vercel.app",
   leadEmail: "info@trishulhub.in",
+  supportPhone: process.env.NEXT_PUBLIC_SUPPORT_PHONE || "+91 966210793",
+  supportWhatsApp: process.env.NEXT_PUBLIC_SUPPORT_WHATSAPP || "+91 966210793",
   description:
     "NOSS helps UK recruitment agencies and employers organise worker checks, business documents, follow-up and compliance progress through one managed service.",
   privacyNoticeVersion: process.env.PRIVACY_NOTICE_VERSION || "2026-08-24",
 } as const;
+
+/** Digits-only for tel: and wa.me links */
+export function phoneDigits(value: string): string {
+  return value.replace(/[^\d+]/g, "").replace(/^\+/, "");
+}
 
 export const navLinks = [
   {

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     path: "/",
   }),
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://noss.co.uk"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://noss.vercel.app"),
   icons: { icon: "/favicon.ico" },
 };
 

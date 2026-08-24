@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://noss.co.uk";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://noss.vercel.app";
 const siteEnv = process.env.NEXT_PUBLIC_SITE_ENV || "development";
 
 export function absoluteUrl(path = "/"): string {

@@ -16,12 +16,10 @@
 
 | ID | Item | Status |
 |----|------|--------|
-| O-01 | Legal entity details | Not supplied — legal pages state this explicitly |
-| O-02 | Public phone / WhatsApp | Env placeholders only |
-| O-03 | noss.co.uk DNS access | Not confirmed in this environment |
-| O-04 | Owner approval of compliance/legal wording | Pending |
-| O-05 | Launch date confirmation | Assumed 30 Aug 2026 |
-| Email | SMTP or Resend credentials | Missing — leads store in Turso; notification marked failed for retry |
+| O-01 | Legal entity details | Still pending — not invented |
+| O-02 | Public phone / WhatsApp | **Set:** +91 966210793 |
+| O-03 | Production host | **Using** https://noss.vercel.app (noss.co.uk later) |
+| Email/SMTP | Deferred to Phase 2 per owner | Leads still stored in Turso |
 | Vercel plan | Commercial-eligible plan | Token sees project `noss`; plan tier not verified here |
 | Gate 1–4 | Owner sign-off | Pending human approval |
 

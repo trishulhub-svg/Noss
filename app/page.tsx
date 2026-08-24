@@ -252,7 +252,7 @@ export default function HomePage() {
             {
               question: "How do I get support?",
               answer:
-                "Use the contact form or email info@trishulhub.in. Public phone and WhatsApp details will be published once owner-approved.",
+                "Use the contact form, email info@trishulhub.in, or call / WhatsApp +91 966210793.",
             },
           ]}
         />

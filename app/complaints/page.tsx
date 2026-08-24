@@ -19,8 +19,8 @@ export default function ComplaintsPage() {
             heading: "How to contact us",
             body: [
               "Email: info@trishulhub.in",
+              "Phone / WhatsApp: +91 966210793",
               "You can also use the Book a Demo / Contact form for general enquiries.",
-              "Public mobile and WhatsApp numbers will be published when owner-approved values are available.",
             ],
           },
           {
