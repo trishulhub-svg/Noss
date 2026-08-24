@@ -9,6 +9,7 @@ describe("phase1 content baseline", () => {
     );
     expect(hrefs).toEqual(
       expect.arrayContaining([
+        "/",
         "/workforce-compliance",
         "/business-compliance",
         "/industries/recruitment-agencies",

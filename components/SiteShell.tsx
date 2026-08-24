@@ -20,7 +20,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
       {/* LAYER 1 — fixed glass header */}
       <Header />
 
-      <main id="main-content" className="relative z-10 flex-1 pt-16 sm:pt-[4.25rem]">
+      <main id="main-content" className="relative z-10 flex-1 pt-14 sm:pt-16">
         {children}
       </main>
 

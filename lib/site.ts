@@ -46,6 +46,7 @@ export function phoneDigits(value: string): string {
 }
 
 export const navLinks = [
+  { label: "Home", href: "/" },
   {
     label: "Services",
     href: "/workforce-compliance",

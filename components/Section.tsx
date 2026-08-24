@@ -2,6 +2,7 @@ import { type ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
+import { TitleWithUnderline } from "@/components/DrawUnderline";
 
 export function Container({
   children,
@@ -36,7 +37,7 @@ export function Section({
         : "bg-white";
 
   return (
-    <section id={id} className={`py-12 sm:py-16 lg:py-20 ${toneClass} ${className}`}>
+    <section id={id} className={`py-8 sm:py-12 lg:py-16 ${toneClass} ${className}`}>
       <Container>{children}</Container>
     </section>
   );
@@ -51,19 +52,20 @@ export function SectionHeading({
   title: string;
   description?: string;
   align?: "left" | "center";
-  /** Kept for call-site compatibility — paint markers are disabled site-wide */
   useMarker?: boolean;
 }) {
   void _useMarker;
   return (
     <div
-      className={`mb-8 max-w-3xl reveal ${align === "center" ? "mx-auto text-center" : ""}`}
+      className={`mb-5 max-w-3xl reveal sm:mb-8 ${align === "center" ? "mx-auto text-center" : ""}`}
     >
-      <h2 className="text-balance text-3xl font-bold tracking-tight text-[var(--color-navy)] sm:text-4xl">
-        {title}
+      <h2 className="font-[family-name:var(--font-display)] text-balance text-2xl font-bold tracking-tight text-[var(--color-navy)] sm:text-3xl lg:text-4xl">
+        <TitleWithUnderline title={title} />
       </h2>
       {description ? (
-        <p className="mt-4 text-lg text-[var(--color-muted-text)]">{description}</p>
+        <p className="mt-3 text-base text-[var(--color-muted-text)] sm:mt-4 sm:text-lg">
+          {description}
+        </p>
       ) : null}
     </div>
   );
@@ -80,28 +82,27 @@ export function PageHero({
   title: string;
   description: string;
   actions?: ReactNode;
-  /** Always show Book a demo in the hero unless false */
   showDemo?: boolean;
 }) {
   return (
-    <Section className="!pb-8 !pt-10 sm:!pt-14">
+    <Section className="!pb-6 !pt-8 sm:!pb-8 sm:!pt-12">
       <div className="reveal max-w-3xl">
         {marker ? (
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-muted-text)]">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-muted-text)] sm:mb-3 sm:text-sm">
             {marker}
           </p>
         ) : null}
-        <h1 className="font-[family-name:var(--font-display)] text-balance text-4xl font-bold tracking-tight text-[var(--color-navy)] sm:text-5xl">
-          {title}
+        <h1 className="font-[family-name:var(--font-display)] text-balance text-3xl font-bold tracking-tight text-[var(--color-navy)] sm:text-4xl lg:text-5xl">
+          <TitleWithUnderline title={title} />
         </h1>
-        <p className="mt-4 text-lg text-[var(--color-muted-text)] sm:text-xl">
+        <p className="mt-3 text-base text-[var(--color-muted-text)] sm:mt-4 sm:text-lg lg:text-xl">
           {description}
         </p>
-        <div className="mt-7 flex flex-wrap gap-3">
+        <div className="mt-5 flex flex-row flex-wrap items-center gap-2 sm:mt-7 sm:gap-3">
           {showDemo ? (
-            <ButtonLink href="/contact">
+            <ButtonLink href="/contact" className="!min-h-11 !px-4 !text-sm sm:!min-h-12 sm:!px-6 sm:!text-base">
               Book a demo
-              <ArrowRight size={18} aria-hidden />
+              <ArrowRight size={16} aria-hidden />
             </ButtonLink>
           ) : null}
           {actions}
@@ -111,12 +112,17 @@ export function PageHero({
   );
 }
 
-/** Compact page CTA used below content when needed */
-export function PageCtaLink({ href = "/contact", label = "Book a demo" }: { href?: string; label?: string }) {
+export function PageCtaLink({
+  href = "/contact",
+  label = "Book a demo",
+}: {
+  href?: string;
+  label?: string;
+}) {
   return (
     <Link
       href={href}
-      className="inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-full bg-[var(--color-navy)] px-6 text-sm font-semibold text-white"
+      className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-full bg-[var(--color-navy)] px-5 text-sm font-semibold text-white sm:min-h-12 sm:px-6"
     >
       {label}
       <ArrowRight size={16} aria-hidden />
