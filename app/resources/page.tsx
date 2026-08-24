@@ -15,26 +15,28 @@ export default function ResourcesPage() {
   return (
     <>
       <PageHero
+        marker="Help"
         title="Help & resources"
         description="Short guides in plain English. Always check official sources for rules that can change."
       />
-
       <Section tone="surface" className="!pt-0">
-        <SectionHeading title="Starter guides" />
+        <SectionHeading title="Starter guides" useMarker />
         <ul className="grid gap-4 md:grid-cols-2">
-          {resources.map((article) => (
+          {resources.map((article, index) => (
             <li key={article.slug}>
               <Link
                 href={`/resources/${article.slug}`}
-                className="flex h-full cursor-pointer flex-col rounded-2xl border border-[var(--color-border)] bg-white p-5 shadow-[var(--shadow-sm)] transition hover:border-[var(--color-accent)] hover:shadow-[var(--shadow-md)]"
+                className={`card-lift flex h-full cursor-pointer flex-col p-5 transition hover:-translate-y-0.5 ${
+                  index % 2
+                    ? "bg-[var(--color-black)] text-white"
+                    : "bg-white text-[var(--color-black)]"
+                }`}
               >
-                <h2 className="text-lg font-bold text-[var(--color-primary)]">
-                  {article.title}
-                </h2>
-                <p className="mt-2 flex-1 text-sm text-[var(--color-muted-foreground)]">
+                <h2 className="text-lg font-extrabold">{article.title}</h2>
+                <p className={`mt-2 flex-1 text-sm ${index % 2 ? "text-white/70" : "text-[var(--color-muted-text)]"}`}>
                   {article.description}
                 </p>
-                <p className="mt-4 text-xs text-[var(--color-muted-foreground)]">
+                <p className={`mt-4 text-xs ${index % 2 ? "text-[var(--color-lime)]" : "text-[var(--color-muted-text)]"}`}>
                   Reviewed {article.reviewedAt}
                 </p>
               </Link>
@@ -42,7 +44,7 @@ export default function ResourcesPage() {
           ))}
         </ul>
         <div className="mt-10">
-          <ButtonLink href="/contact">Book a demo</ButtonLink>
+          <ButtonLink href="/contact" variant="lime">Book a demo</ButtonLink>
         </div>
       </Section>
     </>

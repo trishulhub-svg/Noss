@@ -7,7 +7,7 @@ export type FaqItem = { question: string; answer: ReactNode };
 
 export function FaqList({ items }: { items: FaqItem[] }) {
   return (
-    <div className="divide-y divide-[var(--color-border)] overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-[var(--shadow-sm)]">
+    <div className="card-lift divide-y divide-[var(--color-black)] overflow-hidden bg-white">
       {items.map((item) => (
         <FaqRow key={item.question} item={item} />
       ))}
@@ -24,21 +24,23 @@ function FaqRow({ item }: { item: FaqItem }) {
       <h3>
         <button
           type="button"
-          className="tap flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left text-base font-bold text-[var(--color-primary)]"
+          className="tap flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left text-base font-extrabold text-[var(--color-black)]"
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen((v) => !v)}
         >
           <span>{item.question}</span>
-          <ChevronDown
-            size={20}
-            aria-hidden
-            className={`shrink-0 text-[var(--color-muted-foreground)] transition ${open ? "rotate-180" : ""}`}
-          />
+          <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[var(--color-black)] bg-[var(--color-lime)]">
+            <ChevronDown
+              size={18}
+              aria-hidden
+              className={`transition ${open ? "rotate-180" : ""}`}
+            />
+          </span>
         </button>
       </h3>
       {open ? (
-        <div id={panelId} className="px-5 pb-5 text-[var(--color-muted-foreground)]">
+        <div id={panelId} className="px-5 pb-5 text-[var(--color-muted-text)]">
           {item.answer}
         </div>
       ) : null}

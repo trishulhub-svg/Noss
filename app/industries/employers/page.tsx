@@ -14,32 +14,19 @@ export default function EmployersPage() {
   return (
     <>
       <PageHero
-        eyebrow="Who we help"
+        marker="Who we help"
         title="Clear ownership for new starters and renewals"
         description="Employer teams often struggle with new-starter checks, renewals and unclear ownership. NOSS helps with follow-up and organised records."
-        actions={<ButtonLink href="/contact">Book a demo</ButtonLink>}
+        actions={<ButtonLink href="/contact" variant="lime">Book a demo</ButtonLink>}
       />
-
       <Section tone="surface">
-        <SectionHeading title="What employers get" />
+        <SectionHeading title="What employers get" useMarker />
         <FeatureList
           items={[
-            {
-              title: "New-starter checks",
-              description: "A clearer path for onboarding evidence requests.",
-            },
-            {
-              title: "Ongoing renewals",
-              description: "Help spotting renewals and re-checks earlier.",
-            },
-            {
-              title: "Evidence records",
-              description: "Easier to find papers when managers or audits ask.",
-            },
-            {
-              title: "NOSS follow-up",
-              description: "Less time spent chasing missing items by email.",
-            },
+            { title: "New-starter checks", description: "A clearer path for onboarding evidence requests." },
+            { title: "Ongoing renewals", description: "Help spotting renewals and re-checks earlier." },
+            { title: "Evidence records", description: "Easier to find papers when managers or audits ask." },
+            { title: "NOSS follow-up", description: "Less time spent chasing missing items by email." },
           ]}
         />
         <div className="mt-8">

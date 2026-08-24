@@ -135,15 +135,12 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
 
   if (status === "success") {
     return (
-      <div
-        className="rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-[var(--shadow-sm)]"
-        role="status"
-      >
-        <h2 className="text-xl font-bold text-[var(--color-success)]">Message received</h2>
-        <p className="mt-3 text-[var(--color-foreground)]">{message}</p>
+      <div className="card-lift bg-[var(--color-lime)] p-6" role="status">
+        <h2 className="text-xl font-extrabold text-[var(--color-black)]">Message received</h2>
+        <p className="mt-3 text-[var(--color-black)]/80">{message}</p>
         <button
           type="button"
-          className="tap mt-6 cursor-pointer text-sm font-bold text-[var(--color-accent)] underline"
+          className="tap mt-6 cursor-pointer text-sm font-extrabold text-[var(--color-black)] underline"
           onClick={() => {
             setStatus("idle");
             setMessage("");
@@ -159,7 +156,7 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
     <form
       onSubmit={onSubmit}
       noValidate
-      className="space-y-5 rounded-2xl border border-[var(--color-border)] bg-white p-5 shadow-[var(--shadow-md)] sm:p-6"
+      className="card-lift space-y-5 bg-white p-5 sm:p-6"
       aria-describedby={message ? `${formId}-summary` : undefined}
     >
       {message ? (
@@ -308,7 +305,7 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
       </Field>
 
       <div className="space-y-3">
-        <label className="flex items-start gap-3 text-sm text-[var(--color-foreground)]">
+        <label className="flex items-start gap-3 text-sm text-[var(--color-black)]">
           <input
             type="checkbox"
             name="privacyAcknowledged"
@@ -319,10 +316,10 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
           />
           <span>
             I have read the{" "}
-            <Link href="/privacy" className="font-semibold text-[var(--color-accent)] underline">
+            <Link href="/privacy" className="font-bold underline">
               Privacy Notice
             </Link>{" "}
-            <span className="text-[var(--color-muted-foreground)]">(required)</span>
+            <span className="text-[var(--color-muted-text)]">(required)</span>
           </span>
         </label>
         {errors.privacyAcknowledged ? (
@@ -331,7 +328,7 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
           </p>
         ) : null}
 
-        <label className="flex items-start gap-3 text-sm text-[var(--color-foreground)]">
+        <label className="flex items-start gap-3 text-sm text-[var(--color-black)]">
           <input
             type="checkbox"
             name="marketingConsent"
@@ -346,7 +343,7 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
         </label>
       </div>
 
-      <Button type="submit" disabled={status === "submitting"} className="w-full">
+      <Button type="submit" disabled={status === "submitting"} className="w-full" variant="lime">
         {status === "submitting" ? "Sending…" : "Send message"}
       </Button>
     </form>
@@ -368,10 +365,10 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-bold text-[var(--color-foreground)]">
+      <label htmlFor={id} className="block text-sm font-extrabold text-[var(--color-black)]">
         {label}{" "}
         {required ? (
-          <span className="font-normal text-[var(--color-muted-foreground)]">(required)</span>
+          <span className="font-normal text-[var(--color-muted-text)]">(required)</span>
         ) : null}
       </label>
       <div className="mt-2">{children}</div>
@@ -385,7 +382,7 @@ function Field({
 }
 
 function inputClass(error?: string) {
-  return `min-h-[44px] w-full rounded-xl border bg-white px-3 py-3 text-base text-[var(--color-foreground)] shadow-[var(--shadow-sm)] transition focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] ${
-    error ? "border-[var(--color-destructive)]" : "border-[var(--color-border)]"
+  return `min-h-[48px] w-full rounded-xl border bg-white px-3 py-3 text-base text-[var(--color-black)] transition focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-lime)] ${
+    error ? "border-[var(--color-destructive)]" : "border-[var(--color-black)]"
   }`;
 }

@@ -8,11 +8,11 @@ export function ContactChannels({
   const phone = siteConfig.supportPhone;
   const whatsapp = siteConfig.supportWhatsApp;
   const email = siteConfig.leadEmail;
-  const text = tone === "dark" ? "text-white/80" : "text-[var(--color-muted-foreground)]";
+  const text = tone === "dark" ? "text-white/75" : "text-[var(--color-muted-text)]";
   const link =
     tone === "dark"
-      ? "font-semibold text-white underline underline-offset-2"
-      : "font-semibold text-[var(--color-accent)] underline underline-offset-2";
+      ? "font-bold text-[var(--color-lime)] underline underline-offset-2"
+      : "font-bold text-[var(--color-black)] underline underline-offset-2";
 
   return (
     <ul className={`space-y-2 text-sm ${text}`}>

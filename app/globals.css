@@ -1,46 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #0f172a;
-  --color-on-primary: #ffffff;
-  --color-secondary: #334155;
-  --color-accent: #0369a1;
-  --color-on-accent: #ffffff;
-  --color-background: #f8fafc;
-  --color-foreground: #020617;
-  --color-card: #ffffff;
-  --color-muted: #e8ecf1;
-  --color-muted-foreground: #475569;
-  --color-border: #e2e8f0;
+  /* WizardZ-inspired NOSS theme: black / white / lime */
+  --color-black: #191a23;
+  --color-white: #ffffff;
+  --color-lime: #b9ff66;
+  --color-lime-deep: #9ae63a;
+  --color-gray: #f3f3f3;
+  --color-muted-text: #51525c;
+
+  --color-primary: var(--color-black);
+  --color-on-primary: var(--color-white);
+  --color-secondary: #2b2c35;
+  --color-accent: var(--color-lime);
+  --color-on-accent: var(--color-black);
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-black);
+  --color-card: var(--color-white);
+  --color-muted: var(--color-gray);
+  --color-muted-foreground: var(--color-muted-text);
+  --color-border: #e0e0e0;
   --color-destructive: #dc2626;
   --color-success: #067647;
-  --color-verified: #0f766e;
-  --color-ring: #0f172a;
+  --color-verified: var(--color-lime-deep);
+  --color-ring: var(--color-black);
 
-  /* legacy aliases used across components */
-  --primary-navy: var(--color-primary);
-  --action-blue: var(--color-accent);
-  --compliance-teal: var(--color-verified);
-  --slate: var(--color-muted-foreground);
-  --surface: var(--color-background);
+  /* legacy aliases */
+  --primary-navy: var(--color-black);
+  --action-blue: var(--color-black);
+  --compliance-teal: var(--color-lime-deep);
+  --slate: var(--color-muted-text);
+  --surface: var(--color-gray);
   --border: var(--color-border);
   --text: var(--color-foreground);
-  --white: #ffffff;
+  --white: var(--color-white);
   --error: var(--color-destructive);
   --success: var(--color-success);
 
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1.5rem;
-  --space-lg: 2rem;
-  --space-xl: 3rem;
-  --space-2xl: 4rem;
-  --space-3xl: 6rem;
-
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
-  --radius: 0.75rem;
-  --touch: 2.75rem; /* 44px */
+  --radius: 1.25rem;
+  --radius-lg: 2rem;
+  --touch: 2.75rem;
+  --shadow-sm: 0 2px 0 rgba(25, 26, 35, 0.08);
+  --shadow-card: 0 5px 0 #191a23;
 }
 
 @theme inline {
@@ -58,7 +59,6 @@ html {
   html {
     scroll-behavior: auto;
   }
-
   *,
   *::before,
   *::after {
@@ -66,7 +66,6 @@ html {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-
   .reveal {
     opacity: 1 !important;
     transform: none !important;
@@ -84,7 +83,7 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-accent);
+  outline: 3px solid var(--color-lime);
   outline-offset: 3px;
 }
 
@@ -111,15 +110,14 @@ body {
   white-space: normal;
 }
 
-/* Subtle enter animation — final state visible without JS */
 .reveal {
-  animation: reveal-up 0.4s ease-out both;
+  animation: reveal-up 0.45s ease-out both;
 }
 
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -130,4 +128,22 @@ body {
 .tap {
   min-height: var(--touch);
   min-width: var(--touch);
+}
+
+/* Lime marker highlight behind text */
+.marker {
+  display: inline;
+  background: var(--color-lime);
+  color: var(--color-black);
+  border-radius: 0.45rem;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.12em 0.35em;
+  font-weight: 700;
+}
+
+.card-lift {
+  border: 1px solid var(--color-black);
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-lg);
 }

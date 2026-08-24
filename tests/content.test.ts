@@ -35,9 +35,9 @@ describe("phase1 content baseline", () => {
   });
 
   it("uses approved brand colours", () => {
-    expect(colors.primary).toBe("#0F172A");
-    expect(colors.accent).toBe("#0369A1");
-    expect(colors.verified).toBe("#0F766E");
+    expect(colors.primary).toBe("#191A23");
+    expect(colors.accent).toBe("#B9FF66");
+    expect(colors.lime).toBe("#B9FF66");
   });
 
   it("provides starter resources with reviewed dates", () => {

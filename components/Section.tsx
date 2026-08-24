@@ -1,4 +1,5 @@
 import { type ReactNode } from "react";
+import { Marker } from "@/components/Button";
 
 export function Container({
   children,
@@ -23,20 +24,17 @@ export function Section({
   children: ReactNode;
   className?: string;
   id?: string;
-  tone?: "default" | "surface" | "navy";
+  tone?: "default" | "surface" | "navy" | "black";
 }) {
   const toneClass =
-    tone === "surface"
-      ? "bg-[var(--color-muted)]/60"
-      : tone === "navy"
-        ? "bg-[var(--color-primary)] text-white"
-        : "bg-transparent";
+    tone === "surface" || tone === "navy"
+      ? "bg-[var(--color-gray)]"
+      : tone === "black"
+        ? "bg-[var(--color-black)] text-white"
+        : "bg-white";
 
   return (
-    <section
-      id={id}
-      className={`py-12 sm:py-16 lg:py-20 ${toneClass} ${className}`}
-    >
+    <section id={id} className={`py-12 sm:py-16 lg:py-20 ${toneClass} ${className}`}>
       <Container>{children}</Container>
     </section>
   );
@@ -46,39 +44,35 @@ export function SectionHeading({
   title,
   description,
   align = "left",
-  eyebrow,
+  useMarker = false,
 }: {
   title: string;
   description?: string;
   align?: "left" | "center";
-  eyebrow?: string;
+  /** When true, wrap the whole title in the lime marker */
+  useMarker?: boolean;
 }) {
   return (
     <div
-      className={`mb-8 max-w-2xl reveal ${align === "center" ? "mx-auto text-center" : ""}`}
+      className={`mb-8 max-w-3xl reveal ${align === "center" ? "mx-auto text-center" : ""}`}
     >
-      {eyebrow ? (
-        <p className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-verified)]">
-          {eyebrow}
-        </p>
-      ) : null}
-      <h2 className="text-balance text-3xl font-bold tracking-tight text-[var(--color-primary)] sm:text-4xl">
-        {title}
+      <h2 className="text-balance text-3xl font-extrabold tracking-tight text-[var(--color-black)] sm:text-4xl">
+        {useMarker ? <Marker>{title}</Marker> : title}
       </h2>
       {description ? (
-        <p className="mt-3 text-lg text-[var(--color-muted-foreground)]">{description}</p>
+        <p className="mt-4 text-lg text-[var(--color-muted-text)]">{description}</p>
       ) : null}
     </div>
   );
 }
 
 export function PageHero({
-  eyebrow,
+  marker,
   title,
   description,
   actions,
 }: {
-  eyebrow?: string;
+  marker?: string;
   title: string;
   description: string;
   actions?: ReactNode;
@@ -86,15 +80,15 @@ export function PageHero({
   return (
     <Section className="!pb-8 !pt-10 sm:!pt-14">
       <div className="reveal max-w-3xl">
-        {eyebrow ? (
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--color-verified)]">
-            {eyebrow}
+        {marker ? (
+          <p className="mb-4">
+            <Marker>{marker}</Marker>
           </p>
         ) : null}
-        <h1 className="mt-3 text-balance text-4xl font-extrabold tracking-tight text-[var(--color-primary)] sm:text-5xl">
+        <h1 className="text-balance text-4xl font-extrabold tracking-tight text-[var(--color-black)] sm:text-5xl">
           {title}
         </h1>
-        <p className="mt-4 text-lg text-[var(--color-muted-foreground)] sm:text-xl">
+        <p className="mt-4 text-lg text-[var(--color-muted-text)] sm:text-xl">
           {description}
         </p>
         {actions ? <div className="mt-7 flex flex-wrap gap-3">{actions}</div> : null}

@@ -22,8 +22,7 @@ export function Header() {
       }
     };
     document.addEventListener("keydown", onKey);
-    const first = panelRef.current?.querySelector<HTMLElement>("a, button");
-    first?.focus();
+    panelRef.current?.querySelector<HTMLElement>("a, button")?.focus();
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
@@ -33,30 +32,36 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-border)] bg-white/95 backdrop-blur-md">
-      <Container className="flex h-16 items-center justify-between gap-3 sm:h-[4.25rem]">
+      <Container className="flex h-[4.5rem] items-center justify-between gap-3">
         <Link
           href="/"
-          className="tap inline-flex items-center text-xl font-extrabold tracking-tight text-[var(--color-primary)]"
+          className="tap inline-flex items-center gap-2 text-xl font-extrabold tracking-tight text-[var(--color-black)]"
         >
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--color-lime)] text-sm font-black text-[var(--color-black)]">
+            N
+          </span>
           NOSS
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+        <nav
+          aria-label="Primary"
+          className="hidden items-center gap-1 rounded-full border border-[var(--color-border)] bg-white px-2 py-1 lg:flex"
+        >
           {navLinks.map((item) =>
             "children" in item && item.children ? (
               <div key={item.label} className="relative group">
                 <Link
                   href={item.href}
-                  className="tap inline-flex items-center rounded-lg px-3 text-sm font-semibold text-[var(--color-secondary)] hover:bg-[var(--color-muted)] hover:text-[var(--color-primary)]"
+                  className="tap inline-flex items-center rounded-full px-3 text-sm font-semibold text-[var(--color-black)] hover:bg-[var(--color-gray)]"
                 >
                   {item.label}
                 </Link>
-                <div className="invisible absolute left-0 top-full z-50 min-w-56 rounded-xl border border-[var(--color-border)] bg-white p-2 opacity-0 shadow-[var(--shadow-md)] transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <div className="invisible absolute left-0 top-full z-50 min-w-56 rounded-2xl border border-[var(--color-black)] bg-white p-2 opacity-0 shadow-[var(--shadow-card)] transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block rounded-lg px-3 py-3 text-sm font-medium text-[var(--color-foreground)] hover:bg-[var(--color-muted)]"
+                      className="block rounded-xl px-3 py-3 text-sm font-semibold hover:bg-[var(--color-gray)]"
                     >
                       {child.label}
                     </Link>
@@ -67,7 +72,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="tap inline-flex items-center rounded-lg px-3 text-sm font-semibold text-[var(--color-secondary)] hover:bg-[var(--color-muted)] hover:text-[var(--color-primary)]"
+                className="tap inline-flex items-center rounded-full px-3 text-sm font-semibold text-[var(--color-black)] hover:bg-[var(--color-gray)]"
               >
                 {item.label}
               </Link>
@@ -75,19 +80,22 @@ export function Header() {
           )}
           <Link
             href="/login"
-            className="tap inline-flex items-center rounded-lg px-3 text-sm font-semibold text-[var(--color-muted-foreground)] hover:bg-[var(--color-muted)]"
+            className="tap inline-flex items-center rounded-full px-3 text-sm font-semibold text-[var(--color-muted-text)] hover:bg-[var(--color-gray)]"
           >
             Login
           </Link>
-          <ButtonLink href="/contact" className="ml-2 !min-h-11 !px-4 !py-2.5 text-sm">
+        </nav>
+
+        <div className="hidden lg:block">
+          <ButtonLink href="/contact" variant="secondary" className="!min-h-11 !rounded-xl !px-5 !py-2.5 text-sm">
             Book a demo
           </ButtonLink>
-        </nav>
+        </div>
 
         <button
           ref={buttonRef}
           type="button"
-          className="tap inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-[var(--color-border)] bg-white px-3 text-sm font-semibold text-[var(--color-primary)] lg:hidden"
+          className="tap inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-[var(--color-black)] bg-white px-3 text-sm font-bold lg:hidden"
           aria-expanded={open}
           aria-controls={menuId}
           onClick={() => setOpen((v) => !v)}
@@ -101,7 +109,7 @@ export function Header() {
         <div
           id={menuId}
           ref={panelRef}
-          className="fixed inset-x-0 bottom-0 top-16 z-50 overflow-y-auto border-t border-[var(--color-border)] bg-white lg:hidden"
+          className="fixed inset-x-0 bottom-0 top-[4.5rem] z-50 overflow-y-auto border-t border-[var(--color-border)] bg-white lg:hidden"
         >
           <Container className="flex flex-col gap-1 py-4 pb-10">
             {navLinks.flatMap((item) =>
@@ -110,7 +118,7 @@ export function Header() {
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="tap rounded-xl px-4 py-3 text-lg font-semibold text-[var(--color-primary)] hover:bg-[var(--color-muted)]"
+                      className="tap rounded-xl px-4 py-3 text-lg font-bold hover:bg-[var(--color-gray)]"
                       onClick={() => setOpen(false)}
                     >
                       {child.label}
@@ -120,7 +128,7 @@ export function Header() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="tap rounded-xl px-4 py-3 text-lg font-semibold text-[var(--color-primary)] hover:bg-[var(--color-muted)]"
+                      className="tap rounded-xl px-4 py-3 text-lg font-bold hover:bg-[var(--color-gray)]"
                       onClick={() => setOpen(false)}
                     >
                       {item.label}
@@ -129,13 +137,13 @@ export function Header() {
             )}
             <Link
               href="/login"
-              className="tap rounded-xl px-4 py-3 text-lg font-semibold text-[var(--color-secondary)] hover:bg-[var(--color-muted)]"
+              className="tap rounded-xl px-4 py-3 text-lg font-bold text-[var(--color-muted-text)] hover:bg-[var(--color-gray)]"
               onClick={() => setOpen(false)}
             >
               Login
             </Link>
             <div className="mt-3 px-1">
-              <ButtonLink href="/contact" className="w-full" >
+              <ButtonLink href="/contact" className="w-full">
                 Book a demo
               </ButtonLink>
             </div>

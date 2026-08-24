@@ -1,28 +1,29 @@
 /**
- * NOSS design tokens — aligned to design-system/noss/MASTER.md
- * (UI/UX Pro Max) while keeping a calm trust teal for verified states.
+ * NOSS visual theme — bold black / white / lime (WizardZ-inspired).
+ * Fonts remain Plus Jakarta Sans. Features unchanged.
  */
 export const colors = {
-  primary: "#0F172A",
-  secondary: "#334155",
-  accent: "#0369A1",
-  background: "#F8FAFC",
-  foreground: "#020617",
-  card: "#FFFFFF",
-  muted: "#E8ECF1",
-  mutedForeground: "#475569",
-  border: "#E2E8F0",
+  black: "#191A23",
+  white: "#FFFFFF",
+  lime: "#B9FF66",
+  gray: "#F3F3F3",
+  primary: "#191A23",
+  accent: "#B9FF66",
+  background: "#FFFFFF",
+  foreground: "#191A23",
+  muted: "#F3F3F3",
+  mutedForeground: "#51525C",
+  border: "#E0E0E0",
   destructive: "#DC2626",
   success: "#067647",
-  verified: "#0F766E",
-  // legacy aliases used by older classnames during redesign
-  primaryNavy: "#0F172A",
-  actionBlue: "#0369A1",
-  complianceTeal: "#0F766E",
-  slate: "#475569",
-  surface: "#F8FAFC",
-  text: "#020617",
-  white: "#FFFFFF",
+  verified: "#9AE63A",
+  // legacy aliases
+  primaryNavy: "#191A23",
+  actionBlue: "#191A23",
+  complianceTeal: "#9AE63A",
+  slate: "#51525C",
+  surface: "#F3F3F3",
+  text: "#191A23",
   error: "#DC2626",
 } as const;
 
@@ -38,7 +39,6 @@ export const siteConfig = {
   privacyNoticeVersion: process.env.PRIVACY_NOTICE_VERSION || "2026-08-24",
 } as const;
 
-/** Digits-only for tel: and wa.me links */
 export function phoneDigits(value: string): string {
   return value.replace(/[^\d+]/g, "").replace(/^\+/, "");
 }
