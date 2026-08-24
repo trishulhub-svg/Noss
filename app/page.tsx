@@ -10,7 +10,7 @@ import {
   ShieldCheck,
   Users,
 } from "lucide-react";
-import { DrawUnderline, TitleWithUnderline } from "@/components/DrawUnderline";
+import { DrawUnderline } from "@/components/DrawUnderline";
 import { FaqList } from "@/components/FaqList";
 import { SpotlightCard } from "@/components/SpotlightCard";
 import { createPageMetadata } from "@/lib/seo";
@@ -47,23 +47,23 @@ export default function HomePage() {
           aria-hidden
         />
 
-        <div className="relative mx-auto grid max-w-[1600px] gap-6 px-4 pb-8 pt-8 sm:gap-10 sm:px-6 sm:pb-16 sm:pt-12 lg:grid-cols-12 lg:gap-8 lg:px-10 lg:pb-20">
+        <div className="relative mx-auto grid max-w-[1600px] gap-8 px-4 pb-12 pt-10 sm:gap-10 sm:px-6 sm:pb-16 sm:pt-12 lg:grid-cols-12 lg:gap-8 lg:px-10 lg:pb-20">
           <div className="animate-fade-up text-center lg:col-span-7 lg:text-left">
-            <p className="mb-4 inline-flex items-center rounded-full border border-[var(--color-border)] bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-muted-text)] backdrop-blur">
+            <p className="mb-5 inline-flex items-center rounded-full border border-[var(--color-border)] bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-muted-text)] backdrop-blur">
               UK compliance, kept simple
             </p>
-            <h1 className="font-[family-name:var(--font-display)] text-balance text-3xl font-extrabold leading-[0.95] tracking-tighter text-[var(--color-navy)] sm:text-5xl lg:text-6xl xl:text-7xl">
+            <h1 className="font-[family-name:var(--font-display)] text-balance text-4xl font-extrabold leading-[0.95] tracking-tighter text-[var(--color-navy)] sm:text-5xl lg:text-6xl xl:text-7xl">
               Make worker checks{" "}
               <DrawUnderline>easier</DrawUnderline> to manage
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-base text-[var(--color-muted-text)] sm:mt-6 sm:text-lg lg:mx-0">
+            <p className="mx-auto mt-5 max-w-xl text-base text-[var(--color-muted-text)] sm:mt-6 sm:text-lg lg:mx-0">
               NOSS helps UK agencies and employers organise worker checks,
               business papers, follow-up and progress — in one clear service.
             </p>
-            <div className="mt-5 flex flex-row flex-wrap justify-center gap-2 sm:mt-8 sm:gap-3 lg:justify-start">
+            <div className="mt-7 flex flex-row flex-wrap justify-center gap-2 sm:mt-8 sm:gap-3 lg:justify-start">
               <Link
                 href="/contact"
-                className="glass-button group inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-full bg-[var(--color-navy)] px-5 text-sm font-semibold text-white shadow-[var(--shadow-card)] sm:min-h-12 sm:px-7 sm:text-base"
+                className="glass-button group inline-flex min-h-12 cursor-pointer items-center justify-center gap-2 rounded-full bg-[var(--color-navy)] px-6 text-base font-semibold text-white shadow-[var(--shadow-card)] sm:px-7"
               >
                 <span className="button-shine" aria-hidden />
                 Book a demo
@@ -75,7 +75,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/login"
-                className="inline-flex min-h-11 cursor-pointer items-center justify-center rounded-full border border-[var(--color-border)] bg-white/70 px-5 text-sm font-semibold text-[var(--color-navy)] backdrop-blur hover:bg-white sm:min-h-12 sm:px-7 sm:text-base"
+                className="inline-flex min-h-12 cursor-pointer items-center justify-center rounded-full border border-[var(--color-border)] bg-white/70 px-6 text-base font-semibold text-[var(--color-navy)] backdrop-blur hover:bg-white sm:px-7"
               >
                 Client login
               </Link>
@@ -148,7 +148,7 @@ export default function HomePage() {
                 Services
               </p>
               <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-[var(--color-navy)] sm:text-3xl lg:text-4xl">
-                Two clear paths. Same calm <TitleWithUnderline title="process." />
+                Two clear paths. Same calm process.
               </h2>
               <p className="mt-2 text-sm text-[var(--color-muted-text)] sm:mt-3 sm:text-base">
                 Pick the path that fits — or talk to us if you need both.
@@ -254,14 +254,14 @@ export default function HomePage() {
                 <p className="mt-1.5 text-sm text-[var(--color-muted-text)]">
                   Many workers. Clear progress. Less chasing.
                 </p>
-                <div className="mt-3 flex-1 space-y-2 sm:mt-5">
-                  <div className="rounded-xl bg-white p-2.5 shadow-sm sm:rounded-2xl sm:p-3">
+                <div className="mt-3 flex flex-1 flex-col gap-2 sm:mt-5">
+                  <div className="w-full rounded-xl bg-white p-2.5 shadow-sm sm:rounded-2xl sm:p-3">
                     <p className="text-xs font-semibold text-[var(--color-navy)]">Agency</p>
                     <p className="mt-1 text-[11px] leading-relaxed text-[var(--color-muted-text)]">
                       We need DBS and Right to Work for 12 new starters.
                     </p>
                   </div>
-                  <div className="ml-2 rounded-xl bg-[var(--color-navy)] p-2.5 text-white shadow-sm sm:ml-3 sm:rounded-2xl sm:p-3">
+                  <div className="w-full rounded-xl bg-[var(--color-navy)] p-2.5 text-white shadow-sm sm:rounded-2xl sm:p-3">
                     <p className="text-xs font-semibold">NOSS</p>
                     <p className="mt-1 text-[11px] leading-relaxed text-white/75">
                       Lists sent. We will track missing items for you.
@@ -341,7 +341,7 @@ export default function HomePage() {
                 Our solutions
               </p>
               <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-[var(--color-navy)] sm:text-3xl lg:text-4xl">
-                Built for trust, not <TitleWithUnderline title="hype" />
+                Built for trust, not hype
               </h2>
             </div>
             <div className="grid gap-4 md:grid-cols-3">
@@ -385,7 +385,7 @@ export default function HomePage() {
                     Preview only
                   </p>
                   <h2 className="mt-1 font-[family-name:var(--font-display)] text-xl font-bold text-white sm:mt-2 sm:text-3xl">
-                    Progress you can <TitleWithUnderline title="see" />
+                    Progress you can see
                   </h2>
                 </div>
                 <p className="text-sm text-white/50">Example only — not live customer data</p>
@@ -452,7 +452,7 @@ export default function HomePage() {
                 Process
               </p>
               <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-[var(--color-navy)] sm:text-3xl lg:text-4xl">
-                How it <TitleWithUnderline title="works" />
+                How it works
               </h2>
               <p className="mt-2 text-sm text-[var(--color-muted-text)] sm:mt-3 sm:text-base">
                 A clear path from request to ready records.
@@ -489,7 +489,7 @@ export default function HomePage() {
           <div className="mt-8 sm:mt-14">
             <div className="mb-5 max-w-2xl sm:mb-8">
               <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight text-[var(--color-navy)] sm:text-3xl lg:text-4xl">
-                <TitleWithUnderline title="FAQ" />
+                FAQ
               </h2>
             </div>
             <FaqList
@@ -532,7 +532,7 @@ export default function HomePage() {
           <div className="mt-8 sm:mt-14">
             <div className="rounded-2xl bg-[var(--color-navy)] px-5 py-8 text-center text-white sm:rounded-[32px] sm:px-10 sm:py-14">
               <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
-                Ready to talk through your <TitleWithUnderline title="checks?" />
+                Ready to talk through your checks?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-white/70">
                 Book a demo and see how NOSS can help your team stay organised.

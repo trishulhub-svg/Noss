@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { type ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "ghost";
@@ -24,13 +23,11 @@ export function ButtonLink({
 }: {
   href: string;
   children: ReactNode;
-  /** `lime` kept as alias to primary for older call sites */
-  variant?: Variant | "lime";
+  variant?: Variant;
   className?: string;
 }) {
-  const resolved: Variant = variant === "lime" ? "primary" : variant;
   return (
-    <Link href={href} className={`${base} ${styles[resolved]} ${className}`}>
+    <Link href={href} className={`${base} ${styles[variant]} ${className}`}>
       {children}
     </Link>
   );
@@ -44,45 +41,16 @@ export function Button({
   disabled,
   ...props
 }: React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: Variant | "lime";
+  variant?: Variant;
 }) {
-  const resolved: Variant = variant === "lime" ? "primary" : variant;
   return (
     <button
       type={type}
       disabled={disabled}
-      className={`${base} ${styles[resolved]} ${className}`}
+      className={`${base} ${styles[variant]} ${className}`}
       {...props}
     >
       {children}
     </button>
   );
-}
-
-export function LearnMoreLink({
-  href,
-  label = "Learn more",
-}: {
-  href: string;
-  label?: string;
-  dark?: boolean;
-}) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex min-h-[44px] cursor-pointer items-center gap-3 font-semibold text-[var(--color-navy)]"
-    >
-      <span
-        className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-blue-soft)] text-[var(--color-blue)]"
-        aria-hidden
-      >
-        <ArrowRight size={18} />
-      </span>
-      <span>{label}</span>
-    </Link>
-  );
-}
-
-export function Marker({ children }: { children: ReactNode }) {
-  return <span className="marker">{children}</span>;
 }

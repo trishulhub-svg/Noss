@@ -140,7 +140,7 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
         <p className="mt-3 text-[var(--color-muted-text)]">{message}</p>
         <button
           type="button"
-          className="tap mt-6 cursor-pointer text-sm font-extrabold text-[var(--color-black)] underline"
+          className="tap mt-6 cursor-pointer text-sm font-extrabold text-[var(--color-navy)] underline"
           onClick={() => {
             setStatus("idle");
             setMessage("");
@@ -156,7 +156,7 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
     <form
       onSubmit={onSubmit}
       noValidate
-      className="card-lift space-y-5 bg-white p-5 sm:p-6"
+      className="card-lift relative space-y-5 bg-white p-5 sm:p-6"
       aria-describedby={message ? `${formId}-summary` : undefined}
     >
       {message ? (
@@ -305,7 +305,7 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
       </Field>
 
       <div className="space-y-3">
-        <label className="flex items-start gap-3 text-sm text-[var(--color-black)]">
+        <label className="flex items-start gap-3 text-sm text-[var(--color-navy)]">
           <input
             type="checkbox"
             name="privacyAcknowledged"
@@ -328,7 +328,7 @@ export function ContactForm({ sourcePage = "/contact" }: { sourcePage?: string }
           </p>
         ) : null}
 
-        <label className="flex items-start gap-3 text-sm text-[var(--color-black)]">
+        <label className="flex items-start gap-3 text-sm text-[var(--color-navy)]">
           <input
             type="checkbox"
             name="marketingConsent"
@@ -365,7 +365,7 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-extrabold text-[var(--color-black)]">
+      <label htmlFor={id} className="block text-sm font-extrabold text-[var(--color-navy)]">
         {label}{" "}
         {required ? (
           <span className="font-normal text-[var(--color-muted-text)]">(required)</span>

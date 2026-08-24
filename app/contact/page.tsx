@@ -16,7 +16,7 @@ export const metadata = createPageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <Section className="!pb-4 !pt-8 sm:!pb-6 sm:!pt-12">
+      <Section className="!pb-6 !pt-8 sm:!pb-8 sm:!pt-12">
         <div className="reveal max-w-3xl">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-muted-text)] sm:text-sm">
             Contact
@@ -31,7 +31,7 @@ export default function ContactPage() {
         </div>
       </Section>
 
-      <Section tone="surface" className="!pt-0">
+      <Section tone="surface">
         <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-8">
           <aside className="card-lift p-5 sm:p-6">
             <h2 className="text-lg font-bold text-[var(--color-navy)]">Prefer to talk now?</h2>

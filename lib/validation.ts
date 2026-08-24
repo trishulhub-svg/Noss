@@ -58,13 +58,18 @@ export const leadInputSchema = z
         message: "You must acknowledge the Privacy Notice to continue.",
       }),
     marketingConsent: z.preprocess((v) => v === true, z.boolean()),
-    sourcePage: z.preprocess(
-      (v) => (typeof v === "string" && v.trim() ? v.trim() : "/contact"),
-      z.string().max(200),
-    ),
     website: z.preprocess(
       (v) => (typeof v === "string" ? v : ""),
-      z.string().max(0, "Invalid submission."),
+      // Honeypot: allow filled values; route treats non-empty as bot and returns fake success
+      z.string().max(200),
+    ),
+    sourcePage: z.preprocess(
+      (v) => {
+        if (typeof v !== "string" || !v.trim()) return "/contact";
+        const trimmed = v.trim().slice(0, 200);
+        return trimmed.startsWith("/") ? trimmed : "/contact";
+      },
+      z.string().max(200),
     ),
     requestToken: z.preprocess(
       (v) => (typeof v === "string" ? v : undefined),

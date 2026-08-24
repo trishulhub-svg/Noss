@@ -34,7 +34,7 @@ export default async function ResourceArticlePage({ params }: Props) {
           Help
         </Link>
       </p>
-      <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-[var(--color-black)]">
+      <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight text-[var(--color-navy)]">
         {article.title}
       </h1>
       <p className="mt-3 text-sm text-[var(--color-muted-text)]">

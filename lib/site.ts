@@ -24,9 +24,8 @@ export const colors = {
   complianceTeal: "#0F766E",
   slate: "#486581",
   error: "#B42318",
-  lime: "#EFF6FF",
   black: "#102A43",
-  gray: "#F5F8FB",
+  gray: "#F5F5F5",
 } as const;
 
 export const siteConfig = {

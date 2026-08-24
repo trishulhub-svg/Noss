@@ -1,4 +1,4 @@
-/** Animated pencil underline under a word */
+/** Animated pencil underline — hero titles only */
 export function DrawUnderline({
   children,
   className = "",
@@ -7,10 +7,10 @@ export function DrawUnderline({
   className?: string;
 }) {
   return (
-    <span className={`relative inline-block ${className}`}>
+    <span className={`relative inline-block text-[var(--color-navy)] ${className}`}>
       {children}
       <svg
-        className="draw-underline absolute -bottom-0.5 left-0 w-full text-current opacity-50 sm:-bottom-1"
+        className="draw-underline absolute -bottom-0.5 left-0 w-full text-[var(--color-navy)] sm:-bottom-1"
         viewBox="0 0 100 10"
         fill="none"
         aria-hidden
@@ -26,7 +26,7 @@ export function DrawUnderline({
   );
 }
 
-/** Underline the last word of a title string */
+/** Underline the last word of a hero title */
 export function TitleWithUnderline({ title }: { title: string }) {
   const parts = title.trim().split(/\s+/);
   if (parts.length === 0) return null;

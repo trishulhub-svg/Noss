@@ -28,8 +28,6 @@
 
   --color-black: var(--color-navy);
   --color-gray: var(--color-surface);
-  --color-lime: var(--color-blue-soft);
-  --color-lime-deep: var(--color-blue);
   --primary-navy: var(--color-navy);
   --action-blue: var(--color-blue);
   --compliance-teal: var(--color-verified);
@@ -133,17 +131,6 @@ body {
 .tap {
   min-height: var(--touch);
   min-width: var(--touch);
-}
-
-.marker {
-  display: inline;
-  background: var(--color-blue-soft);
-  color: var(--color-navy);
-  border-radius: 0.4rem;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  padding: 0.1em 0.35em;
-  font-weight: 700;
 }
 
 .card-lift {

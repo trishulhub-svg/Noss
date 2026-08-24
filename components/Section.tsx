@@ -1,6 +1,5 @@
 import { type ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
 import { TitleWithUnderline } from "@/components/DrawUnderline";
 
@@ -47,20 +46,17 @@ export function SectionHeading({
   title,
   description,
   align = "left",
-  useMarker: _useMarker = false,
 }: {
   title: string;
   description?: string;
   align?: "left" | "center";
-  useMarker?: boolean;
 }) {
-  void _useMarker;
   return (
     <div
       className={`mb-5 max-w-3xl reveal sm:mb-8 ${align === "center" ? "mx-auto text-center" : ""}`}
     >
       <h2 className="font-[family-name:var(--font-display)] text-balance text-2xl font-bold tracking-tight text-[var(--color-navy)] sm:text-3xl lg:text-4xl">
-        <TitleWithUnderline title={title} />
+        {title}
       </h2>
       {description ? (
         <p className="mt-3 text-base text-[var(--color-muted-text)] sm:mt-4 sm:text-lg">
@@ -100,7 +96,10 @@ export function PageHero({
         </p>
         <div className="mt-5 flex flex-row flex-wrap items-center gap-2 sm:mt-7 sm:gap-3">
           {showDemo ? (
-            <ButtonLink href="/contact" className="!min-h-11 !px-4 !text-sm sm:!min-h-12 sm:!px-6 sm:!text-base">
+            <ButtonLink
+              href="/contact"
+              className="!min-h-11 !px-4 !text-sm sm:!min-h-12 sm:!px-6 sm:!text-base"
+            >
               Book a demo
               <ArrowRight size={16} aria-hidden />
             </ButtonLink>
@@ -109,23 +108,5 @@ export function PageHero({
         </div>
       </div>
     </Section>
-  );
-}
-
-export function PageCtaLink({
-  href = "/contact",
-  label = "Book a demo",
-}: {
-  href?: string;
-  label?: string;
-}) {
-  return (
-    <Link
-      href={href}
-      className="inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-full bg-[var(--color-navy)] px-5 text-sm font-semibold text-white sm:min-h-12 sm:px-6"
-    >
-      {label}
-      <ArrowRight size={16} aria-hidden />
-    </Link>
   );
 }

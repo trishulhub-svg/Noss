@@ -72,4 +72,22 @@ describe("leadInputSchema", () => {
     });
     expect(result.success).toBe(false);
   });
+
+  it("allows honeypot fill so the API can silently ignore bots", () => {
+    const result = leadInputSchema.safeParse({
+      ...valid,
+      website: "https://spam.example",
+    });
+    expect(result.success).toBe(true);
+    if (result.success) expect(result.data.website).toBe("https://spam.example");
+  });
+
+  it("normalises unsafe sourcePage values to /contact", () => {
+    const result = leadInputSchema.safeParse({
+      ...valid,
+      sourcePage: "javascript:alert(1)",
+    });
+    expect(result.success).toBe(true);
+    if (result.success) expect(result.data.sourcePage).toBe("/contact");
+  });
 });
