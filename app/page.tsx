@@ -155,7 +155,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid gap-3 sm:gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
               {/* Worker checks */}
               <article className="relative flex flex-col overflow-hidden rounded-2xl bg-[var(--color-navy)] p-4 text-white sm:rounded-[28px] sm:p-6">
                 <h3 className="text-lg font-bold sm:text-xl">Worker checks</h3>
@@ -196,49 +196,67 @@ export default function HomePage() {
               </article>
 
               {/* Business checks */}
-              <article className="relative flex flex-col overflow-hidden rounded-2xl bg-[var(--color-blue-soft)] p-4 sm:rounded-[28px] sm:p-6 md:col-span-2 xl:col-span-2">
+              <article className="relative flex flex-col overflow-hidden rounded-2xl bg-[var(--color-blue-soft)] p-4 sm:rounded-[28px] sm:p-6">
                 <h3 className="text-lg font-bold text-[var(--color-navy)] sm:text-xl">
                   Business checks
                 </h3>
-                <p className="mt-1.5 max-w-lg text-sm text-[var(--color-muted-text)]">
+                <p className="mt-1.5 text-sm text-[var(--color-muted-text)]">
                   Company papers move through three clear stages.
                 </p>
-                <div className="mt-3 grid flex-1 gap-2 sm:mt-5 sm:grid-cols-3 sm:gap-3">
+                <div className="mt-3 grid flex-1 gap-2 sm:mt-5">
                   {[
-                    {
-                      step: "1",
-                      title: "Request",
-                      detail: "Ask for the company check or policy pack.",
-                    },
-                    {
-                      step: "2",
-                      title: "Review",
-                      detail: "NOSS checks papers and asks for anything missing.",
-                    },
-                    {
-                      step: "3",
-                      title: "Ready",
-                      detail: "You get a clear record for audit or clients.",
-                    },
+                    { step: "1", title: "Request", detail: "Ask for the check or pack." },
+                    { step: "2", title: "Review", detail: "NOSS checks what is missing." },
+                    { step: "3", title: "Ready", detail: "Clear record for audit." },
                   ].map((col) => (
                     <div
                       key={col.title}
-                      className="rounded-xl border border-[var(--color-border)] bg-white p-3 shadow-sm sm:rounded-2xl sm:p-4"
+                      className="flex items-start gap-3 rounded-xl border border-[var(--color-border)] bg-white p-3 shadow-sm"
                     >
-                      <p className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-navy)] text-[11px] font-bold text-white sm:h-7 sm:w-7 sm:text-xs">
+                      <p className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy)] text-[11px] font-bold text-white">
                         {col.step}
                       </p>
-                      <p className="mt-2 text-sm font-bold text-[var(--color-navy)] sm:mt-3">
-                        {col.title}
-                      </p>
-                      <p className="mt-1 text-xs leading-relaxed text-[var(--color-muted-text)]">
-                        {col.detail}
-                      </p>
+                      <div>
+                        <p className="text-sm font-bold text-[var(--color-navy)]">{col.title}</p>
+                        <p className="mt-0.5 text-xs leading-relaxed text-[var(--color-muted-text)]">
+                          {col.detail}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
                 <Link
                   href="/business-compliance"
+                  className="mt-3 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[var(--color-navy)] sm:mt-5 sm:min-h-11"
+                >
+                  Learn more <ArrowRight size={16} aria-hidden />
+                </Link>
+              </article>
+
+              {/* How it works — desktop only filler for 3-col row */}
+              <article className="relative hidden flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white p-4 sm:rounded-[28px] sm:p-6 lg:flex">
+                <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-blue-soft)] text-[var(--color-navy)] sm:mb-4 sm:h-10 sm:w-10">
+                  <ClipboardList size={18} aria-hidden />
+                </div>
+                <h3 className="text-lg font-bold text-[var(--color-navy)] sm:text-xl">How it works</h3>
+                <p className="mt-1.5 text-sm text-[var(--color-muted-text)]">
+                  A clear path from request to ready records.
+                </p>
+                <ol className="mt-3 flex-1 space-y-2 sm:mt-5">
+                  {["You ask", "Worker acts", "NOSS reviews", "You track"].map((step, i) => (
+                    <li
+                      key={step}
+                      className="flex items-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-xs font-semibold text-[var(--color-navy)]"
+                    >
+                      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-navy)] text-[10px] text-white">
+                        {i + 1}
+                      </span>
+                      {step}
+                    </li>
+                  ))}
+                </ol>
+                <Link
+                  href="/how-it-works"
                   className="mt-3 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[var(--color-navy)] sm:mt-5 sm:min-h-11"
                 >
                   Learn more <ArrowRight size={16} aria-hidden />
@@ -277,7 +295,7 @@ export default function HomePage() {
               </article>
 
               {/* Employers */}
-              <article className="relative flex flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-sky-50/80 p-4 sm:rounded-[28px] sm:p-6 md:col-span-2 xl:col-span-1">
+              <article className="relative flex flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-sky-50/80 p-4 sm:rounded-[28px] sm:p-6">
                 <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-[var(--color-navy)] shadow-sm sm:mb-4 sm:h-10 sm:w-10">
                   <Building2 size={18} aria-hidden />
                 </div>
@@ -312,6 +330,33 @@ export default function HomePage() {
                 </div>
                 <Link
                   href="/industries/employers"
+                  className="mt-3 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[var(--color-navy)] sm:mt-5 sm:min-h-11"
+                >
+                  Learn more <ArrowRight size={16} aria-hidden />
+                </Link>
+              </article>
+
+              {/* Help — desktop only to complete second row of 3 */}
+              <article className="relative hidden flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-neutral-50 p-4 sm:rounded-[28px] sm:p-6 lg:flex">
+                <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-[var(--color-navy)] shadow-sm sm:mb-4 sm:h-10 sm:w-10">
+                  <FileCheck2 size={18} aria-hidden />
+                </div>
+                <h3 className="text-lg font-bold text-[var(--color-navy)] sm:text-xl">Help & guides</h3>
+                <p className="mt-1.5 text-sm text-[var(--color-muted-text)]">
+                  Short plain-English guides for common UK checks.
+                </p>
+                <ul className="mt-3 flex-1 space-y-2 sm:mt-5">
+                  {["Right to Work overview", "DBS support", "Renewals checklist"].map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-xl border border-[var(--color-border)] bg-white px-3 py-2.5 text-xs font-semibold text-[var(--color-navy)] shadow-sm"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/resources"
                   className="mt-3 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[var(--color-navy)] sm:mt-5 sm:min-h-11"
                 >
                   Learn more <ArrowRight size={16} aria-hidden />
