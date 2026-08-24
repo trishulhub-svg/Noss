@@ -8,11 +8,11 @@ export function DrawUnderline({
 }) {
   return (
     <span
-      className={`relative inline-block pb-[0.23em] text-[var(--color-navy)] sm:pb-[0.27em] ${className}`}
+      className={`relative inline-block pb-[0.21em] text-[var(--color-navy)] sm:pb-[0.24em] ${className}`}
     >
       {children}
       <svg
-        className="draw-underline absolute bottom-0 left-0 h-[0.18em] w-full overflow-visible text-[var(--color-navy)]"
+        className="draw-underline absolute bottom-0 left-0 h-[0.16em] w-full overflow-visible text-[var(--color-navy)]"
         viewBox="0 0 100 10"
         fill="none"
         preserveAspectRatio="none"
