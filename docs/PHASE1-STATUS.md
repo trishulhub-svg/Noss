@@ -28,3 +28,10 @@
 ## Explicitly not built (Phase 2/3)
 
 Auth, portals, document uploads, compliance API automation, analytics, CMS, CRM, payments, public pricing.
+
+## Staging / preview deploy
+
+- GitHub PR: https://github.com/trishulhub-svg/Noss/pull/1
+- Vercel preview URL (SSO-protected on current Hobby plan): https://noss-git-cursor-noss-phase1-marketing-site-c91b-noos4.vercel.app
+- CI: GitHub Actions workflow `CI` passed on branch
+- Production domain `noss.co.uk` not cut over (O-03 / Gate 4 pending)
