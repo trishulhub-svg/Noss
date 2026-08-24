@@ -1,4 +1,3 @@
-import { ButtonLink } from "@/components/Button";
 import { FeatureList } from "@/components/Cards";
 import { PageHero, Section, SectionHeading } from "@/components/Section";
 import { createPageMetadata } from "@/lib/seo";
@@ -17,10 +16,9 @@ export default function EmployersPage() {
         marker="Who we help"
         title="Clear ownership for new starters and renewals"
         description="Employer teams often struggle with new-starter checks, renewals and unclear ownership. NOSS helps with follow-up and organised records."
-        actions={<ButtonLink href="/contact">Book a demo</ButtonLink>}
       />
       <Section tone="surface">
-        <SectionHeading title="What employers get" useMarker />
+        <SectionHeading title="What employers get" />
         <FeatureList
           items={[
             { title: "New-starter checks", description: "A clearer path for onboarding evidence requests." },
@@ -29,9 +27,6 @@ export default function EmployersPage() {
             { title: "NOSS follow-up", description: "Less time spent chasing missing items by email." },
           ]}
         />
-        <div className="mt-8">
-          <ButtonLink href="/contact">Book a demo</ButtonLink>
-        </div>
       </Section>
     </>
   );

@@ -46,7 +46,7 @@ export default function HomePage() {
           aria-hidden
         />
 
-        <div className="relative mx-auto grid max-w-[1600px] gap-10 px-4 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-14 lg:grid-cols-12 lg:gap-8 lg:px-10 lg:pb-24">
+        <div className="relative mx-auto grid max-w-[1600px] gap-10 px-4 pb-12 pt-10 sm:px-6 sm:pb-20 sm:pt-14 lg:grid-cols-12 lg:gap-8 lg:px-10 lg:pb-24">
           <div className="animate-fade-up lg:col-span-7">
             <p className="mb-5 inline-flex items-center rounded-full border border-[var(--color-border)] bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-muted-text)] backdrop-blur">
               UK compliance, kept simple
@@ -56,7 +56,7 @@ export default function HomePage() {
               <span className="relative inline-block">
                 easier
                 <svg
-                  className="absolute -bottom-1 left-0 w-full text-[var(--color-blue)]/50 sm:-bottom-2"
+                  className="draw-underline absolute -bottom-1 left-0 w-full text-[var(--color-navy)]/55 sm:-bottom-2"
                   viewBox="0 0 100 10"
                   fill="none"
                   aria-hidden
@@ -97,10 +97,11 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-md lg:col-span-5 lg:mx-0 lg:max-w-none">
-            <div className="relative mx-auto h-[320px] w-full max-w-sm sm:h-[380px]">
+          {/* Floating cards: desktop only — keep mobile hero text-only */}
+          <div className="relative hidden w-full max-w-md lg:col-span-5 lg:mx-0 lg:block lg:max-w-none">
+            <div className="relative mx-auto h-[380px] w-full max-w-sm">
               <HeroFloatCard
-                className="left-0 top-4 w-[78%] animate-float sm:w-[72%]"
+                className="left-0 top-4 w-[72%] animate-float"
                 style={{ animationDelay: "0s" }}
                 icon={<Mail size={16} aria-hidden />}
                 title="Request sent"
@@ -108,7 +109,7 @@ export default function HomePage() {
                 badge="Email"
               />
               <HeroFloatCard
-                className="right-0 top-[28%] w-[78%] animate-float sm:w-[70%]"
+                className="right-0 top-[28%] w-[70%] animate-float"
                 style={{ animationDelay: "1.5s" }}
                 icon={<ShieldCheck size={16} aria-hidden />}
                 title="Evidence reviewed"
@@ -116,7 +117,7 @@ export default function HomePage() {
                 badge="Checks"
               />
               <HeroFloatCard
-                className="bottom-2 left-[8%] w-[82%] animate-float sm:left-[12%] sm:w-[74%]"
+                className="bottom-2 left-[12%] w-[74%] animate-float"
                 style={{ animationDelay: "2.5s" }}
                 icon={<ClipboardList size={16} aria-hidden />}
                 title="Status updated"
@@ -148,7 +149,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Bento services */}
+          {/* Simple service cards — same style, easy to scan */}
           <div className="mt-16 sm:mt-20">
             <div className="mb-8 max-w-2xl">
               <p className="mb-3 inline-flex rounded-full border border-[var(--color-border)] bg-neutral-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--color-muted-text)]">
@@ -162,133 +163,66 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {/* Worker checks — dark navy */}
-              <article className="relative overflow-hidden rounded-[24px] bg-[var(--color-navy)] p-5 text-white sm:rounded-[28px] sm:p-6 xl:col-span-1">
-                <h3 className="text-xl font-bold">Worker checks</h3>
-                <p className="mt-2 text-sm text-white/70">
-                  Right to Work support, ID, DBS help, references and renewals.
-                </p>
-                <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-lg">
-                  <div className="flex items-center gap-1.5 border-b border-white/10 px-3 py-2">
-                    <span className="h-2.5 w-2.5 rounded-full bg-red-400/80" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
-                    <span className="ml-2 text-[10px] text-white/50">checklist.app</span>
-                  </div>
-                  <ul className="space-y-2 p-3 text-xs">
-                    {["Send RTW list", "Collect ID evidence", "Track DBS"].map((row) => (
-                      <li
-                        key={row}
-                        className="flex items-center justify-between rounded-lg bg-white/5 px-3 py-2"
-                      >
-                        <span>{row}</span>
-                        <span className="rounded-md bg-white/10 px-2 py-0.5 text-[10px]">
-                          Send
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <Link
-                  href="/workforce-compliance"
-                  className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white/90 hover:text-white"
-                >
-                  Learn more <ArrowRight size={16} aria-hidden />
-                </Link>
-              </article>
-
-              {/* Business — soft blue, wide */}
-              <article className="relative overflow-hidden rounded-[24px] bg-[var(--color-blue-soft)] p-5 sm:rounded-[28px] sm:p-6 md:col-span-2 xl:col-span-2">
-                <h3 className="text-xl font-bold text-[var(--color-navy)]">Business checks</h3>
-                <p className="mt-2 max-w-md text-sm text-[var(--color-muted-text)]">
-                  Company checks, VAT support, sanctions review help, insurance and policies.
-                </p>
-                <div className="relative mt-8 h-40 sm:h-48">
-                  <div className="absolute right-[-12px] top-0 w-[88%] rotate-3 rounded-2xl border border-[var(--color-border)] bg-white p-3 shadow-[var(--shadow-card)] sm:right-[-24px] sm:w-[70%] sm:rotate-6 md:right-[-40px]">
-                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--color-muted-text)]">
-                      Board preview
-                    </p>
-                    <div className="grid grid-cols-3 gap-2">
-                      {["Request", "Review", "Ready"].map((col) => (
-                        <div key={col} className="rounded-lg bg-neutral-50 p-2">
-                          <p className="mb-2 text-[10px] font-bold text-[var(--color-navy)]">{col}</p>
-                          <div className="mb-1.5 h-8 rounded-md bg-white border border-[var(--color-border)]" />
-                          <div className="h-8 rounded-md bg-white border border-[var(--color-border)]" />
-                        </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                {
+                  icon: ShieldCheck,
+                  title: "Worker checks",
+                  description: "Help with people checks before and during work.",
+                  points: ["Right to Work & ID evidence", "DBS help where allowed", "References & renewals"],
+                  href: "/workforce-compliance",
+                },
+                {
+                  icon: ClipboardList,
+                  title: "Business checks",
+                  description: "Help with company papers and ongoing tracking.",
+                  points: ["Company & VAT checks", "Insurance & policy packs", "Clear request → review → ready"],
+                  href: "/business-compliance",
+                },
+                {
+                  icon: Users,
+                  title: "For agencies",
+                  description: "Support teams who manage many workers and clients.",
+                  points: ["Less chasing by email", "Clearer worker progress", "Client-ready records"],
+                  href: "/industries/recruitment-agencies",
+                },
+                {
+                  icon: Building2,
+                  title: "For employers",
+                  description: "Support hiring and renewal work inside your company.",
+                  points: ["New-starter checks", "Renewal reminders", "Organised evidence"],
+                  href: "/industries/employers",
+                },
+              ].map((card) => {
+                const Icon = card.icon;
+                return (
+                  <article key={card.title} className="card-lift flex h-full flex-col p-6 sm:p-7">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-blue-soft)] text-[var(--color-navy)]">
+                      <Icon size={20} aria-hidden />
+                    </span>
+                    <h3 className="mt-4 text-xl font-bold text-[var(--color-navy)]">{card.title}</h3>
+                    <p className="mt-2 text-sm text-[var(--color-muted-text)]">{card.description}</p>
+                    <ul className="mt-4 space-y-2 text-sm text-[var(--color-text)]">
+                      {card.points.map((point) => (
+                        <li key={point} className="flex items-start gap-2">
+                          <CheckCircle2
+                            size={16}
+                            className="mt-0.5 shrink-0 text-[var(--color-navy)]"
+                            aria-hidden
+                          />
+                          <span>{point}</span>
+                        </li>
                       ))}
-                    </div>
-                  </div>
-                </div>
-                <Link
-                  href="/business-compliance"
-                  className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--color-navy)]"
-                >
-                  Learn more <ArrowRight size={16} aria-hidden />
-                </Link>
-              </article>
-
-              {/* Agencies */}
-              <article className="relative overflow-hidden rounded-[24px] border border-[var(--color-border)] bg-neutral-50 p-5 sm:rounded-[28px] sm:p-6">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-[var(--color-navy)] shadow-sm">
-                  <Users size={18} aria-hidden />
-                </div>
-                <h3 className="text-xl font-bold text-[var(--color-navy)]">For agencies</h3>
-                <p className="mt-2 text-sm text-[var(--color-muted-text)]">
-                  Manage many workers and client needs with clearer progress and less chasing.
-                </p>
-                <div className="mt-6 space-y-2">
-                  <div className="rounded-2xl bg-white p-3 shadow-sm">
-                    <p className="text-xs font-semibold text-[var(--color-navy)]">Agency team</p>
-                    <p className="text-[11px] text-[var(--color-muted-text)]">Need DBS pack…</p>
-                  </div>
-                  <div className="ml-4 rounded-2xl bg-[var(--color-navy)] p-3 text-white shadow-sm">
-                    <p className="text-xs font-semibold">NOSS</p>
-                    <p className="text-[11px] text-white/70">List sent. Tracking open items.</p>
-                    <div className="mt-2 flex gap-1">
-                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-white/70 [animation-delay:0ms]" />
-                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-white/70 [animation-delay:150ms]" />
-                      <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-white/70 [animation-delay:300ms]" />
-                    </div>
-                  </div>
-                </div>
-                <Link
-                  href="/industries/recruitment-agencies"
-                  className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--color-navy)]"
-                >
-                  Learn more <ArrowRight size={16} aria-hidden />
-                </Link>
-              </article>
-
-              {/* Employers */}
-              <article className="relative overflow-hidden rounded-[24px] border border-[var(--color-border)] bg-sky-50/80 p-5 sm:rounded-[28px] sm:p-6 md:col-span-2 xl:col-span-1">
-                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-[var(--color-navy)] shadow-sm">
-                  <Building2 size={18} aria-hidden />
-                </div>
-                <h3 className="text-xl font-bold text-[var(--color-navy)]">For employers</h3>
-                <p className="mt-2 text-sm text-[var(--color-muted-text)]">
-                  New-starter checks, renewals and organised records with NOSS follow-up.
-                </p>
-                <div className="relative mt-6 h-28">
-                  <div className="absolute inset-x-2 top-0 rotate-[-3deg] rounded-2xl border border-[var(--color-border)] bg-white p-4 shadow-[var(--shadow-card)] sm:inset-x-4">
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <p className="text-sm font-bold text-[var(--color-navy)]">Starter pack</p>
-                        <p className="text-xs text-[var(--color-muted-text)]">Checks in progress</p>
-                      </div>
-                      <span className="rounded-full bg-[var(--color-navy)] px-2.5 py-1 text-[10px] font-bold text-white">
-                        Active
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <Link
-                  href="/industries/employers"
-                  className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--color-navy)]"
-                >
-                  Learn more <ArrowRight size={16} aria-hidden />
-                </Link>
-              </article>
+                    </ul>
+                    <Link
+                      href={card.href}
+                      className="mt-auto inline-flex min-h-11 items-center gap-2 pt-5 text-sm font-semibold text-[var(--color-navy)]"
+                    >
+                      Learn more <ArrowRight size={16} aria-hidden />
+                    </Link>
+                  </article>
+                );
+              })}
             </div>
           </div>
 

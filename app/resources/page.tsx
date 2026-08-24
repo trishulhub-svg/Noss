@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ButtonLink } from "@/components/Button";
 import { PageHero, Section, SectionHeading } from "@/components/Section";
 import { resources } from "@/content/resources";
 import { createPageMetadata } from "@/lib/seo";
@@ -20,7 +19,7 @@ export default function ResourcesPage() {
         description="Short guides in plain English. Always check official sources for rules that can change."
       />
       <Section tone="surface" className="!pt-0">
-        <SectionHeading title="Starter guides" useMarker />
+        <SectionHeading title="Starter guides" />
         <ul className="grid gap-4 md:grid-cols-2">
           {resources.map((article) => (
             <li key={article.slug}>
@@ -39,9 +38,6 @@ export default function ResourcesPage() {
             </li>
           ))}
         </ul>
-        <div className="mt-10">
-          <ButtonLink href="/contact">Book a demo</ButtonLink>
-        </div>
       </Section>
     </>
   );

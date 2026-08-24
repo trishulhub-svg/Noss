@@ -16,6 +16,7 @@ export default function LoginPage() {
         marker="Access"
         title="Client login"
         description="The client portal and service portal are later-phase apps. They are not live yet, so this page will not send you to a broken link."
+        actions={<ButtonLink href="/contact" variant="secondary">Contact support</ButtonLink>}
       />
       <Section tone="surface" className="!pt-0">
         <div className="grid gap-4 md:grid-cols-2">
@@ -33,10 +34,6 @@ export default function LoginPage() {
               Not available yet. Staff access comes in a later phase.
             </p>
           </div>
-        </div>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <ButtonLink href="/contact">Contact support</ButtonLink>
-          <ButtonLink href="/contact" variant="secondary">Book a demo</ButtonLink>
         </div>
       </Section>
     </>

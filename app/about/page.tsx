@@ -19,15 +19,25 @@ export default function AboutPage() {
       />
       <Section tone="surface">
         <div className="card-lift bg-white p-6 sm:p-8">
-          <h2 className="text-2xl font-extrabold text-[var(--color-black)]">Our approach</h2>
+          <h2 className="text-2xl font-bold text-[var(--color-navy)]">Our approach</h2>
           <div className="mt-5 max-w-2xl space-y-4 text-[var(--color-muted-text)]">
-            <p>Tools help with workflow and reminders. People stay accountable — especially when important results need a trained review.</p>
-            <p>Some checks use official or certified routes. We do not claim to be government approved or fully automatic.</p>
-            <p>Founder and company history details will be added only when the NOSS owner supplies approved facts.</p>
+            <p>
+              Tools help with workflow and reminders. People stay accountable — especially when
+              important results need a trained review.
+            </p>
+            <p>
+              Some checks use official or certified routes. We do not claim to be government
+              approved or fully automatic.
+            </p>
+            <p>
+              Founder and company history details will be added only when the NOSS owner supplies
+              approved facts.
+            </p>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="/contact">Book a demo</ButtonLink>
-            <ButtonLink href="/contact" variant="secondary">Contact us</ButtonLink>
+          <div className="mt-8">
+            <ButtonLink href="/contact" variant="secondary">
+              Contact us
+            </ButtonLink>
           </div>
         </div>
       </Section>

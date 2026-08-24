@@ -1,4 +1,3 @@
-import { ButtonLink } from "@/components/Button";
 import { FeatureList } from "@/components/Cards";
 import { PageHero, Section, SectionHeading } from "@/components/Section";
 import { createPageMetadata } from "@/lib/seo";
@@ -28,25 +27,28 @@ export default function WorkforceCompliancePage() {
         marker="Services"
         title="Worker checks, kept organised"
         description="NOSS helps with worker checks, evidence, review and follow-up so your team can see progress without drowning in email."
-        actions={<ButtonLink href="/contact">Book a demo</ButtonLink>}
       />
       <Section tone="surface">
-        <SectionHeading title="What we help with" useMarker description="These are service areas. Not every check applies to every role." />
+        <SectionHeading
+          title="What we help with"
+          description="These are service areas. Not every check applies to every role."
+        />
         <FeatureList items={services} />
       </Section>
       <Section>
-        <SectionHeading title="A simple process" useMarker />
+        <SectionHeading title="A simple process" />
         <ol className="grid gap-3 sm:grid-cols-2 md:grid-cols-5">
-          {["You ask", "Worker acts", "NOSS reviews", "Fixes if needed", "Status is tracked"].map((step, i) => (
-            <li key={step} className="card-lift p-4">
-              <p className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-blue-soft)] text-sm font-bold text-[var(--color-blue)]">{i + 1}</p>
-              <p className="mt-2 font-bold text-[var(--color-navy)]">{step}</p>
-            </li>
-          ))}
+          {["You ask", "Worker acts", "NOSS reviews", "Fixes if needed", "Status is tracked"].map(
+            (step, i) => (
+              <li key={step} className="card-lift p-4">
+                <p className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--color-blue-soft)] text-sm font-bold text-[var(--color-navy)]">
+                  {i + 1}
+                </p>
+                <p className="mt-2 font-bold text-[var(--color-navy)]">{step}</p>
+              </li>
+            ),
+          )}
         </ol>
-        <div className="mt-8">
-          <ButtonLink href="/contact">Book a demo</ButtonLink>
-        </div>
       </Section>
     </>
   );

@@ -1,4 +1,3 @@
-import { ButtonLink } from "@/components/Button";
 import { FeatureList } from "@/components/Cards";
 import { PageHero, Section, SectionHeading } from "@/components/Section";
 import { createPageMetadata } from "@/lib/seo";
@@ -27,14 +26,13 @@ export default function BusinessCompliancePage() {
         marker="Services"
         title="Business checks without the paper chase"
         description="NOSS helps companies organise company checks, policies and evidence so the work stays visible and ready for audit."
-        actions={<ButtonLink href="/contact">Book a demo</ButtonLink>}
       />
       <Section tone="surface">
-        <SectionHeading title="Business support areas" useMarker description="Availability depends on what your clients and process need." />
+        <SectionHeading
+          title="Business support areas"
+          description="Availability depends on what your clients and process need."
+        />
         <FeatureList items={services} />
-        <div className="mt-8">
-          <ButtonLink href="/contact">Book a demo</ButtonLink>
-        </div>
       </Section>
     </>
   );
