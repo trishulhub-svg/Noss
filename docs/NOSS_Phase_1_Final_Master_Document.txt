@@ -1,0 +1,815 @@
+[Normal] NOSS
+[Normal] PHASE 1
+[Normal] Final Master Project Document
+[Normal] Marketing Website + Project SOP Execution + Build Specification
+[Normal] noss.co.uk
+[Normal] Prepared for: NOSS UK / Trishulhub
+[Normal] Baseline date: 24 August 2026
+[Normal] Target launch: 30 August 2026 (assumption based on owner instruction “launch on 30”; confirm if a different month/date was intended)
+[Normal] Classification: Confidential - Build Requirements
+[Heading 1] Document Control
+[Heading 2] Authority and Source Hierarchy
+[Normal] If two instructions conflict, use the following order unless the owner issues a written change request:
+[List Number] Latest owner-approved change request or written decision.
+[List Number] This Final Master Phase 1 Document.
+[List Number] NOSS Phase 1 Marketing Website Requirements, dated 24 August 2026.
+[List Number] NOSS Master Project Requirements Document, dated 24 August 2026.
+[List Number] Trishulhub AI-First Project SOP.
+[Heading 2] Open Owner Inputs / Launch Blockers
+[Heading 1] 1. Executive Summary
+[Normal] NOSS Phase 1 is a public, responsive marketing and lead-generation website for a UK compliance-native service business. It is the sales and trust layer of the wider NOSS product. It does not implement the customer/worker compliance platform, internal NOSS operations portal, AI document processing, or regulated-check automation; those are later phases.
+[Normal] The Phase 1 website must make NOSS understandable in under 10 seconds, explain workforce and business compliance services in plain English, provide dedicated pages for recruitment agencies and employers, explain the future NOSS workflow, build trust, provide resources/help, capture business enquiries, and route existing users to portal locations when those portals exist.
+[Heading 2] 1.1 Key Decisions
+[List Bullet] Primary CTA: Book a Demo.
+[List Bullet] Secondary sales route: Contact NOSS.
+[List Bullet] Pricing: enquiry only; no public pricing table in Phase 1.
+[List Bullet] Lead destination: notification email to info@trishulhub.in; lead records also stored in Turso for reliability/audit unless owner later opts out.
+[List Bullet] No CRM integration in Phase 1.
+[List Bullet] No analytics in Phase 1.
+[List Bullet] No CMS in Phase 1; Resources content is code-managed/static at launch, but page architecture must permit later CMS adoption.
+[List Bullet] English only; SEO targeting the whole UK.
+[List Bullet] NOSS is positioned for recruitment agencies, employers and businesses across sectors; no sector-specific product restriction at launch.
+[List Bullet] Final compliance-service and legal wording is approved by the NOSS UK owner.
+[Heading 2] 1.2 Non-Negotiable Product Principles
+[List Bullet] Do not claim “100% automated compliance” or “government approved” unless legally and factually proven.
+[List Bullet] Some checks use official/certified third-party routes and significant outcomes may require trained human review.
+[List Bullet] No fake testimonials, certifications, customer logos, badges, statistics or proof.
+[List Bullet] The public site must never expose worker/customer records.
+[List Bullet] Security, privacy, accessibility and SEO are release requirements, not later enhancements.
+[List Bullet] Use official sources for compliance facts that can change.
+[Heading 1] 2. Trishulhub SOP A-Z Applied to NOSS Phase 1
+[Heading 2] A - Assign
+[Heading 2] B - Brief
+[Normal] Problem: target companies may manage workforce/business compliance through scattered email, spreadsheets, folders and multiple external services, causing missed expiry dates, slow follow-up, poor visibility and weak audit readiness. Phase 1 must explain how NOSS addresses that problem through a managed, controlled workflow.
+[Normal] Business goal: establish NOSS online, build trust and convert qualified UK business visitors into demo/contact enquiries. Phase 1 also prepares the public front door for later app.noss.co.uk and service.noss.co.uk products.
+[Normal] Primary success measures for launch: all required pages live; valid enquiry flow works end-to-end; no critical/high security issues; mobile/desktop QA passes; legal pages linked; owner content approval recorded; production smoke test passes.
+[Heading 2] C - Research
+[Normal] Research must be completed before content freeze. Research output is evidence, not automatic scope. Separate verified facts from ideas.
+[List Bullet] Competitors: UK workforce compliance, recruitment compliance, Right to Work/DBS support, business compliance and onboarding providers.
+[List Bullet] Customer language: identify plain-English terminology used by UK recruitment agencies and employers.
+[List Bullet] Official compliance sources: GOV.UK Right to Work; Companies House; HMRC VAT; UK Sanctions; ICO employment-information guidance.
+[List Bullet] Technology: verify current Next.js, Vercel, Turso and GitHub documentation before implementation where limits or terms can change.
+[List Bullet] Risk: review claims, privacy, cookies, form data, email handling, accessibility and commercial-hosting terms.
+[Heading 2] D - Scope
+[Heading 2] E - Experience & Prototype
+[Normal] Before major build work, produce/approve sitemap, desktop/mobile wireframes, interaction notes and key states. Minimum prototype coverage: Home, Workforce Compliance, Business Compliance, one industry landing pattern, How NOSS Works, Book Demo form, mobile navigation, legal/footer pattern.
+[List Bullet] Every CTA must have a destination.
+[List Bullet] Every form needs default, focus, validation, loading, success and failure states.
+[List Bullet] Responsive behaviour must be explicitly reviewed at phone, tablet, laptop and large desktop widths.
+[Heading 2] F - Project Documents
+[Normal] This master document contains the Phase 1 baseline equivalents of the SOP-required PRD, Functional & UX Specification, TRD/Architecture, Data & API Specification, Test & Acceptance Plan, and Deployment & Handover requirements. If separate files are later generated, they must remain consistent with this baseline.
+[Heading 2] G - Governance & Risk
+[List Bullet] Data collected: business-contact enquiry data only in Phase 1; no worker identity/compliance documents.
+[List Bullet] No public authentication in Phase 1.
+[List Bullet] Third parties: Vercel, Turso, GitHub, email infrastructure and DNS/CDN as configured.
+[List Bullet] Legal/privacy: owner approves content; legal entity details remain required for final legal pages.
+[List Bullet] Security: server-side validation, rate limiting, anti-spam, secrets management, dependency scanning, secure headers, no secrets in client code.
+[List Bullet] Accessibility: target WCAG 2.2 AA as engineering baseline, subject to formal accessibility test results.
+[Heading 2] H - Architecture
+[Normal] Use the simplest suitable Phase 1 architecture: Next.js application deployed on Vercel, Turso for lead persistence, server-only lead endpoint, email notification to info@trishulhub.in, GitHub for source control/CI, and static/code-managed content. No microservices or unnecessary infrastructure.
+[Heading 2] I - Infrastructure
+[List Bullet] GitHub repository with protected main branch and pull-request workflow where practical.
+[List Bullet] Local/development, stable staging, and production environments.
+[List Bullet] Vercel Pro or another commercial-eligible Vercel plan for production. Do not use Vercel Hobby for the commercial NOSS production site under current Vercel terms.
+[List Bullet] Turso paid plan recommended for production handling of lead personal data if DPA/account controls are required; re-check current plan/terms at launch.
+[List Bullet] Separate secrets per environment; never commit .env files or tokens.
+[Heading 2] J - Task Breakdown
+[Normal] Convert this document into epics and small implementation tasks. Every task must cite its acceptance criteria and dependencies. A detailed task plan appears later in this document.
+[Heading 2] K - Start Build
+[Normal] Give Codex one approved task at a time. Required pattern: read requirement -> plan -> implement -> run -> inspect diff -> test -> fix -> commit/PR. Do not instruct Codex to invent missing legal/company details.
+[Heading 2] L - Build Loop
+[Normal] Apply the controlled task loop to each page/component/API endpoint. Keep changes small enough to inspect.
+[Heading 2] M - Code Quality
+[Normal] Run TypeScript checks, linting, formatting, dead-code checks and dependency review. Prefer reusable accessible components; reject unnecessary AI-generated complexity.
+[Heading 2] N - Edge Cases
+[Normal] Test invalid form input, repeated submission, network failure, email failure, database failure, slow connection, mobile keyboard, empty resources, long content, missing optional fields and broken external portal destinations.
+[Heading 2] O - Security Review
+[Normal] Review XSS/injection, CSRF where applicable, server validation, rate limiting, abuse prevention, secret exposure, dependency risks, data leakage, logs and secure headers.
+[Heading 2] P - Performance & Compatibility
+[Normal] Test Core Web Vitals, image optimization, JS weight, mobile responsiveness, common modern browsers, keyboard navigation, focus visibility and reduced-motion preferences.
+[Heading 2] Q - QA vs Requirements
+[Normal] Execute the test matrix in this document. Mark Passed / Failed / Not Applicable. No critical failed requirement may reach production.
+[Heading 2] R - Full Repo Review
+[Normal] Before staging approval, scan the whole repository for TODOs, placeholders, insecure defaults, unused code, incorrect configuration, missing tests, stale dependencies and architecture drift.
+[Heading 2] S - Staging
+[Normal] Deploy a production-like staging build. Verify forms, Turso, email delivery, legal routes, portal destinations, redirects, environment variables, headers, mobile/desktop behaviour and SEO metadata.
+[Heading 2] T - Legal & Platform Compliance
+[Normal] Prepare Privacy Notice, Terms, Cookie Notice, Accessibility information and complaints/contact information according to actual data flows. Owner approval is mandatory. Do not present AI-generated legal wording as professional legal advice.
+[Heading 2] U - User Acceptance
+[Normal] NOSS UK owner receives staging URL and acceptance checklist. Bugs are fixed within scope; new requests require a change request. Owner approval is recorded.
+[Heading 2] V - Release Preparation
+[Normal] Freeze release, confirm production environment variables, database, email, DNS, monitoring/error reporting, rollback procedure, version/changelog and final content/legal approval.
+[Heading 2] W - Production Launch
+[Normal] Deploy the approved release. Verify DNS, SSL, page routes, forms, email, Turso writes, redirects, robots/sitemap, canonical host and portal destinations.
+[Heading 2] X - Production Verification
+[Normal] Run smoke tests on the real production domain, inspect logs/errors and classify issues Critical / High / Medium / Low. Fix via normal Git workflow.
+[Heading 2] Y - Handover
+[Normal] Deliver GitHub access, production/staging URLs, deployment notes, architecture, environment-variable inventory without secret values, rollback instructions, known limitations and support ownership.
+[Heading 2] Z - Close
+[Normal] Confirm all acceptance criteria, production verification, documentation currency, owner sign-off and support/maintenance ownership. Mark Phase 1 Delivered only when no unresolved critical issue remains.
+[Heading 1] 3. Product Requirements (PRD)
+[Heading 2] 3.1 Product Position
+[List Bullet] Company: NOSS is a UK compliance-native company and agency.
+[List Bullet] Core promise: NOSS manages end-to-end workforce and business compliance for small recruitment agencies and small/medium companies.
+[List Bullet] Bridge: the future NOSS platform connects client companies, their workers/employees and the NOSS compliance team in one controlled workflow.
+[List Bullet] Key message: clients see progress; workers know what is missing; NOSS keeps accountable human verification and the audit trail.
+[List Bullet] Design: minimal, modern, high-trust, accessible, fast and professional; mobile-first and excellent on desktop.
+[Heading 2] 3.2 Primary User Problems
+[List Bullet] Documents scattered across email, folders and multiple systems.
+[List Bullet] Missed certificate/licence/verification expiry dates.
+[List Bullet] Slow manual follow-up and chasing.
+[List Bullet] Unclear status across workers or business requirements.
+[List Bullet] Difficulty preparing audit-ready evidence.
+[Heading 2] 3.3 Phase 1 Functional Goals
+[List Bullet] Explain NOSS in under 10 seconds on the Home page.
+[List Bullet] Present workforce and business compliance services accurately.
+[List Bullet] Provide relevant positioning for recruitment agencies and employers.
+[List Bullet] Explain the five-step NOSS workflow clearly.
+[List Bullet] Show a non-live portal preview to communicate the future experience.
+[List Bullet] Capture qualified enquiries with validation, consent and success/error states.
+[List Bullet] Provide resources/help structure and starter content for SEO/education.
+[List Bullet] Provide legal/trust pages and clear support/contact paths.
+[Heading 2] 3.4 Services Presented on the Website
+[Heading 1] 4. Information Architecture & Navigation
+[Heading 2] 4.1 Header Navigation
+[Normal] Desktop: NOSS logo | Services | Industries | How It Works | Resources | About | Contact | Login. “Book a Demo” should be visually prominent where space permits.
+[Normal] Mobile: accessible menu button with correct aria-expanded state, focus management, close action, keyboard support and scroll-safe layout.
+[Heading 2] 4.2 Footer
+[List Bullet] NOSS summary and primary CTA.
+[List Bullet] Services links.
+[List Bullet] Industries links.
+[List Bullet] Resources, About, Contact.
+[List Bullet] Privacy, Terms, Cookie Notice, Accessibility, Complaints/contact.
+[List Bullet] Login/portal links.
+[List Bullet] Public support contact details only after owner supplies approved values.
+[Heading 1] 5. Page-by-Page Functional & UX Specification
+[Heading 2] 5.1 Home
+[Heading 3] 5.1.1 Home Launch Copy Direction
+[Normal] Recommended hero baseline for owner approval:
+[Normal] Do not hard-code unapproved claims such as turnaround times, customer counts or government endorsements.
+[Heading 2] 5.2 Workforce Compliance
+[Normal] Purpose: explain employee/worker compliance services in plain English and convert employers/recruiters into enquiries.
+[List Bullet] Intro: NOSS helps organise workforce compliance checks, evidence collection, review and follow-up.
+[List Bullet] Service cards: Right to Work; identity/document verification; DBS coordination; references/employment history; address evidence; qualifications/professional registrations; training/licences; expiry/re-check tracking.
+[List Bullet] Process: request -> worker action -> NOSS review -> clarification if needed -> status/evidence managed.
+[List Bullet] Trust note: official/certified routes are used where required; significant outcomes may require trained human review.
+[List Bullet] CTA: Book a Demo.
+[Heading 2] 5.3 Business Compliance
+[List Bullet] Company/KYB and Companies House data support where appropriate.
+[List Bullet] UK VAT validation where required.
+[List Bullet] Sanctions screening support with documented human review; a possible match is not an automatic adverse decision.
+[List Bullet] Insurance/accreditation/licence document tracking.
+[List Bullet] Policy/document support categories listed in the approved requirements.
+[List Bullet] Risk assessment, contracts/NDA/DPA and compliance-document registers.
+[List Bullet] Client-specific compliance packs and audit-ready evidence export as service capability/future platform concept.
+[List Bullet] CTA: Book a Demo.
+[Heading 2] 5.4 For Recruitment Agencies
+[List Bullet] Problem framing: many workers, multiple client requirements, manual chasing and audit pressure.
+[List Bullet] Capabilities to describe: multi-worker onboarding, client separation concept, live progress concept, missing-item visibility and audit readiness.
+[List Bullet] Use a realistic non-live workflow example; do not display fabricated customers or worker personal data.
+[List Bullet] CTA: Book a Demo.
+[Heading 2] 5.5 For Employers
+[List Bullet] Problem framing: new-starter checks, evidence collection, ongoing renewals and unclear ownership.
+[List Bullet] Capabilities: new-starter compliance, ongoing expiry monitoring, evidence records and NOSS-managed follow-up.
+[List Bullet] CTA: Book a Demo.
+[Heading 2] 5.6 How NOSS Works
+[Heading 2] 5.7 About
+[List Bullet] Explain NOSS UK purpose, approach and service standards without inventing company history.
+[List Bullet] Position technology as assistance and workflow support; human accountability remains central.
+[List Bullet] Owner must provide any founder/history/team facts before publication.
+[List Bullet] CTA: Contact NOSS / Book a Demo.
+[Heading 2] 5.8 Resources / Help
+[Normal] Phase 1 uses static/code-managed content; CMS is deferred. Build a reusable article template and resource index so a CMS can later replace the content source without changing public routes.
+[List Bullet] Starter topics may include: Right to Work overview; DBS support overview; workforce compliance checklist; what KYB means; preparing business compliance documents; FAQ.
+[List Bullet] Every compliance article needs a reviewed date and official-source links where relevant.
+[List Bullet] No auto-generated compliance article may publish without owner approval.
+[Heading 2] 5.9 Contact / Book a Demo
+[Normal] Single lead capture flow. The page must work without JavaScript-enhanced UX if feasible, while progressively enhancing validation and loading states.
+[Heading 3] 5.9.1 Form States
+[Heading 2] 5.10 Login Gateway
+[Normal] Phase 1 should provide clear portal destinations without implementing authentication. app.noss.co.uk and service.noss.co.uk are later-phase applications. If they are not live at Phase 1 launch, do not send users to a broken page. Use an owner-approved “Portal not yet available / contact support” state or remove the live destination until Phase 2.
+[Heading 2] 5.11 Legal Pages
+[Normal] Routes must exist and be linked before production. Final legal text must match actual data flows and approved NOSS legal entity details. Because no professional legal reviewer is currently appointed, the NOSS owner is the interim approver; obtaining qualified UK legal/data-protection review is recommended.
+[List Bullet] Privacy Notice: controller identity, contact details, categories of data, purposes/lawful bases as applicable, recipients/processors, retention, rights and complaint route.
+[List Bullet] Terms: website/service use, intellectual property, disclaimers/limitations as legally appropriate, contact/legal entity.
+[List Bullet] Cookie Notice: only technologies actually used; with no analytics in Phase 1, avoid unnecessary tracking scripts.
+[List Bullet] Accessibility: target, known limitations if any, contact route for accessibility support.
+[List Bullet] Complaints/contact information: clear method and response ownership.
+[Heading 1] 6. Brand & Design System
+[Normal] The owner has not supplied an existing brand. The following professional high-trust design direction becomes the Phase 1 baseline unless the owner requests a change before Gate 1.
+[Heading 2] 6.1 Typography
+[List Bullet] Preferred web font: Inter or a comparable highly legible sans-serif, self-hosted or privacy-conscious loading if practical. Fallback: system sans-serif stack.
+[List Bullet] Use a clear type scale; avoid excessively small text. Body target approximately 16px equivalent on web.
+[List Bullet] Headings short and benefit-led; paragraphs concise.
+[Heading 2] 6.2 UI Style
+[List Bullet] Minimal, professional, high-trust; avoid fintech-style hype, neon gradients, fake certification visuals or excessive animation.
+[List Bullet] Rounded corners moderate, not playful; subtle shadows only where they aid hierarchy.
+[List Bullet] Icons should be simple and consistent; do not rely on icons without text labels for critical actions.
+[List Bullet] Imagery: use abstract/document/workflow graphics or properly licensed professional imagery. Never use fake customer screenshots containing real-looking sensitive data unless clearly synthetic and safe.
+[Heading 2] 6.3 Accessibility Design Rules
+[List Bullet] Target WCAG 2.2 AA colour contrast and keyboard navigation.
+[List Bullet] All interactive controls need visible focus states.
+[List Bullet] Do not convey status by colour alone.
+[List Bullet] Respect prefers-reduced-motion.
+[List Bullet] Use semantic headings in logical order, alt text for meaningful images and empty alt for decorative imagery.
+[Heading 1] 7. Technical Architecture (TRD)
+[Heading 2] 7.1 Architecture Overview
+[Normal] Phase 1 architecture is intentionally small and replaceable. It must not pre-commit Phase 2 to the same data architecture.
+[Heading 2] 7.2 Stack
+[Heading 2] 7.3 Rendering Strategy
+[List Bullet] Static generation for stable marketing/legal/resource pages where practical.
+[List Bullet] Server rendering only where required by runtime data; avoid unnecessary client components.
+[List Bullet] Lead form can use server action/route handler; validation is mandatory server-side.
+[List Bullet] Generate sitemap.xml and robots.txt from known public routes.
+[Heading 2] 7.4 Environment Model
+[Heading 2] 7.5 Repository Baseline
+[Normal] Suggested structure; Codex may adjust only with documented reason:
+[Heading 2] 7.6 Commercial Hosting Constraint
+[Normal] NOSS is a commercial service website. Under Vercel Terms current as of June 2026, the Hobby plan is personal/non-commercial only. Production should therefore use a commercial-eligible paid plan (normally Pro or a later equivalent) unless Vercel terms change. Re-verify immediately before launch.
+[Heading 2] 7.7 Vercel Function Design Constraints
+[List Bullet] Current Vercel documentation states a 4.5 MB function request/response body limit. Phase 1 lead forms are far below this; do not add file uploads.
+[List Bullet] Do not implement long-running work in Phase 1 request handlers. Keep lead processing short; email retry may use a safe deferred/retry mechanism if needed.
+[List Bullet] Avoid reliance on exact platform quotas in code; monitor usage and keep provider-specific limits documented/configurable.
+[Heading 2] 7.8 Turso Usage Strategy
+[List Bullet] Store structured lead/contact records only; no document/file blobs.
+[List Bullet] Use indexes on created_at, email and status fields only when justified by query patterns.
+[List Bullet] Use parameterized queries/ORM prepared statements; no SQL string concatenation from user input.
+[List Bullet] Production plan should support the required data-processing terms. Current Turso pricing shows DPA on paid tiers; re-check account plan before production.
+[List Bullet] Phase 1 volume is low relative to current Turso allowances; future Phase 2 capacity must be separately modeled and approved.
+[Heading 1] 8. Data & API Specification
+[Heading 2] 8.1 Lead Data Model
+[Heading 2] 8.2 API / Server Action Contract
+[Heading 2] 8.3 Data Retention
+[Normal] Exact legal retention period is not supplied by the source documents. Do not invent a statutory period. For Phase 1, define a business retention policy before production (recommended starting proposal: review unconverted enquiry records periodically and delete/anonymise when no longer needed). The approved Privacy Notice must state the adopted rule.
+[Heading 2] 8.4 Logging Rules
+[List Bullet] Do not log full form payloads by default.
+[List Bullet] Never log secrets, auth tokens or database credentials.
+[List Bullet] Log request outcome, timestamp, correlation ID, status and sanitized error category.
+[List Bullet] If IP data is used for rate limiting/security, document its handling and retention in the privacy/data map.
+[Heading 1] 9. Security, Privacy & Risk Register
+[Heading 2] 9.1 Required Security Controls
+[List Bullet] HTTPS only; production must redirect HTTP to HTTPS.
+[List Bullet] Secure headers: HSTS after domain validation, Content-Security-Policy appropriate to actual assets, X-Content-Type-Options, Referrer-Policy, Permissions-Policy and frame protection via CSP/frame-ancestors.
+[List Bullet] Server-side schema validation for all public form submissions.
+[List Bullet] Rate limiting / anti-spam / bot controls selected to avoid blocking legitimate users.
+[List Bullet] No API secrets in browser bundles or repository.
+[List Bullet] Dependency lockfile committed; dependency/security review in CI or release checklist.
+[List Bullet] No worker/customer data on the marketing site.
+[List Bullet] Separate staging/production secrets and databases.
+[List Bullet] Error pages/messages must not reveal stack traces or infrastructure details.
+[Heading 2] 9.2 Risk Register
+[Heading 1] 10. SEO, Performance & Accessibility
+[Heading 2] 10.1 SEO Baseline
+[List Bullet] Unique title and meta description for every indexable page.
+[List Bullet] Canonical URL using the approved preferred host.
+[List Bullet] Open Graph metadata for main pages; use approved branded image asset.
+[List Bullet] Structured data only where valid and supported by actual content; do not invent ratings/reviews.
+[List Bullet] sitemap.xml and robots.txt.
+[List Bullet] Permanent redirects for www/non-www preference and any changed launch routes.
+[List Bullet] Staging must be noindex and should not appear in public search.
+[List Bullet] Resources use descriptive slugs, reviewed dates and official source links where relevant.
+[Heading 2] 10.2 UK SEO Direction
+[Normal] Target the whole United Kingdom rather than one city. Content should naturally use UK compliance terminology and serve broad sectors. Do not create low-quality city/industry doorway pages in Phase 1.
+[Heading 2] 10.3 Performance
+[List Bullet] Prefer static/server-rendered content; minimize client JavaScript.
+[List Bullet] Optimize images and use responsive dimensions; avoid layout shift.
+[List Bullet] Lazy-load non-critical imagery.
+[List Bullet] Use font-display strategy and minimize third-party scripts.
+[List Bullet] Measure Core Web Vitals in staging/production with browser tooling even though analytics is excluded.
+[Heading 2] 10.4 Accessibility Acceptance
+[List Bullet] Keyboard navigation through all header/menu/form/footer controls.
+[List Bullet] Visible focus indicator.
+[List Bullet] Labels associated with form controls; errors programmatically connected where feasible.
+[List Bullet] Sufficient colour contrast and no colour-only information.
+[List Bullet] Logical heading order; landmark elements; descriptive link text.
+[List Bullet] Alt text for meaningful imagery; decorative images ignored by assistive technology.
+[List Bullet] Mobile zoom/text reflow and no horizontal scrolling at common phone widths.
+[Heading 1] 11. Email & Lead Operations
+[Normal] Lead destination is info@trishulhub.in. Phase 1 should use a server-side sending mechanism appropriate to the existing mailbox/provider. The exact provider/SMTP/API is not supplied and must be configured without exposing credentials.
+[Heading 2] 11.1 Notification Content
+[List Bullet] Subject: New NOSS website enquiry - [Company].
+[List Bullet] Include: contact name, work email, company, phone if supplied, company size, service interests, message, timestamp and lead ID.
+[List Bullet] Do not include technical logs or secret data.
+[List Bullet] Marketing consent shown separately from service enquiry acknowledgement.
+[Heading 2] 11.2 Customer Confirmation
+[Normal] On-screen success confirmation is required. An automatic confirmation email may be added only if the sending setup is reliable and the owner approves its wording; it is not required by the original Phase 1 baseline.
+[Heading 1] 12. Test & Acceptance Plan
+[Heading 2] 12.1 Core Test Matrix
+[Heading 2] 12.2 Browser / Device Coverage
+[List Bullet] Latest stable Chrome, Edge, Firefox and Safari where available during QA.
+[List Bullet] Representative iOS Safari and Android Chrome mobile viewport/device.
+[List Bullet] Responsive widths approximately 360/375, 768, 1024, 1440+ px; test based on content rather than only fixed breakpoints.
+[Heading 2] 12.3 Phase 1 Acceptance Checklist
+[List Bullet] PASS REQUIRED - All agreed pages complete and owner-approved.
+[List Bullet] PASS REQUIRED - Mobile and desktop layouts tested.
+[List Bullet] PASS REQUIRED - Forms store/send leads correctly and handle errors.
+[List Bullet] PASS REQUIRED - Legal pages linked and owner-approved.
+[List Bullet] PASS REQUIRED - Portal links are correct or safely disabled until portals exist.
+[List Bullet] PASS REQUIRED - SEO basics complete.
+[List Bullet] PASS REQUIRED - Accessibility smoke test passed.
+[List Bullet] PASS REQUIRED - Security headers and HTTPS confirmed.
+[List Bullet] PASS REQUIRED - No analytics is installed unless scope changes and consent is re-assessed.
+[List Bullet] PASS REQUIRED - No placeholder text, fake proof or broken links.
+[List Bullet] PASS REQUIRED - Production deployment verified.
+[Heading 1] 13. Deployment, Release & Handover
+[Heading 2] 13.1 Git Workflow
+[List Bullet] main = production baseline; protect from casual direct pushes where feasible.
+[List Bullet] Feature/fix branches with clear names.
+[List Bullet] Small PRs preferred; Codex changes are human-reviewed before merge.
+[List Bullet] CI runs lint/type/test/build checks selected for the repo.
+[List Bullet] Tag final Phase 1 release, e.g. phase1-v1.0.0.
+[Heading 2] 13.2 Staging
+[List Bullet] Stable staging deployment with separate environment values.
+[List Bullet] No production personal data copied to staging.
+[List Bullet] Staging noindex.
+[List Bullet] Owner acceptance recorded before production.
+[Heading 2] 13.3 Production Release Checklist
+[List Bullet] Gate 1 approved baseline current.
+[List Bullet] Gate 2 build approved.
+[List Bullet] Gate 3 staging approved.
+[List Bullet] Production Vercel commercial-eligible plan confirmed.
+[List Bullet] Production Turso DB/plan and DPA needs confirmed.
+[List Bullet] noss.co.uk DNS access confirmed.
+[List Bullet] Legal entity/support details supplied.
+[List Bullet] All owner-approved content frozen.
+[List Bullet] Production secrets configured in Vercel.
+[List Bullet] Rollback method understood.
+[List Bullet] Monitoring/error visibility available.
+[Heading 2] 13.4 Rollback
+[Normal] Use Vercel deployment history to promote/revert to the last known good production deployment. Database schema changes in Phase 1 should be minimal and backward-compatible; any migration must be tested on staging and have a restore/rollback note before production.
+[Heading 2] 13.5 Handover Package
+[List Bullet] GitHub repository access.
+[List Bullet] Production and staging URLs.
+[List Bullet] Deployment instructions and Vercel project ownership/access.
+[List Bullet] Turso database ownership/access transferred securely.
+[List Bullet] Environment variable inventory without secret values.
+[List Bullet] Architecture and data model from this document.
+[List Bullet] Known limitations/backlog.
+[List Bullet] Support/maintenance owner and escalation route.
+[Heading 1] 14. Development Milestones & Codex Task Breakdown
+[Heading 2] 14.1 Milestones
+[Heading 2] 14.2 Initial Codex Task Queue
+[Heading 2] 14.3 Codex Prompt Discipline
+[Normal] Every Codex request should contain: task ID; exact requirement section; files/areas allowed to change; acceptance criteria; tests to run; constraints; explicit instruction not to invent missing business/legal facts. Ask Codex to state assumptions and risks before major changes.
+[Heading 1] 15. Capacity, Limits & Future-Readiness (Phase 1)
+[Normal] This section protects Phase 1 from avoidable platform surprises. It is not the Phase 2 scale design. Worker/customer portal scale must be separately modeled when Phase 2 is approved.
+[Heading 2] 15.1 Phase 1 Expected Load
+[Normal] No exact traffic forecast exists. Marketing-site traffic and lead submissions are expected to be far lower than the future portal’s active-user volume. The architecture therefore optimizes for correctness, cost control and easy upgrade rather than premature distributed systems.
+[Heading 2] 15.2 Vercel
+[List Bullet] Use a commercial-eligible paid Vercel plan for production because NOSS is a commercial site; current Hobby terms are personal/non-commercial only.
+[List Bullet] Current Vercel Functions documentation lists a 4.5 MB request/response body maximum. Phase 1 has text-only lead forms, so the design stays well below it.
+[List Bullet] Current platform limits and pricing are subject to change; verify dashboard/official docs at Gate 3.
+[List Bullet] Do not implement file upload in Phase 1, avoiding payload/storage concerns entirely.
+[Heading 2] 15.3 Turso
+[List Bullet] Current Turso Free plan advertises 5 GB storage, 500M rows read/month and 10M rows written/month; paid Developer/Scaler/Pro plans provide larger allowances/overages.
+[List Bullet] Phase 1 lead records are tiny relative to these allowances. The decision is driven more by production support/data-processing terms than raw capacity.
+[List Bullet] Current Turso pricing shows DPA availability on paid plans; use an appropriate paid plan if contractual/privacy requirements require it.
+[List Bullet] Use Turso only for structured records; later identity/compliance documents must use private object storage, not database blobs.
+[Heading 2] 15.4 GitHub
+[List Bullet] Do not store generated builds, databases, uploaded documents or large binary assets in Git.
+[List Bullet] GitHub blocks regular Git files above 100 MiB and recommends repositories remain small; optimized site assets should be far below these limits.
+[List Bullet] GitHub Actions quotas depend on account plan. Keep CI efficient and monitor usage rather than relying on unlimited hosted minutes.
+[Heading 2] 15.5 Budget Fit
+[Normal] The GBP 500 Phase 1 project budget is compatible with a small architecture if scope remains frozen. Recurring Vercel/Turso/domain/email costs are operational costs and must be approved separately. Avoid introducing paid CRM, CMS, analytics or unnecessary SaaS during Phase 1.
+[Heading 2] 15.6 Phase 2 Scale Note
+[Normal] The owner expects future usage to range from tens to hundreds or thousands of active employees/users. Phase 2 must therefore be designed with tenant isolation, role-based authorization, queues/background work, private object storage, audit logging, monitoring, tested backups and scalable external-integration handling. This Phase 1 document does not lock Phase 2 to the same database or hosting architecture.
+[Heading 1] 16. Change Control
+[Normal] Any change affecting pages, form fields, data processing, legal claims, integrations, technology, deployment, budget or acceptance criteria must be recorded before implementation.
+[Heading 1] 17. Definition of Done
+[Normal] NOSS Phase 1 is Done only when:
+[List Bullet] All Must scope is implemented against this baseline.
+[List Bullet] Gate 1, Gate 2, Gate 3 and Gate 4 criteria are satisfied.
+[List Bullet] All required tests pass or a non-critical limitation is explicitly accepted by the owner.
+[List Bullet] Production noss.co.uk is verified over HTTPS.
+[List Bullet] Book Demo/contact enquiry is durably captured and notification reaches the configured business mailbox or a documented retry/error path exists.
+[List Bullet] No critical/high security issue remains unresolved.
+[List Bullet] Legal/support/company details are final and owner-approved.
+[List Bullet] No placeholder/fake proof/broken links remain.
+[List Bullet] Source code, deployment and documentation are handed over.
+[List Bullet] The final deployed release is tagged/recorded and ownership after delivery is clear.
+[Heading 1] 18. Build Decision Log
+[Heading 1] 19. External Reference Register
+[Normal] Re-check time-sensitive rules during implementation and immediately before launch. The following sources informed the source requirements and technical-limit notes.
+[Heading 1] 20. Final Gate Sign-Off Page
+[Normal] Owner sign-off / approval reference: _______________________________________________
+[Normal] Date: ____________________
+[Normal] Approved change requests attached/referenced: _____________________________________
+[Heading 1] Appendix A - Immediate Pre-Build Checklist
+[List Bullet] Confirm launch date assumption (30 August 2026).
+[List Bullet] Owner approves this master Phase 1 baseline.
+[List Bullet] Owner visually approves brand palette/theme direction.
+[List Bullet] Create GitHub repository and Vercel/Turso dev/staging resources.
+[List Bullet] Confirm production Vercel paid/commercial-eligible plan budget.
+[List Bullet] Confirm Turso production plan/data-processing requirements.
+[List Bullet] Decide exact email sending mechanism for info@trishulhub.in notifications.
+[List Bullet] Supply NOSS legal entity details and public mobile/WhatsApp before legal/content freeze.
+[List Bullet] Approve wireframes/prototype for key pages.
+[List Bullet] Only then begin Codex task T-001.
+[Heading 1] Appendix B - Explicit Phase 1 Out-of-Scope List
+[List Bullet] Customer authentication
+[List Bullet] Worker authentication
+[List Bullet] NOSS staff authentication
+[List Bullet] app.noss.co.uk product implementation
+[List Bullet] service.noss.co.uk product implementation
+[List Bullet] Worker document uploads
+[List Bullet] Identity-document storage
+[List Bullet] Right to Work official checks/integration
+[List Bullet] DBS application/check integration
+[List Bullet] Companies House API automation
+[List Bullet] HMRC VAT API automation
+[List Bullet] Sanctions screening engine
+[List Bullet] AI/OCR/document classification
+[List Bullet] Automated expiry reminder engine
+[List Bullet] Customer dashboards
+[List Bullet] Worker dashboards
+[List Bullet] NOSS case queues
+[List Bullet] Payments/subscriptions
+[List Bullet] Public pricing
+[List Bullet] CRM integration
+[List Bullet] Analytics
+[List Bullet] CMS/admin content editor
+[List Bullet] Native iOS/Android apps
+[Heading 1] Appendix C - Notes for the Codex Build Agent
+[List Bullet] Do not implement Phase 2/3 functionality merely because the future platform is described.
+[List Bullet] Do not invent NOSS company number, address, phone/WhatsApp, team history, certifications, customers, testimonials or compliance approvals.
+[List Bullet] Do not change technology choices without a documented engineering reason and owner approval when material.
+[List Bullet] Prefer native Next.js/platform features and a small dependency surface.
+[List Bullet] Every implementation task must include tests/evidence and changed-file review.
+[List Bullet] Keep public content and regulated claims easy for the owner to review/edit before production.
+[List Bullet] Use environment variables for secrets; maintain an .env.example containing variable names and safe descriptions only.
+[List Bullet] No analytics/CMS/CRM in Phase 1 unless an approved change request updates this baseline.
+
+=== TABLE 1 ===
+DOCUMENT PURPOSE | Single source-of-truth baseline for NOSS Phase 1. This document combines the approved Phase 1 requirements, the Trishulhub AI-First Project SOP, owner-supplied project decisions, build specifications, test criteria, deployment controls, and a Codex execution plan. Major development must follow this document and change control.
+
+=== TABLE 2 ===
+Field || Baseline
+Document || NOSS Phase 1 Final Master Project Document
+Owner || NOSS UK
+Final approver || NOSS UK owner
+Delivery organisation || Trishulhub
+Primary implementation tool || Codex
+Framework || Next.js
+Source control || GitHub
+Deployment || Vercel
+Database || Turso
+Production domain || noss.co.uk
+Business/lead email || info@trishulhub.in
+Language || English
+SEO market || United Kingdom
+Phase 1 budget || GBP 500 project budget; recurring service costs must be monitored separately
+Analytics || Not included in Phase 1
+CMS || Deferred; not required in Phase 1
+Pricing display || Not public; pricing supplied after enquiry
+Support channels || Email, mobile and WhatsApp; phone/WhatsApp number still required before launch
+Phase 2 || Not planned in this document; starts only after Phase 1 completion and separate approval
+
+=== TABLE 3 ===
+GOLDEN RULE | Do not move directly from an idea to AI coding and production. Codex must receive a specific approved task and acceptance criteria. Any material scope change must update this document or an approved change request first.
+
+=== TABLE 4 ===
+ID || Required before || Missing information / decision || Treatment
+O-01 || Production || Legal entity details for NOSS: registered legal name, company number if applicable, registered/business address. || Do not invent. Needed for Terms/Privacy/contact disclosures.
+O-02 || Production || Public support mobile number and WhatsApp number. || Build components with configuration values; staging may omit or mark internal TODO, production cannot show fake values.
+O-03 || Production || Domain/DNS ownership/access confirmation for noss.co.uk. || Required for DNS, SSL, redirects and launch.
+O-04 || Production || Final owner approval of all compliance-service wording and legal pages. || Mandatory Gate 3 item.
+O-05 || Before build freeze || Confirm target launch date is 30 August 2026. || Current document assumes 30 August 2026.
+O-06 || Production || Cookie/third-party inventory after implementation. || Since analytics is excluded, cookie needs should be minimal; still verify actual services.
+
+=== TABLE 5 ===
+PHASE 1 DEFINITION OF SUCCESS | A UK recruitment agency or employer can understand what NOSS does, decide that the service may fit their needs, submit a valid enquiry/demo request, and receive a clear confirmation. The site works on mobile and desktop, is secure, accessible, SEO-ready, legally reviewed by the owner, and is verified in production.
+
+=== TABLE 6 ===
+Item || NOSS Phase 1 Answer
+Project || NOSS Phase 1 Marketing Website
+Owner || NOSS UK
+Approver || NOSS UK owner
+Business goal || Launch a credible UK-wide compliance website that generates qualified enquiries and explains the future managed compliance workflow.
+Target users || Recruitment agency owners/managers; employer/HR teams; SME decision-makers; existing NOSS users seeking portal access.
+Target launch || 30 August 2026 assumed; owner to confirm.
+Budget || GBP 500 for Phase 1 project; recurring platform/service charges tracked separately.
+Platforms || Responsive web: mobile, tablet, laptop, desktop, large desktop.
+Production domain || noss.co.uk
+Delivery team || Trishulhub, AI-assisted; human owner remains final authority.
+Implementation || Next.js + Codex + GitHub + Vercel + Turso.
+Delivery target || Production website passes Phase 1 acceptance checklist and Gate 4 handover/close.
+
+=== TABLE 7 ===
+Priority || Included
+Must || All required public pages; responsive UX; lead form; email notification; Turso lead storage; legal routes; SEO basics; accessibility; HTTPS/security headers; staging/production; QA; owner approval.
+Should || High-quality portal preview/mockups, strong resource starter content, reusable component library, structured data where valid, error monitoring.
+Could || Additional static guides, lightweight FAQ search/filter, richer motion that does not harm performance/accessibility.
+Later || CMS, analytics, CRM, customer/worker portal, NOSS operations portal, authentication, compliance workflows, integrations, AI/OCR, real expiry engine.
+Out of scope || Payments, public pricing, worker document upload, live compliance decisions, actual DBS/Right to Work API automation, customer accounts, native mobile apps.
+
+=== TABLE 8 ===
+GATE 1 - SCOPE APPROVED | Pass only after the owner approves scope, sitemap/flows, brand direction, page specification, architecture, form behaviour, acceptance criteria and open launch blockers are understood. Major implementation begins only after Gate 1.
+
+=== TABLE 9 ===
+GATE 2 - BUILD APPROVED | Required features operate correctly in development, code quality is acceptable, critical/high build defects are resolved, and the repository matches the approved specification.
+
+=== TABLE 10 ===
+GATE 3 - STAGING APPROVED | Do not deploy production until QA, security review, staging acceptance and required legal/privacy checks are complete.
+
+=== TABLE 11 ===
+GATE 4 - DELIVERY APPROVED | Phase 1 closes only after production verification, handover, owner sign-off and confirmation that critical/high issues are resolved or explicitly accepted.
+
+=== TABLE 12 ===
+Category || Service
+Workforce || Right to Work workflow support and evidence management.
+Workforce || Identity and document verification support.
+Workforce || DBS check coordination where eligible and through the correct DBS route.
+Workforce || Employment history and reference collection.
+Workforce || Address history and proof-of-address collection where required.
+Workforce || Qualification, certificate and professional registration evidence checks.
+Workforce || Role-specific licence, driving or training evidence tracking where applicable.
+Workforce || Compliance expiry monitoring, reminders and re-check scheduling.
+Business || Company onboarding / KYB using Companies House data where appropriate.
+Business || UK VAT number validation where required.
+Business || UK sanctions screening support and documented human review.
+Business || Business insurance, accreditation and licence document tracking.
+Business || Policy/document support: privacy, data protection, health & safety, equality, anti-bribery, safeguarding, whistleblowing and modern slavery where applicable.
+Business || Risk assessment, contract/NDA/DPA and compliance-document registers.
+Business || Client-specific compliance packs and audit-ready evidence export.
+
+=== TABLE 13 ===
+CONTENT CONTROL | These are service descriptions, not guarantees that every check is available for every role/customer. DBS eligibility, Right to Work routes and other regulated processes must be described carefully and approved by the owner before production.
+
+=== TABLE 14 ===
+Route || Page || Purpose || Primary CTA
+/ || Home || Explain NOSS in under 10 seconds and drive enquiry. || Book a Demo
+/workforce-compliance || Workforce Compliance || Explain worker/employee compliance services. || Book a Demo
+/business-compliance || Business Compliance || Explain company/document compliance services. || Book a Demo
+/industries/recruitment-agencies || For Recruitment Agencies || Industry landing page for multi-worker recruitment use cases. || Book a Demo
+/industries/employers || For Employers || Industry landing page for new-starter/ongoing employer compliance. || Book a Demo
+/how-it-works || How NOSS Works || Explain five-step service workflow. || Book a Demo
+/about || About || Build trust and explain approach. || Contact NOSS
+/resources || Resources / Help || Education, FAQs, guides and compliance updates. || Book a Demo
+/contact || Contact / Book a Demo || Capture qualified lead. || Submit Enquiry
+/privacy || Privacy Notice || Explain actual website data handling. || Contact
+/terms || Terms || Website/service terms as approved. || Contact
+/cookies || Cookie Notice || Explain cookies/technologies actually used. || Contact
+/accessibility || Accessibility || Accessibility statement/support path. || Contact
+/complaints || Complaints / Contact || Complaint/contact route. || Contact
+/login || Login Gateway || Route existing users to app/service portals when available. || Open Portal
+
+=== TABLE 15 ===
+Order || Section || Requirement / behaviour
+1 || Header || Logo, navigation, Login and primary CTA. Sticky optional only if it does not harm mobile space/accessibility.
+2 || Hero || One outcome-led headline, one supporting sentence, Book a Demo primary CTA, Client Login secondary CTA.
+3 || Trust strip || UK-focused compliance; secure document handling; human verification; live progress concept. No fabricated badges.
+4 || Problem || Scattered documents, missed expiry dates, slow follow-up, unclear progress.
+5 || Solution || Explain one central NOSS-managed workflow.
+6 || Services grid || Two primary cards: Workforce Compliance and Business Compliance, each linking to dedicated page.
+7 || How it works || Five simple steps: company adds worker -> worker submits -> NOSS checks -> client tracks -> verified.
+8 || Portal preview || Static/mock product preview only in Phase 1. Label as product/workflow preview, not live customer data.
+9 || Why NOSS || Human-led, automation-assisted, auditable, multi-company concept, role-based future access.
+10 || FAQ || Data security, worker process, Right to Work, DBS, turnaround, integrations, support. Avoid promises not operationally confirmed.
+11 || Final CTA + footer || Book Demo; legal links; contact/support; portal links.
+
+=== TABLE 16 ===
+Hero | Headline: “Make workforce compliance easier to manage.” | Supporting text: “NOSS helps UK recruitment agencies and employers organise worker checks, business documents, follow-up and compliance progress through one managed service.” | Primary CTA: Book a Demo | Secondary CTA: Client Login
+
+=== TABLE 17 ===
+Step || Public explanation || Phase 1 visual
+1 || Company adds a worker or requests a service. || Simple company/worker card mockup.
+2 || Worker is told exactly what is needed. || Checklist mockup.
+3 || Worker submits evidence or follows the correct official/certified route. || Upload/action concept only; no live upload in Phase 1.
+4 || NOSS reviews, requests corrections and records the compliance outcome. || Reviewer/workflow preview.
+5 || Client tracks progress and receives an audit-ready completion record where applicable. || Progress dashboard preview.
+
+=== TABLE 18 ===
+Field || Required || Validation / notes
+Name || Yes || Trim; sensible min/max length; reject empty/whitespace-only.
+Work email || Yes || Validate format server-side; do not rely only on browser input type.
+Company || Yes || Trim; required.
+Phone || No || Accept UK/international format as free-form normalized text; no over-strict validation.
+Company size || No || Controlled ranges recommended.
+Service interest || Yes || Multi-select Workforce Compliance / Business Compliance / Other or named service groups.
+Message || No || Free text with maximum length and abuse controls.
+Privacy acknowledgement || Yes || Explicit checkbox linking to Privacy Notice.
+Marketing consent || Separate / optional || Separate checkbox; not bundled with service enquiry.
+
+=== TABLE 19 ===
+State || Expected behaviour
+Default || Fields accessible and empty; required fields indicated in text, not colour alone.
+Focus || Visible focus ring meeting contrast expectations.
+Client validation || Immediate helpful feedback where appropriate, but server remains authoritative.
+Submitting || Disable duplicate submission; display progress/loading label.
+Success || Clear confirmation and next-step expectation; no sensitive data echoed unnecessarily.
+Validation error || Field-level and summary message where useful; focus first invalid field.
+Server/email failure || Do not falsely show success. If DB stored but email failed, show success only if enquiry is reliably retained and alert/log the notification failure for retry.
+Rate limited || Friendly retry-later message; no technical details.
+Network failure || Keep entered values locally in form state and allow retry where safe.
+
+=== TABLE 20 ===
+Token || Value || Use
+Primary Navy || #102A43 || Header, major headings, trust/background accents.
+Action Blue || #2563EB || Primary CTA, links, interactive emphasis.
+Compliance Teal || #0F766E || Verification/trust accents; secondary highlights.
+Slate || #486581 || Secondary text, icons, metadata.
+Surface || #F5F8FB || Alternating section background/cards.
+Border || #CBD5E1 || Subtle dividers and form borders.
+Text || #1F2937 || Body text.
+White || #FFFFFF || Main background and dark-surface text.
+Error || #B42318 || Errors only.
+Success || #067647 || Success status only.
+
+=== TABLE 21 ===
+Logical Flow | Browser -> Vercel/Next.js -> server-side lead endpoint -> validate/rate-limit -> write lead to Turso -> send notification email to info@trishulhub.in -> record delivery status -> return success/error. Public content is rendered server-side or statically where practical.
+
+=== TABLE 22 ===
+Layer || Technology / decision || Phase 1 role
+Framework || Next.js + TypeScript || Public routes, layouts, server rendering/static generation, route handlers/server actions.
+UI || React components + approved styling approach || Reusable responsive accessible components.
+Source control || GitHub || Repository, issues, PRs, CI and release history.
+Hosting || Vercel commercial-eligible plan || Preview/staging/production deployments and server functions.
+Database || Turso || Lead submissions, consent flags, status metadata; no files/blobs.
+Email || Existing business email destination info@trishulhub.in; sending provider/config TBD || Lead notification. If direct SMTP/provider is used, credentials remain server-only.
+Domain || noss.co.uk || Production canonical host.
+Analytics || None in Phase 1 || No analytics scripts or dashboards.
+CMS || None in Phase 1 || Static/code-managed resources; architecture prepared for later CMS.
+
+=== TABLE 23 ===
+Environment || Purpose || Data/secret rule
+Local / Dev || Developer execution and component/test work. || Use development Turso DB and test email sink where possible; never production credentials.
+Staging || Production-like UAT and QA. || Separate staging DB and secrets; safe test data only.
+Production || noss.co.uk live service. || Production DB/email credentials stored in Vercel secret/environment system only.
+
+=== TABLE 24 ===
+Repository | app/ - routes and layouts | components/ - reusable UI | lib/ - validation, database, email, rate-limit helpers | content/ - approved static content/resources | public/ - optimized static assets | tests/ - unit/integration/e2e as selected | .github/workflows/ - CI | docs/ - project notes/change records | .env.example - names only, no real secrets
+
+=== TABLE 25 ===
+Field || Type || Required || Notes
+id || UUID/text || Yes || Generated server-side.
+name || text || Yes || Business contact.
+work_email || text || Yes || Normalized lower-case for search; retain original case only if needed.
+company || text || Yes || Company name.
+phone || text || No || Optional.
+company_size || text/enum || No || Recommended ranges.
+service_interests || JSON/text || Yes || One or more allowed service categories.
+message || text || No || Length limited.
+privacy_acknowledged || boolean || Yes || Must be true to submit.
+privacy_notice_version || text || Yes || Version/date of notice shown at submission.
+marketing_consent || boolean || Yes as stored flag || May be false; must not be bundled.
+source_page || text || Yes || Example /contact or campaign page; no intrusive tracking required.
+status || enum || Yes || received | notification_pending | notified | notification_failed | closed.
+created_at || timestamp || Yes || UTC server timestamp.
+updated_at || timestamp || Yes || UTC server timestamp.
+notification_attempts || integer || Yes || Operational field.
+last_notification_error || text || No || Sanitized; no secrets/stack trace shown publicly.
+
+=== TABLE 26 ===
+Item || Specification
+Endpoint || POST /api/leads or equivalent Next.js server action.
+Input || JSON/form payload containing only approved fields.
+Authentication || Public endpoint; protected by abuse/rate controls rather than login.
+Validation || Server-side schema validation; trim/normalize; reject unknown/oversize input where practical.
+Success || 201/200 with generic success payload; do not return DB internals.
+Validation error || 400/422 with field-safe messages.
+Rate limit || 429 with Retry-After where implemented.
+Server failure || 500 generic message; log correlation ID internally.
+Idempotency || Prevent accidental duplicate sends from rapid repeat submit; use request token/fingerprint strategy without invasive tracking.
+Email failure after DB success || Record notification_failed and retry/alert; do not lose the lead.
+Database failure || Do not show success if the enquiry is not durably retained and no alternate reliable delivery occurred.
+
+=== TABLE 27 ===
+Risk || Impact || Likelihood || Mitigation / owner
+Misleading compliance claim || High || Medium || Owner reviews all regulated-service wording against official sources before production.
+Missing legal entity details || High || High until supplied || Production legal pages blocked until O-01 resolved.
+Lead spam/abuse || Medium || High || Server validation, rate limit, honeypot/anti-bot as appropriate; monitor.
+Lead lost due to email failure || High || Medium || Persist in Turso first; status/retry/alert for notification failure.
+Secret exposure || High || Low if controls followed || Vercel/GitHub secrets only; .env ignored; secret scan/repo review.
+XSS/input injection || High || Medium || Escaping by React, schema validation, no raw HTML from untrusted input, CSP.
+Accessibility failure || Medium || Medium || Semantic components, keyboard testing, contrast review, accessibility smoke tests.
+SEO indexing mistakes || Medium || Medium || Canonical, robots, sitemap, noindex staging, production verification.
+Vercel plan misuse || High || Medium || Use commercial-eligible paid plan; re-check current terms.
+Third-party outage || Medium || Low/Medium || Graceful form error; DB/email failure handling; clear operational alert.
+Budget overrun || Medium || Medium || No analytics/CMS/CRM; monitor Vercel/Turso usage; owner approves paid add-ons.
+Deadline compression || High || High || Freeze scope, prioritize Must items, no new features without change approval.
+
+=== TABLE 28 ===
+ID || Test || Expected Result
+P1-NAV-001 || All header/footer links || All approved routes resolve; no 404/broken link.
+P1-NAV-002 || Mobile menu || Keyboard/touch open-close works; focus and aria state correct.
+P1-HOME-001 || Home content || All 11 required homepage sections are present and approved.
+P1-RESP-001 || Phone layout || No horizontal overflow; text readable; CTAs usable.
+P1-RESP-002 || Tablet/desktop || Layouts adapt correctly at representative widths.
+P1-FORM-001 || Required fields || Missing required fields block submit and show clear errors.
+P1-FORM-002 || Email validation || Invalid email rejected server-side.
+P1-FORM-003 || Service interest || At least one service interest required.
+P1-FORM-004 || Privacy acknowledgement || Submission blocked unless acknowledged.
+P1-FORM-005 || Marketing consent separation || Marketing checkbox is independent and optional.
+P1-FORM-006 || Successful submission || Lead persists to Turso and notification is sent/queued to info@trishulhub.in.
+P1-FORM-007 || Email failure || Lead not lost; failure recorded and visible to operator/retry mechanism.
+P1-FORM-008 || Duplicate submit || Rapid second submit does not create uncontrolled duplicate notifications.
+P1-SEC-001 || Server validation || Malformed/oversize input rejected safely.
+P1-SEC-002 || Secrets || No production secret in client JS, repo or logs.
+P1-SEC-003 || Headers/HTTPS || HTTPS and approved security headers confirmed.
+P1-SEC-004 || Abuse || Rate-limit/anti-spam behaviour works without exposing internals.
+P1-A11Y-001 || Keyboard || Critical flows keyboard-operable.
+P1-A11Y-002 || Focus || Visible focus on interactive elements.
+P1-A11Y-003 || Forms || Labels/errors/required indicators accessible.
+P1-SEO-001 || Metadata || Unique titles/descriptions/canonical where required.
+P1-SEO-002 || Sitemap/robots || Production sitemap/robots correct; staging noindex.
+P1-PERF-001 || Images/JS || No obviously unoptimized heavy asset; client JS minimized.
+P1-LEGAL-001 || Legal links || Privacy, Terms, Cookies, Accessibility, Complaints/contact linked.
+P1-CONTENT-001 || Claims || No 100% automated/government approved/fake proof claim.
+P1-PROD-001 || Production smoke || Home -> service -> Book Demo -> submit -> lead receipt works on real domain.
+P1-PROD-002 || DNS/SSL || noss.co.uk canonical DNS and TLS valid.
+
+=== TABLE 29 ===
+Milestone || Deliverable || Gate / acceptance
+M0 - Gate 1 || Approved scope, brand direction, IA, architecture, page specs, open blockers assigned. || Gate 1
+M1 - Foundation || Next.js repo, styles, layout, navigation, footer, CI, environments. || Build checks pass.
+M2 - Public pages || Home, services, industries, How It Works, About. || Page requirements + responsive QA.
+M3 - Conversion || Contact/Book Demo, validation, Turso, email, abuse handling. || End-to-end lead tests.
+M4 - Resources & Legal || Resource index/article template, legal routes/content. || Owner content/legal approval.
+M5 - Hardening || SEO, accessibility, performance, security, full repo review. || Gate 2
+M6 - Staging/UAT || Production-like staging, owner acceptance and fixes. || Gate 3
+M7 - Production || noss.co.uk deployment, smoke verification, handover. || Gate 4
+
+=== TABLE 30 ===
+ID || Task || Milestone || Acceptance
+T-001 || Initialize Next.js TypeScript project and repository baseline. || M1 || Build succeeds; lint/type checks configured; .env ignored; README references this master doc.
+T-002 || Implement design tokens and accessible base styles. || M1 || Approved colours/type/spacing available centrally; focus style exists.
+T-003 || Build responsive header, mobile menu and footer. || M1 || Navigation matches IA; keyboard/touch tests pass.
+T-004 || Build reusable page-section, CTA, card and FAQ components. || M1 || Reusable, typed, responsive, no unnecessary client JS.
+T-005 || Implement Home page. || M2 || All 11 required sections and CTA destinations present.
+T-006 || Implement Workforce Compliance page. || M2 || All approved service categories present with safe wording.
+T-007 || Implement Business Compliance page. || M2 || All approved business services present with safe wording.
+T-008 || Implement Recruitment Agencies landing page. || M2 || Multi-worker/client separation/progress/audit readiness explained.
+T-009 || Implement Employers landing page. || M2 || New-starter/expiry/evidence positioning explained.
+T-010 || Implement How NOSS Works page. || M2 || Five-step workflow and static product previews.
+T-011 || Implement About page. || M2 || No invented company history; owner-approved facts only.
+T-012 || Implement Resources index + article template with static content source. || M4 || Routes support code-managed resources and future CMS replacement.
+T-013 || Implement Contact/Book Demo UI + schema validation. || M3 || All required fields/states/accessibility behaviours.
+T-014 || Create Turso lead table/migration and server repository. || M3 || Parameterized data access; staging/prod separation.
+T-015 || Implement lead API/server action, rate limiting and duplicate protection. || M3 || API contract and error states pass.
+T-016 || Implement lead notification to info@trishulhub.in. || M3 || DB-first reliability; notification status recorded.
+T-017 || Implement legal routes and owner-approved legal content. || M4 || All required routes linked; no invented company details.
+T-018 || Implement SEO metadata, sitemap, robots, canonical/redirect policy. || M5 || SEO tests pass; staging noindex.
+T-019 || Implement security headers and security review fixes. || M5 || Security acceptance tests pass.
+T-020 || Accessibility/performance hardening. || M5 || Keyboard/forms/contrast/responsive checks pass.
+T-021 || Full repo review and remove TODO/placeholder/fake data. || M5 || Gate 2 ready.
+T-022 || Deploy and validate staging. || M6 || UAT checklist completed.
+T-023 || Resolve owner UAT items and freeze release. || M6 || Gate 3 signed.
+T-024 || Production deploy to noss.co.uk and smoke test. || M7 || Production acceptance tests pass.
+T-025 || Handover/tag/close Phase 1. || M7 || Gate 4 signed; docs current.
+
+=== TABLE 31 ===
+DO NOT USE | “Build the whole NOSS website.”
+
+=== TABLE 32 ===
+USE | “Implement T-005 Home page against Sections 5.1 and 6. Keep content server-rendered where practical, use existing approved components, do not add dependencies without justification, run lint/type/build and report changed files plus test evidence.”
+
+=== TABLE 33 ===
+Field || Required change-record content
+Change ID || Unique ID, e.g. CR-P1-001.
+Requested by || Name/role.
+Date || Request date.
+Description || What changes and why.
+Scope impact || Must/Should/Could/Later and pages/components affected.
+Security/privacy/legal impact || Assessment required.
+Budget/deadline impact || Estimate and owner decision.
+Acceptance update || Tests/criteria added or changed.
+Approval || NOSS UK owner approval before build if material.
+
+=== TABLE 34 ===
+Decision || Status || Rationale
+Next.js || Approved || Owner-selected; matches SSR/static SEO needs.
+GitHub || Approved || Owner-selected; source control/CI/audit history.
+Vercel || Approved with commercial-plan condition || Owner-selected; excellent Next.js deployment. Production Hobby use is not acceptable under current commercial-use terms.
+Turso || Approved for Phase 1 lead data || Owner-selected; more than adequate for Phase 1 structured lead volume. Reassess for Phase 2.
+Codex || Approved || Primary implementation environment under Trishulhub SOP.
+No analytics || Approved Phase 1 || Owner decision; reduces privacy/cookie complexity.
+No CMS || Approved Phase 1 || Owner decision; use static/code-managed resources, future-compatible structure.
+No CRM || Approved Phase 1 || Owner decision; email + Turso lead capture.
+Brand theme || Approved baseline pending owner visual sign-off || Created in this document because no existing brand supplied.
+English / UK-wide SEO || Approved || Owner decision.
+Pricing enquiry-only || Approved || Owner decision.
+Support email/mobile/WhatsApp || Approved concept || Phone/WhatsApp values remain launch blockers.
+
+=== TABLE 35 ===
+Authority || Topic || URL
+GOV.UK || Check a job applicant’s right to work || https://www.gov.uk/check-job-applicant-right-to-work
+Companies House || API developer specifications || https://developer-specs.company-information.service.gov.uk/
+HMRC || Check a UK VAT Number API v2 || https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/vat-registered-companies-api/2.0
+GOV.UK || UK Sanctions || https://www.gov.uk/government/collections/uk-sanctions
+ICO || Employment information guidance || https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/employment/
+Vercel || Terms of Service - Hobby Plan commercial-use restriction (current June 2026) || https://vercel.com/legal/terms
+Vercel || Platform limits || https://vercel.com/docs/limits
+Vercel || Functions limitations || https://vercel.com/docs/functions/limitations
+Turso || Database pricing / allowances || https://turso.tech/pricing
+GitHub || Large files / repository guidance || https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github
+GitHub || Actions usage/limits || https://docs.github.com/en/actions/concepts/billing-and-usage
+
+=== TABLE 36 ===
+Gate || Required approval || Status at baseline
+Gate 1 - Scope Approved || NOSS UK owner || PENDING - owner to approve this master document, brand direction and open-input plan.
+Gate 2 - Build Approved || Trishulhub project owner + NOSS owner as required || NOT STARTED.
+Gate 3 - Staging Approved || NOSS UK owner || NOT STARTED.
+Gate 4 - Delivery Approved || NOSS UK owner || NOT STARTED.
+
+=== TABLE 37 ===
+SOURCE OF TRUTH | Treat this document as the Phase 1 build baseline. Do not silently expand scope. If a requirement conflicts or a required fact is missing, stop and report the conflict instead of guessing.
