@@ -201,8 +201,8 @@ export default function JobBoardPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-        <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3.5 py-1.5 rounded-full border border-blue-500/20">
-          <Sparkles className="w-3.5 h-3.5 text-cyan-400" /> Verified UK Job Board & Compliance Hub
+        <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-4 py-1.5 rounded-full border border-amber-500/20 shadow-lg shadow-amber-500/10">
+          <Sparkles className="w-3.5 h-3.5 text-amber-400" /> Verified UK Job Board & Compliance Hub
         </span>
         <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
           Discover Pre-Vetted Opportunities
@@ -213,7 +213,7 @@ export default function JobBoardPage() {
       </div>
 
       {/* Advanced Search & Filter Bar */}
-      <div className="bg-slate-900/80 border border-slate-800 p-6 rounded-3xl shadow-xl backdrop-blur-md mb-8 space-y-4">
+      <div className="bg-slate-900/80 border border-amber-500/20 p-6 sm:p-8 rounded-3xl shadow-xl backdrop-blur-xl mb-8 space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Search Input */}
           <div className="relative md:col-span-5">
@@ -223,7 +223,7 @@ export default function JobBoardPage() {
               placeholder="Search by title, company, skill, or keyword..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition"
+              className="w-full pl-12 pr-4 py-3 bg-slate-950 border border-slate-800 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm transition"
             />
             {searchQuery && (
               <button
@@ -240,7 +240,7 @@ export default function JobBoardPage() {
             <select
               value={selectedType}
               onChange={(e) => setSelectedType(e.target.value)}
-              className="w-full py-3 px-4 bg-slate-950 border border-slate-800 rounded-2xl text-slate-200 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 transition cursor-pointer"
+              className="w-full py-3 px-4 bg-slate-950 border border-slate-800 rounded-2xl text-slate-200 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 transition cursor-pointer"
             >
               <option value="All">All Types</option>
               <option value="Permanent">Permanent</option>
@@ -254,7 +254,7 @@ export default function JobBoardPage() {
             <select
               value={selectedIndustry}
               onChange={(e) => setSelectedIndustry(e.target.value)}
-              className="w-full py-3 px-4 bg-slate-950 border border-slate-800 rounded-2xl text-slate-200 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 transition cursor-pointer"
+              className="w-full py-3 px-4 bg-slate-950 border border-slate-800 rounded-2xl text-slate-200 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 transition cursor-pointer"
             >
               <option value="All">All Industries</option>
               <option value="Financial Services">Financial Services</option>
@@ -271,7 +271,7 @@ export default function JobBoardPage() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="w-full py-3 px-4 bg-slate-950 border border-slate-800 rounded-2xl text-slate-200 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 transition cursor-pointer"
+              className="w-full py-3 px-4 bg-slate-950 border border-slate-800 rounded-2xl text-slate-200 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-500 transition cursor-pointer"
             >
               <option value="newest">Newest First</option>
               <option value="salary-high">Highest Salary</option>
@@ -281,18 +281,18 @@ export default function JobBoardPage() {
         </div>
 
         {/* Secondary Filters Bar: Location Type & Active Filter Tags */}
-        <div className="flex flex-wrap items-center justify-between pt-2 border-t border-slate-800/80 gap-3 text-sm">
+        <div className="flex flex-wrap items-center justify-between pt-4 border-t border-slate-800 gap-3 text-sm">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1">
-              <SlidersHorizontal className="w-3.5 h-3.5" /> Work Style:
+              <SlidersHorizontal className="w-3.5 h-3.5 text-amber-400" /> Work Style:
             </span>
             {['All', 'Remote', 'Hybrid', 'On-site'].map((type) => (
               <button
                 key={type}
                 onClick={() => setSelectedLocationType(type)}
-                className={`px-3 py-1 rounded-xl text-xs font-semibold transition ${
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition ${
                   selectedLocationType === type
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
+                    ? 'bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 text-slate-950 shadow-md shadow-amber-500/20 font-bold'
                     : 'bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -308,7 +308,7 @@ export default function JobBoardPage() {
             {activeFiltersCount > 0 && (
               <button
                 onClick={resetFilters}
-                className="text-xs text-cyan-400 hover:text-cyan-300 font-semibold underline underline-offset-4"
+                className="text-xs text-amber-400 hover:text-amber-300 font-semibold underline underline-offset-4"
               >
                 Clear all filters
               </button>
@@ -320,8 +320,8 @@ export default function JobBoardPage() {
       {/* Job Listings Feed */}
       <div className="space-y-6">
         {filteredJobs.length === 0 ? (
-          <div className="text-center py-20 bg-slate-900/40 border border-slate-800 rounded-3xl space-y-4">
-            <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mx-auto text-slate-400">
+          <div className="text-center py-20 bg-slate-900/80 border border-amber-500/20 rounded-3xl space-y-4 shadow-xl">
+            <div className="w-16 h-16 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-center mx-auto text-amber-400">
               <Search className="w-8 h-8" />
             </div>
             <h3 className="text-xl font-bold text-white">No matching job listings found</h3>
@@ -330,7 +330,7 @@ export default function JobBoardPage() {
             </p>
             <button
               onClick={resetFilters}
-              className="px-6 py-2.5 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-500 transition shadow-lg shadow-blue-500/20"
+              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 text-slate-950 font-bold text-sm hover:opacity-90 transition shadow-lg shadow-amber-500/20"
             >
               Reset all filters
             </button>
@@ -341,30 +341,30 @@ export default function JobBoardPage() {
             return (
               <div
                 key={job.id}
-                className="bg-slate-900/60 border border-slate-800/80 p-6 sm:p-8 rounded-3xl shadow-lg hover:border-blue-500/40 transition-all flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 group"
+                className="bg-slate-900/80 border border-amber-500/20 p-6 sm:p-8 rounded-3xl shadow-xl hover:border-amber-500/50 transition-all flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 group backdrop-blur-xl"
               >
                 <div className="space-y-3.5 flex-grow">
                   <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="text-xs font-bold px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
+                    <span className="text-xs font-bold px-3 py-1 bg-amber-500/10 text-amber-400 rounded-full border border-amber-500/20">
                       {job.industry}
                     </span>
-                    <span className="text-xs font-bold px-3 py-1 bg-slate-800 text-slate-300 rounded-full border border-slate-700/60">
+                    <span className="text-xs font-bold px-3 py-1 bg-slate-950 text-slate-300 rounded-full border border-slate-800">
                       {job.type}
                     </span>
                     <span className="text-xs font-bold px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full border border-emerald-500/20">
                       {job.locationType}
                     </span>
-                    <span className="text-xs text-slate-500 font-medium ml-1">Posted {job.postedDate}</span>
+                    <span className="text-xs text-slate-400 font-medium ml-1">Posted {job.postedDate}</span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-amber-300 transition-colors">
                     {job.title}
                   </h3>
 
                   <div className="flex flex-wrap items-center gap-6 text-sm text-slate-300 font-medium">
-                    <span className="flex items-center gap-1.5"><Building2 className="w-4 h-4 text-slate-400" />{job.company}</span>
+                    <span className="flex items-center gap-1.5"><Building2 className="w-4 h-4 text-amber-400" />{job.company}</span>
                     <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-slate-400" />{job.location}</span>
-                    <span className="flex items-center gap-1.5 font-semibold text-cyan-400"><PoundSterling className="w-4 h-4 text-cyan-400" />{job.salary}</span>
+                    <span className="flex items-center gap-1.5 font-bold text-cyan-400"><PoundSterling className="w-4 h-4 text-cyan-400" />{job.salary}</span>
                   </div>
 
                   <p className="text-slate-400 text-sm leading-relaxed max-w-3xl line-clamp-2">
@@ -386,27 +386,27 @@ export default function JobBoardPage() {
                 <div className="w-full lg:w-auto flex flex-col shrink-0 gap-3">
                   <button
                     onClick={() => setSelectedJobForModal(job)}
-                    className="w-full lg:w-auto px-6 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm hover:bg-slate-700 hover:text-white transition shadow-sm text-center"
+                    className="w-full lg:w-auto px-6 py-3 rounded-2xl bg-slate-950 border border-slate-800 text-slate-200 font-semibold text-sm hover:bg-slate-800 hover:text-white transition shadow-sm text-center"
                   >
                     View Details & Requirements
                   </button>
 
                   {isApplied ? (
-                    <div className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-sm">
+                    <div className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-sm">
                       <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Application Submitted
                     </div>
                   ) : (
                     <button
                       onClick={() => handleApply(job.id)}
-                      className="w-full lg:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] transition text-center"
+                      className="w-full lg:w-auto px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 text-slate-950 font-extrabold text-sm shadow-xl shadow-amber-500/20 hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] transition text-center"
                     >
                       Apply with Noss Profile
                     </button>
                   )}
 
                   <Link
-                    href="/candidates"
-                    className="text-center text-xs text-slate-500 hover:text-slate-400 font-medium flex items-center justify-center gap-1"
+                    href="/candidates/portal"
+                    className="text-center text-xs text-slate-400 hover:text-slate-300 font-medium flex items-center justify-center gap-1"
                   >
                     Check RTW & DBS readiness <ChevronRight className="w-3 h-3" />
                   </Link>
@@ -420,7 +420,7 @@ export default function JobBoardPage() {
       {/* Job Details & Application Modal */}
       {selectedJobForModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative space-y-6 max-h-[90vh] overflow-y-auto">
+          <div className="bg-slate-900 border border-amber-500/30 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative space-y-6 max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedJobForModal(null)}
               className="absolute right-6 top-6 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition"
@@ -430,13 +430,13 @@ export default function JobBoardPage() {
 
             <div className="space-y-2">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full border border-blue-500/20">
+                <span className="text-xs font-bold px-3 py-1 bg-amber-500/10 text-amber-400 rounded-full border border-amber-500/20">
                   {selectedJobForModal.industry}
                 </span>
-                <span className="text-xs font-bold px-3 py-1 bg-slate-800 text-slate-300 rounded-full">
+                <span className="text-xs font-bold px-3 py-1 bg-slate-950 text-slate-300 rounded-full border border-slate-800">
                   {selectedJobForModal.type}
                 </span>
-                <span className="text-xs font-bold px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full">
+                <span className="text-xs font-bold px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full border border-emerald-500/20">
                   {selectedJobForModal.locationType}
                 </span>
               </div>
@@ -444,8 +444,8 @@ export default function JobBoardPage() {
                 {selectedJobForModal.title}
               </h2>
               <div className="flex flex-wrap items-center gap-4 text-sm text-slate-300 font-medium pt-1">
-                <span className="flex items-center gap-1.5"><Building2 className="w-4 h-4 text-blue-400" />{selectedJobForModal.company}</span>
-                <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-red-400" />{selectedJobForModal.location}</span>
+                <span className="flex items-center gap-1.5"><Building2 className="w-4 h-4 text-amber-400" />{selectedJobForModal.company}</span>
+                <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-slate-400" />{selectedJobForModal.location}</span>
                 <span className="flex items-center gap-1.5 font-bold text-cyan-400"><PoundSterling className="w-4 h-4 text-cyan-400" />{selectedJobForModal.salary}</span>
               </div>
             </div>
@@ -463,7 +463,7 @@ export default function JobBoardPage() {
               </h4>
               <div className="grid grid-cols-1 gap-2.5">
                 {selectedJobForModal.complianceReq.map((req, i) => (
-                  <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-slate-950 border border-slate-800 text-sm text-slate-200">
+                  <div key={i} className="flex items-center gap-3 p-3.5 rounded-2xl bg-slate-950 border border-slate-800 text-sm text-slate-200">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                     <span>{req}</span>
                   </div>
@@ -477,19 +477,19 @@ export default function JobBoardPage() {
             <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-end gap-3">
               <button
                 onClick={() => setSelectedJobForModal(null)}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-800 text-slate-300 font-semibold text-sm hover:bg-slate-700 transition"
+                className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-slate-950 border border-slate-800 text-slate-300 font-semibold text-sm hover:bg-slate-800 transition"
               >
                 Close
               </button>
               {appliedJobIds.includes(selectedJobForModal.id) ? (
-                <div className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-sm">
+                <div className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-semibold text-sm">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400" /> Application Submitted
                 </div>
               ) : (
                 <button
                   disabled={isApplying || applySuccess}
                   onClick={() => handleApply(selectedJobForModal.id)}
-                  className="w-full sm:w-auto px-8 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition disabled:opacity-50 text-center"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 text-slate-950 font-extrabold text-sm shadow-xl shadow-amber-500/20 hover:shadow-amber-500/30 transition disabled:opacity-50 text-center"
                 >
                   {isApplying ? 'Submitting Application...' : applySuccess ? 'Application Successful!' : 'Apply Now with Noss Profile'}
                 </button>

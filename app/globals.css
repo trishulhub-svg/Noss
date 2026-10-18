@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #050b14;
+  background-color: #07090e;
   color: #f1f5f9;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
@@ -18,21 +18,21 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #050b14;
+  background: #07090e;
 }
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #d4af37;
 }
 
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
+@keyframes pulseGoldGlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.04); }
 }
 
-.animate-pulse-glow {
-  animation: pulseGlow 8s ease-in-out infinite;
+.animate-gold-glow {
+  animation: pulseGoldGlow 9s ease-in-out infinite;
 }
