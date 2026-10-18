@@ -1,0 +1,253 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  ADMIN
+  EMPLOYER
+  CANDIDATE
+  AUDITOR
+}
+
+enum JobStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  CLOSED
+  ARCHIVED
+}
+
+enum ApplicationStatus {
+  PENDING
+  REVIEWING
+  INTERVIEWING
+  OFFERED
+  HIRED
+  REJECTED
+  WITHDRAWN
+}
+
+enum ComplianceDocType {
+  GDPR_CONSENT
+  DATA_PROCESSING_AGREEMENT
+  PRIVACY_POLICY_VERSION
+  RIGHT_TO_BE_FORGOTTEN_AUDIT
+  DATA_EXPORT_AUDIT
+  TERMS_OF_SERVICE
+}
+
+enum GdprRequestType {
+  ACCESS      // Article 15: Right of access
+  RECTIFICATION // Article 16: Right to rectification
+  ERASURE     // Article 17: Right to erasure ('right to be forgotten')
+  RESTRICTION // Article 18: Right to restriction of processing
+  PORTABILITY // Article 20: Right to data portability
+  OBJECTION   // Article 21: Right to object
+}
+
+enum GdprRequestStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  REJECTED
+}
+
+model User {
+  id                 String             @id @default(uuid())
+  email              String             @unique
+  passwordHash       String
+  role               Role               @default(CANDIDATE)
+  isActive           String             @default("true") // stored as boolean or string; let's use Boolean for robust Prisma practice: Boolean @default(true)
+  isAnonymized       Boolean            @default(false)
+  anonymizedAt       DateTime?
+  lastLoginAt        DateTime?
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+
+  // GDPR & Compliance relations
+  candidateProfile   Candidate?
+  employerProfile    Employer?
+  complianceDocs     ComplianceDocument[]
+  gdprRequests       GdprRequest[]
+  auditLogs          AuditLog[]
+
+  @@index([email])
+  @@index([role])
+  @@index([isAnonymized])
+}
+
+model Candidate {
+  id                   String               @id @default(uuid())
+  userId               String               @unique
+  user                 User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  firstName            String
+  lastName             String
+  phone                String?
+  resumeUrl            String?
+  bio                  String?
+  skills               String[]
+  experienceYears      Int?
+  location             String?
+
+  // GDPR Compliance Fields
+  gdprConsentGiven     Boolean              @default(false)
+  gdprConsentAt        DateTime?
+  gdprConsentVersion   String               @default("1.0")
+  retentionExpiresAt   DateTime             // Mandatory data retention expiry date for GDPR minimization
+  isAnonymized         Boolean              @default(false)
+  anonymizedAt         DateTime?
+
+  createdAt            DateTime             @default(now())
+  updatedAt            DateTime             @updatedAt
+
+  applications         Application[]
+  complianceDocs       ComplianceDocument[]
+
+  @@index([userId])
+  @@index([retentionExpiresAt])
+  @@index([isAnonymized])
+}
+
+model Employer {
+  id                     String               @id @default(uuid())
+  userId                 String               @unique
+  user                   User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  companyName            String
+  companyWebsite         String?
+  industry               String?
+  companySize            String?
+  description            String?
+  verified               Boolean              @default(false)
+
+  // GDPR Data Controller Compliance
+  gdprDataControllerAgreed Boolean            @default(false)
+  gdprAgreedAt           DateTime?
+  retentionExpiresAt     DateTime             // Data retention policy tracking
+  isAnonymized           Boolean              @default(false)
+  anonymizedAt           DateTime?
+
+  createdAt              DateTime             @default(now())
+  updatedAt              DateTime             @updatedAt
+
+  jobPostings            JobPosting[]
+  complianceDocs         ComplianceDocument[]
+
+  @@index([userId])
+  @@index([companyName])
+  @@index([isAnonymized])
+}
+
+model JobPosting {
+  id             String            @id @default(uuid())
+  employerId     String
+  employer       Employer          @relation(fields: [employerId], references: [id], onDelete: Cascade)
+  title          String
+  description    String
+  requirements   String[]
+  location       String?
+  salaryRange    String?
+  employmentType String?
+  status         JobStatus         @default(ACTIVE)
+  expiresAt      DateTime?
+
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+
+  applications   Application[]
+
+  @@index([employerId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model Application {
+  id                      String            @id @default(uuid())
+  candidateId             String
+  candidate               Candidate         @relation(fields: [candidateId], references: [id], onDelete: Cascade)
+  jobPostingId            String
+  jobPosting              JobPosting        @relation(fields: [jobPostingId], references: [id], onDelete: Cascade)
+  status                  ApplicationStatus @default(PENDING)
+  coverLetter             String?
+  resumeSnapshotUrl       String?
+  candidateConsentRecorded Boolean          @default(true)
+
+  appliedAt               DateTime          @default(now())
+  updatedAt               DateTime          @updatedAt
+
+  complianceDocs          ComplianceDocument[]
+
+  @@unique([candidateId, jobPostingId])
+  @@index([candidateId])
+  @@index([jobPostingId])
+  @@index([status])
+}
+
+model ComplianceDocument {
+  id             String            @id @default(uuid())
+  userId         String?
+  user           User?             @relation(fields: [userId], references: [id], onDelete: SetNull)
+  candidateId    String?
+  candidate      Candidate?        @relation(fields: [candidateId], references: [id], onDelete: SetNull)
+  employerId     String?
+  employer       Employer?         @relation(fields: [employerId], references: [id], onDelete: SetNull)
+  applicationId  String?
+  application    Application?      @relation(fields: [applicationId], references: [id], onDelete: SetNull)
+
+  documentType   ComplianceDocType
+  title          String
+  contentOrUrl   String            // Storage URL or hash of terms/agreement/consent proof
+  version        String            @default("1.0")
+  ipAddress      String?
+  userAgent      String?
+  validFrom      DateTime          @default(now())
+  validUntil     DateTime?
+  revokedAt      DateTime?
+  metadata       Json?             // Flexible metadata for audit trail details
+
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+
+  @@index([userId])
+  @@index([candidateId])
+  @@index([employerId])
+  @@index([documentType])
+}
+
+model GdprRequest {
+  id                  String             @id @default(uuid())
+  userId              String
+  user                User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  requestType         GdprRequestType
+  status              GdprRequestStatus  @default(PENDING)
+  details             String?            // User notes or specific scope of request
+  responsePayloadUrl  String?            // Secure download link for data portability (Article 20)
+  completedAt         DateTime?
+
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime           @updatedAt
+
+  @@index([userId])
+  @@index([requestType])
+  @@index([status])
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action     String   // e.g. "DATA_ACCESS", "CONSENT_GIVEN", "PROFILE_ANONYMIZED", "EXPORT_REQUESTED"
+  resource   String   // e.g. "Candidate:id", "User:id"
+  ipAddress  String?
+  userAgent  String?
+  metadata   Json?
+  timestamp  DateTime @default(now())
+
+  @@index([userId])
+  @@index([action])
+  @@index([timestamp])
+}
